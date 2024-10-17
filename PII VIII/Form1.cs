@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Neo4j.Driver;
-
+using System.Data.SqlClient;
 namespace PII_VIII
 {
     public partial class Form1 : Form
     {
+        private string connectionString =
+           @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;User Id=ProjetoInovador2;Password=projetoinovador;";
+
+
         public Form1()
         {
             InitializeComponent();
@@ -49,8 +53,29 @@ namespace PII_VIII
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    MessageBox.Show("Conexão com o banco de dados realizada com sucesso!");
 
-
+                    string query = "SELECT COUNT(*) FROM Alunos";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        int totalAlunos = (int)command.ExecuteScalar();
+                        MessageBox.Show($"Total de alunos cadastrados: {totalAlunos}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro: {ex.Message}");
+                }
+            }
+        }
     }
 }
-    
+
+
