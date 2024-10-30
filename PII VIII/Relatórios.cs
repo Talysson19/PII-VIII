@@ -15,6 +15,8 @@ namespace PII_VIII
         public Relatórios()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.Sizable;
         }
 
         private void Relatórios_Load(object sender, EventArgs e)

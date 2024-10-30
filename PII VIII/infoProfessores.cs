@@ -15,6 +15,8 @@ namespace PII_VIII
         public infoProfessores()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.Sizable;
         }
 
         private void infoProfessores_Load(object sender, EventArgs e)

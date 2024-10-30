@@ -15,6 +15,8 @@ namespace PII_VIII
         public infoRecursosEdu()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.Sizable;
         }
 
         private void infoRecursosEdu_Load(object sender, EventArgs e)

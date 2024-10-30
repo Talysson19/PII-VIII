@@ -15,6 +15,8 @@ namespace PII_VIII
         public infoDisciplinas()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.Sizable;
         }
 
         private void infoDisciplinas_Load(object sender, EventArgs e)

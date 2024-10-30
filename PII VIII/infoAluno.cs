@@ -15,6 +15,8 @@ namespace PII_VIII
         public infoAluno()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.Sizable;
         }
 
         private void infoAluno_Load(object sender, EventArgs e)

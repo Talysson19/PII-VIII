@@ -15,6 +15,8 @@ namespace PII_VIII
         public infoEscola()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.Sizable;
         }
 
         private void infoEscola_Load(object sender, EventArgs e)

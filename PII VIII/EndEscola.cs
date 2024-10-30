@@ -15,6 +15,8 @@ namespace PII_VIII
         public EndEscola()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.Sizable;
         }
 
         private void EndEscola_Load(object sender, EventArgs e)

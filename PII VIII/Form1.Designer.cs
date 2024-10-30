@@ -28,213 +28,150 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.cadastrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.alunosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.informaçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.endereçoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.escolaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.informaçõesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.endereçoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.professoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.informaçõesToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.disciplinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.informaçõesToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.recursosEducacionaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.informaçõesToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.desempenhoAcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.informaçõesToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.sidebarPanel = new System.Windows.Forms.Panel();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.sidebarPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // sidebarPanel
             // 
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadastrarToolStripMenuItem,
-            this.relatóriosToolStripMenuItem,
-            this.sairToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(228, 193);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(391, 46);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
+            this.sidebarPanel.AutoScrollMargin = new System.Drawing.Size(200, 0);
+            this.sidebarPanel.Controls.Add(this.button7);
+            this.sidebarPanel.Controls.Add(this.button1);
+            this.sidebarPanel.Controls.Add(this.button2);
+            this.sidebarPanel.Controls.Add(this.button3);
+            this.sidebarPanel.Controls.Add(this.button4);
+            this.sidebarPanel.Controls.Add(this.button5);
+            this.sidebarPanel.Controls.Add(this.button6);
+            this.sidebarPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.sidebarPanel.Location = new System.Drawing.Point(0, 0);
+            this.sidebarPanel.Name = "sidebarPanel";
+            this.sidebarPanel.Size = new System.Drawing.Size(360, 925);
+            this.sidebarPanel.TabIndex = 3;
+            this.sidebarPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // cadastrarToolStripMenuItem
+            // button7
             // 
-            this.cadastrarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.alunosToolStripMenuItem,
-            this.escolaToolStripMenuItem,
-            this.professoresToolStripMenuItem,
-            this.disciplinasToolStripMenuItem,
-            this.recursosEducacionaisToolStripMenuItem,
-            this.desempenhoAcToolStripMenuItem});
-            this.cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
-            this.cadastrarToolStripMenuItem.Size = new System.Drawing.Size(149, 42);
-            this.cadastrarToolStripMenuItem.Text = "Cadastrar";
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.Location = new System.Drawing.Point(119, 769);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(93, 45);
+            this.button7.TabIndex = 10;
+            this.button7.Text = "SAIR";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // alunosToolStripMenuItem
+            // button1
             // 
-            this.alunosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.informaçõesToolStripMenuItem,
-            this.endereçoToolStripMenuItem});
-            this.alunosToolStripMenuItem.Name = "alunosToolStripMenuItem";
-            this.alunosToolStripMenuItem.Size = new System.Drawing.Size(433, 46);
-            this.alunosToolStripMenuItem.Text = "Alunos";
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(72, 102);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(201, 46);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Alunos";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // informaçõesToolStripMenuItem
+            // button2
             // 
-            this.informaçõesToolStripMenuItem.Name = "informaçõesToolStripMenuItem";
-            this.informaçõesToolStripMenuItem.Size = new System.Drawing.Size(276, 46);
-            this.informaçõesToolStripMenuItem.Text = "Informações";
-            this.informaçõesToolStripMenuItem.Click += new System.EventHandler(this.informaçõesToolStripMenuItem_Click);
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(72, 223);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(201, 46);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Escolas";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // endereçoToolStripMenuItem
+            // button3
             // 
-            this.endereçoToolStripMenuItem.Name = "endereçoToolStripMenuItem";
-            this.endereçoToolStripMenuItem.Size = new System.Drawing.Size(276, 46);
-            this.endereçoToolStripMenuItem.Text = "Endereço";
-            this.endereçoToolStripMenuItem.Click += new System.EventHandler(this.endereçoToolStripMenuItem_Click);
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(72, 348);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(201, 46);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "Professores";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // escolaToolStripMenuItem
+            // button4
             // 
-            this.escolaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.informaçõesToolStripMenuItem1,
-            this.endereçoToolStripMenuItem1});
-            this.escolaToolStripMenuItem.Name = "escolaToolStripMenuItem";
-            this.escolaToolStripMenuItem.Size = new System.Drawing.Size(433, 46);
-            this.escolaToolStripMenuItem.Text = "Escola";
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(72, 458);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(201, 46);
+            this.button4.TabIndex = 7;
+            this.button4.Text = "Disciplinas";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // informaçõesToolStripMenuItem1
+            // button5
             // 
-            this.informaçõesToolStripMenuItem1.Name = "informaçõesToolStripMenuItem1";
-            this.informaçõesToolStripMenuItem1.Size = new System.Drawing.Size(276, 46);
-            this.informaçõesToolStripMenuItem1.Text = "Informações";
-            this.informaçõesToolStripMenuItem1.Click += new System.EventHandler(this.informaçõesToolStripMenuItem1_Click);
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(72, 564);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(201, 46);
+            this.button5.TabIndex = 8;
+            this.button5.Text = "Recursos Educacionais";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // endereçoToolStripMenuItem1
+            // button6
             // 
-            this.endereçoToolStripMenuItem1.Name = "endereçoToolStripMenuItem1";
-            this.endereçoToolStripMenuItem1.Size = new System.Drawing.Size(276, 46);
-            this.endereçoToolStripMenuItem1.Text = "Endereço";
-            this.endereçoToolStripMenuItem1.Click += new System.EventHandler(this.endereçoToolStripMenuItem1_Click);
-            // 
-            // professoresToolStripMenuItem
-            // 
-            this.professoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.informaçõesToolStripMenuItem3});
-            this.professoresToolStripMenuItem.Name = "professoresToolStripMenuItem";
-            this.professoresToolStripMenuItem.Size = new System.Drawing.Size(433, 46);
-            this.professoresToolStripMenuItem.Text = "Professores";
-            // 
-            // informaçõesToolStripMenuItem3
-            // 
-            this.informaçõesToolStripMenuItem3.Name = "informaçõesToolStripMenuItem3";
-            this.informaçõesToolStripMenuItem3.Size = new System.Drawing.Size(276, 46);
-            this.informaçõesToolStripMenuItem3.Text = "Informações";
-            this.informaçõesToolStripMenuItem3.Click += new System.EventHandler(this.informaçõesToolStripMenuItem3_Click);
-            // 
-            // disciplinasToolStripMenuItem
-            // 
-            this.disciplinasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.informaçõesToolStripMenuItem2});
-            this.disciplinasToolStripMenuItem.Name = "disciplinasToolStripMenuItem";
-            this.disciplinasToolStripMenuItem.Size = new System.Drawing.Size(433, 46);
-            this.disciplinasToolStripMenuItem.Text = "Disciplinas";
-            // 
-            // informaçõesToolStripMenuItem2
-            // 
-            this.informaçõesToolStripMenuItem2.Name = "informaçõesToolStripMenuItem2";
-            this.informaçõesToolStripMenuItem2.Size = new System.Drawing.Size(276, 46);
-            this.informaçõesToolStripMenuItem2.Text = "Informações";
-            this.informaçõesToolStripMenuItem2.Click += new System.EventHandler(this.informaçõesToolStripMenuItem2_Click);
-            // 
-            // recursosEducacionaisToolStripMenuItem
-            // 
-            this.recursosEducacionaisToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.informaçõesToolStripMenuItem4});
-            this.recursosEducacionaisToolStripMenuItem.Name = "recursosEducacionaisToolStripMenuItem";
-            this.recursosEducacionaisToolStripMenuItem.Size = new System.Drawing.Size(433, 46);
-            this.recursosEducacionaisToolStripMenuItem.Text = "Recursos Educacionais";
-            // 
-            // informaçõesToolStripMenuItem4
-            // 
-            this.informaçõesToolStripMenuItem4.Name = "informaçõesToolStripMenuItem4";
-            this.informaçõesToolStripMenuItem4.Size = new System.Drawing.Size(276, 46);
-            this.informaçõesToolStripMenuItem4.Text = "Informações";
-            this.informaçõesToolStripMenuItem4.Click += new System.EventHandler(this.informaçõesToolStripMenuItem4_Click);
-            // 
-            // desempenhoAcToolStripMenuItem
-            // 
-            this.desempenhoAcToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.informaçõesToolStripMenuItem5});
-            this.desempenhoAcToolStripMenuItem.Name = "desempenhoAcToolStripMenuItem";
-            this.desempenhoAcToolStripMenuItem.Size = new System.Drawing.Size(433, 46);
-            this.desempenhoAcToolStripMenuItem.Text = "Desempenho Acadêmico";
-            // 
-            // informaçõesToolStripMenuItem5
-            // 
-            this.informaçõesToolStripMenuItem5.Name = "informaçõesToolStripMenuItem5";
-            this.informaçõesToolStripMenuItem5.Size = new System.Drawing.Size(276, 46);
-            this.informaçõesToolStripMenuItem5.Text = "Informações";
-            this.informaçõesToolStripMenuItem5.Click += new System.EventHandler(this.informaçõesToolStripMenuItem5_Click);
-            // 
-            // relatóriosToolStripMenuItem
-            // 
-            this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
-            this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(155, 42);
-            this.relatóriosToolStripMenuItem.Text = "Relatórios";
-            this.relatóriosToolStripMenuItem.Click += new System.EventHandler(this.relatóriosToolStripMenuItem_Click);
-            // 
-            // sairToolStripMenuItem
-            // 
-            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(79, 42);
-            this.sairToolStripMenuItem.Text = "Sair";
-            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.Location = new System.Drawing.Point(72, 675);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(201, 46);
+            this.button6.TabIndex = 9;
+            this.button6.Text = "Desempenho Acadêmico";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.AutoScrollMargin = new System.Drawing.Size(200, 0);
+            this.ClientSize = new System.Drawing.Size(1537, 925);
+            this.Controls.Add(this.sidebarPanel);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Página Principal";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.sidebarPanel.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem alunosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem informaçõesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem endereçoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem escolaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem informaçõesToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem endereçoToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem professoresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem disciplinasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem informaçõesToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem informaçõesToolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem recursosEducacionaisToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem informaçõesToolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem desempenhoAcToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem informaçõesToolStripMenuItem5;
-        private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem;
+        private System.Windows.Forms.Panel sidebarPanel;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button7;
     }
 }
 

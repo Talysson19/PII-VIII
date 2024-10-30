@@ -15,6 +15,8 @@ namespace PII_VIII
         public infoDesempenhoAca()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.Sizable;
         }
 
         private void infoDesempenhoAca_Load(object sender, EventArgs e)
