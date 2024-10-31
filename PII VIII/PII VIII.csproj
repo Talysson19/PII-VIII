@@ -199,6 +199,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="images\escolaparticular.png" />
+    <Content Include="images\escolapublica.jpg" />
     <Content Include="images\unifenas1.logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
