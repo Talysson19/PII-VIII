@@ -63,9 +63,9 @@ namespace PII_VIII.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap unifenas1_logo {
+        internal static System.Drawing.Bitmap ALFENAS_LOGO {
             get {
-                object obj = ResourceManager.GetObject("unifenas1.logo", resourceCulture);
+                object obj = ResourceManager.GetObject("ALFENAS LOGO", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Neo4j.Driver;
 using System.Drawing;
 using System.IO;
+using System.Drawing.Imaging;
 
 
 namespace PII_VIII
@@ -19,12 +20,24 @@ namespace PII_VIII
         private bool isDragging = false;
         private System.Drawing.Point lastCursor;
         private System.Drawing.Point lastMenuStrip;
+
+
+        //Objetos para colocar no projeto
         private Label descricaoProjeto;
         private PictureBox logoPic;
         private Label titulos;
+        private PictureBox escPubPic;
+        private PictureBox escPartPic;
 
-        
 
+        private PictureBox escPic;
+        private Timer imageSwitchTimer;
+        private bool isPublicImage = true;
+        private Timer transitionTimer;
+        private bool isFadingOut = true;
+        private float opacity = 1.0f;
+
+       
         //CABECALHO
         private Panel headerPanel;
         private Label titleLabel;
@@ -37,12 +50,18 @@ namespace PII_VIII
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
             ApplyHoverEffect(button7, button6, button5, button4, button3, button2, button1);
-
+            SetupImageSwitcher();
             CreateHeader();
+
+
+            
+
         }
+        
 
         private async void Form1_Load(object sender, EventArgs e)
         {
+
             this.BackColor = System.Drawing.Color.FromArgb(224, 224, 224);
 
 
@@ -58,11 +77,11 @@ namespace PII_VIII
             titulos = new Label
             {
                 Text = "Sobre",
-                Font = new Font("Poppins", 17),
+                Font = new Font("Poppins", 30),
                 BackColor = Color.FromArgb(224, 224, 224),
                 ForeColor = Color.Black,
-                Size = new Size(80, 50),
-                Location = new System.Drawing.Point(632, 140),
+                Size = new Size(200, 50),
+                Location = new System.Drawing.Point(590, 450),
                 AutoSize = false,
                 TextAlign = ContentAlignment.TopCenter
             };
@@ -71,22 +90,172 @@ namespace PII_VIII
             descricaoProjeto = new Label
             {
                 
-                Text = "Desigualdade Educacional refere-se às diferenças no acesso e na qualidade da educação que variam entre diferentes grupos de alunos.\r\nEssas diferenças podem ser causadas por fatores como o tipo de escola (pública ou privada), a quantidade e qualidade dos recursos disponíveis, e o nível de apoio que os alunos recebem. Esse fenômeno pode afetar\r\nsignificativamente o desempenho acadêmico e as oportunidades futuras dos alunos.",
-                Font = new Font("Arial", 13),
+                Text = "A Desigualdade Educacional refere-se às disparidades no acesso e na qualidade da educação que ocorrem entre diferentes grupos de alunos. Essas diferenças são influenciadas por uma variedade de fatores, como o tipo de escola (pública ou privada), a infraestrutura disponível, o número e a qualificação dos professores, além da quantidade e da qualidade dos recursos oferecidos aos alunos.\r\n\r\nOutro aspecto relevante é o apoio familiar e comunitário, que pode variar de acordo com o contexto socioeconômico de cada estudante. Alunos de escolas públicas, especialmente em regiões mais vulneráveis, muitas vezes enfrentam limitações como a falta de material didático, instalações inadequadas e até dificuldade de acesso a atividades extracurriculares. Por outro lado, alunos de escolas particulares, em geral, contam com melhores estruturas, acesso a tecnologias e suporte individualizado.\r\n\r\nEssa desigualdade educacional pode impactar significativamente o desempenho acadêmico e as oportunidades futuras dos alunos, limitando o acesso ao ensino superior e a empregos qualificados. Portanto, enfrentar esse problema é fundamental para promover uma educação mais justa e inclusiva, onde todos os alunos tenham as mesmas condições para desenvolver seu potencial e contribuir para a sociedade.",
+                Font = new Font("Arial", 10),
                 BackColor = Color.FromArgb(224, 224, 224),
                 ForeColor = Color.Black,
-                Size = new Size(1000, 100),
-                Location = new System.Drawing.Point(280, 205),
+                Size = new Size(950, 300),
+                Location = new System.Drawing.Point(310, 500),
                 AutoSize = false,
                 TextAlign = ContentAlignment.TopLeft
             };
 
             this.Controls.Add(descricaoProjeto);
 
+
+
+            escPubPic = new PictureBox
+            {
+                Image = Image.FromFile(@"C:\Users\Pichau\OneDrive\Área de Trabalho\Documentos\Área de Trabalho\PII-VIII-master\PII-VIII-master\PII VIII\images\escolapublica.jpg"),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Size = new Size(400, 280),
+                Location = new System.Drawing.Point(500, 150),
+                BorderStyle = BorderStyle.FixedSingle
+            };
+            this.Controls.Add(escPubPic);
+            DrawBorder(escPubPic, Color.Red, 5);
+
+
+
+            escPartPic = new PictureBox
+            {
+                Image = Image.FromFile(@"C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PII-VIII-master\\PII-VIII-master\\PII VIII\\images\escolaparticular.png"),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Size = new Size(400, 280),
+                Location = new System.Drawing.Point(500, 150),
+                BorderStyle = BorderStyle.FixedSingle
+            };
+            this.Controls.Add(escPartPic);
+            
+
+
             ConectarSqlServer();
             await ConectarNeo4jAsync();
             MessageBox.Show("Conexão com SQL Server e Neo4j realizada com sucesso!");
         }
+
+
+        private void DrawBorder(PictureBox pictureBox, Color borderColor, int borderWidth)
+        {
+            pictureBox.Paint += (sender, e) =>
+            {
+                ControlPaint.DrawBorder(e.Graphics, pictureBox.ClientRectangle, borderColor, borderWidth, ButtonBorderStyle.Solid, borderColor, borderWidth, ButtonBorderStyle.Solid, borderColor, borderWidth, ButtonBorderStyle.Solid, borderColor, borderWidth, ButtonBorderStyle.Solid);
+            };
+        }
+
+
+        private void InitializeTimer()
+        {
+            transitionTimer = new Timer();
+            transitionTimer.Interval = 50;
+            transitionTimer.Tick += new EventHandler(TransitionTimer_Tick);
+            transitionTimer.Start();
+        }
+
+        private void TransitionTimer_Tick(object sender, EventArgs e)
+        {
+            if (isFadingOut)
+            {
+                opacity -= 0.05f;
+                if (opacity <= 0)
+                {
+                    opacity = 0;
+                    isFadingOut = false;
+                    // Troque a imagem aqui
+                    if (escPubPic.Visible)
+                    {
+                        escPic.Visible = false;
+                        escPic.Visible = true;
+                    }
+                    else
+                    {
+                        escPic.Visible = true;
+                        escPic.Visible = false;
+                    }
+                }
+            }
+            else
+            {
+                opacity += 0.05f;
+                if (opacity >= 1)
+                {
+                    opacity = 1;
+                    isFadingOut = true;
+                }
+            }
+
+            escPic.Image = SetImageOpacity(escPic.Image, opacity);
+            escPic.Image = SetImageOpacity(escPic.Image, opacity);
+            escPic.Invalidate();
+            escPic.Invalidate();
+        }
+        private Image SetImageOpacity(Image image, float opacity)
+        {
+            Bitmap bmp = new Bitmap(image.Width, image.Height);
+            using (Graphics g = Graphics.FromImage(bmp))
+            {
+                ColorMatrix matrix = new ColorMatrix();
+                matrix.Matrix33 = opacity;
+                ImageAttributes attributes = new ImageAttributes();
+                attributes.SetColorMatrix(matrix, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
+                g.DrawImage(image, new Rectangle(0, 0, bmp.Width, bmp.Height), 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, attributes);
+            }
+            return bmp;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        //alternando as imgs
+        private void SetupImageSwitcher()
+        {
+            escPic = new PictureBox
+            {
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Size = new Size(400, 280),
+                Location = new System.Drawing.Point(500, 150)
+            };
+            this.Controls.Add(escPic);
+
+            
+            escPic.Image = Image.FromFile(@"C:\Users\Pichau\OneDrive\Área de Trabalho\Documentos\Área de Trabalho\PII-VIII-master\PII-VIII-master\PII VIII\images\escolapublica.jpg");
+
+           
+            imageSwitchTimer = new Timer();
+            imageSwitchTimer.Interval = 5000; 
+            imageSwitchTimer.Tick += new EventHandler(SwitchImage);
+            imageSwitchTimer.Start();
+            DrawBorder(escPic, Color.FromArgb(31, 31, 31), 5);
+        }
+
+        private void SwitchImage(object sender, EventArgs e)
+        {
+            if (isPublicImage)
+            {
+                escPic.Image = Image.FromFile(@"C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PII-VIII-master\\PII-VIII-master\\PII VIII\\images\escolaparticular.png");
+            }
+            else
+            {
+                escPic.Image = Image.FromFile(@"C:\Users\Pichau\OneDrive\Área de Trabalho\Documentos\Área de Trabalho\PII-VIII-master\PII-VIII-master\PII VIII\images\escolapublica.jpg");
+            }
+            isPublicImage = !isPublicImage;
+        }
+
+
+
+
+        
+
+
+
 
 
         //CABEÇALHO DDO PROJETO
@@ -195,17 +364,16 @@ namespace PII_VIII
             form.StartPosition = FormStartPosition.Manual;
             form.Location = new System.Drawing.Point(this.Location.X + this.Width, this.Location.Y);
             form.BackColor = Color.FromArgb(224, 224, 224);
-            form.Opacity = 0; // Defina a opacidade inicial para 0
+            form.Opacity = 0; 
             form.Show();
 
-            // Gradualmente aumente a opacidade
+            
             for (double i = 0; i <= 1; i += 0.02)
             {
                 form.Opacity = i;
                 await Task.Delay(10);
             }
 
-            // Mova o formulário para a posição desejada
             for (int i = this.Location.X + this.Width; i >= this.Location.X; i -= 10)
             {
                 form.Location = new System.Drawing.Point(i, form.Location.Y);
@@ -351,6 +519,12 @@ namespace PII_VIII
             infoDesempenhoAca infoDesem = new infoDesempenhoAca();
             await MostrarComTransicaoAsync(infoDesem);
         }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
         private void button7_Click(object sender, EventArgs e)
         {
             this.Close();

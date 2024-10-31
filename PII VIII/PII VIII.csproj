@@ -199,10 +199,13 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="images\ALFENAS LOGO.png" />
+    <Content Include="images\escolaparticular.png" />
+    <Content Include="images\escolapublica.jpg" />
     <Content Include="images\unifenas1.logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Resources\unifenas1.logo.png" />
+    <None Include="Resources\ALFENAS LOGO.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
