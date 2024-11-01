@@ -141,9 +141,9 @@
             // 
             // btnSalvarEndA
             // 
-            this.btnSalvarEndA.Location = new System.Drawing.Point(504, 188);
+            this.btnSalvarEndA.Location = new System.Drawing.Point(485, 223);
             this.btnSalvarEndA.Name = "btnSalvarEndA";
-            this.btnSalvarEndA.Size = new System.Drawing.Size(116, 101);
+            this.btnSalvarEndA.Size = new System.Drawing.Size(116, 53);
             this.btnSalvarEndA.TabIndex = 12;
             this.btnSalvarEndA.Text = "Salvar e Sair\r\n";
             this.btnSalvarEndA.UseVisualStyleBackColor = true;

@@ -5,7 +5,6 @@ using System.Drawing.Drawing2D;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Neo4j.Driver;
-using System.Drawing;
 using System.IO;
 using System.Drawing.Imaging;
 
