@@ -14,7 +14,13 @@ namespace PII_VIII
 {
     public partial class Form1 : Form
     {
-        //salvando
+        //ATENÇÃO!!!!!!!!!!!!!
+        //FAÇA AS ALTERAÇÕES NA SUA BRANCH > PASSE PARA A BRANCH MASTER
+        //ENTRE EM Exibir > Alterações > Insira uma Mensagem de texto para salvar > Confirma Tudo
+        //ENTRE NAS OPÇÕES DAS BRANCH > CLIQUE NOS 3 PONTINHOS DA DIREITA > Gerenciar Ramificações
+        //NA OPÇÃO De Saída > CLIQUE EM 'Enviar por Push'
+
+
         private string connectionString =
             @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
 
@@ -38,7 +44,7 @@ namespace PII_VIII
         private bool isFadingOut = true;
         private float opacity = 1.0f;
 
-       
+
         //CABECALHO
         private Panel headerPanel;
         private Label titleLabel;
@@ -55,10 +61,10 @@ namespace PII_VIII
             CreateHeader();
 
 
-            
+
 
         }
-        
+
 
         private async void Form1_Load(object sender, EventArgs e)
         {
@@ -90,7 +96,7 @@ namespace PII_VIII
 
             descricaoProjeto = new Label
             {
-                
+
                 Text = "A Desigualdade Educacional refere-se às disparidades no acesso e na qualidade da educação que ocorrem entre diferentes grupos de alunos. Essas diferenças são influenciadas por uma variedade de fatores, como o tipo de escola (pública ou privada), a infraestrutura disponível, o número e a qualificação dos professores, além da quantidade e da qualidade dos recursos oferecidos aos alunos.\r\n\r\nOutro aspecto relevante é o apoio familiar e comunitário, que pode variar de acordo com o contexto socioeconômico de cada estudante. Alunos de escolas públicas, especialmente em regiões mais vulneráveis, muitas vezes enfrentam limitações como a falta de material didático, instalações inadequadas e até dificuldade de acesso a atividades extracurriculares. Por outro lado, alunos de escolas particulares, em geral, contam com melhores estruturas, acesso a tecnologias e suporte individualizado.\r\n\r\nEssa desigualdade educacional pode impactar significativamente o desempenho acadêmico e as oportunidades futuras dos alunos, limitando o acesso ao ensino superior e a empregos qualificados. Portanto, enfrentar esse problema é fundamental para promover uma educação mais justa e inclusiva, onde todos os alunos tenham as mesmas condições para desenvolver seu potencial e contribuir para a sociedade.",
                 Font = new Font("Arial", 10),
                 BackColor = Color.FromArgb(224, 224, 224),
@@ -107,7 +113,7 @@ namespace PII_VIII
 
             escPubPic = new PictureBox
             {
-                Image = Image.FromFile(@"C:\Users\Pichau\OneDrive\Área de Trabalho\Documentos\Área de Trabalho\PII-VIII-master\PII-VIII-master\PII VIII\images\escolapublica.jpg"),
+                Image = Image.FromFile(@"C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PIII-VIII-master\\PII-VIII\PII VIII\\images\\escolapublica.jpg"),
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 Size = new Size(400, 280),
                 Location = new System.Drawing.Point(500, 150),
@@ -120,14 +126,14 @@ namespace PII_VIII
 
             escPartPic = new PictureBox
             {
-                Image = Image.FromFile(@"C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PII-VIII-master\\PII-VIII-master\\PII VIII\\images\escolaparticular.png"),
+                Image = Image.FromFile(@"C:\\Users\\Pichau\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PIII-VIII-master\\PII-VIII\PII VIII\\images\\escolaparticular.png"),
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 Size = new Size(400, 280),
                 Location = new System.Drawing.Point(500, 150),
                 BorderStyle = BorderStyle.FixedSingle
             };
             this.Controls.Add(escPartPic);
-            
+
 
 
             ConectarSqlServer();
@@ -226,12 +232,12 @@ namespace PII_VIII
             };
             this.Controls.Add(escPic);
 
-            
-            escPic.Image = Image.FromFile(@"C:\Users\Pichau\OneDrive\Área de Trabalho\Documentos\Área de Trabalho\PII-VIII-master\PII-VIII-master\PII VIII\images\escolapublica.jpg");
 
-           
+            escPic.Image = Image.FromFile(@"C:\Users\Pichau\OneDrive\Área de Trabalho\Documentos\Área de Trabalho\PIII-VIII-master\PII-VIII\PII VIII\images\escolapublica.jpg");
+
+
             imageSwitchTimer = new Timer();
-            imageSwitchTimer.Interval = 5000; 
+            imageSwitchTimer.Interval = 5000;
             imageSwitchTimer.Tick += new EventHandler(SwitchImage);
             imageSwitchTimer.Start();
             DrawBorder(escPic, Color.FromArgb(31, 31, 31), 5);
@@ -241,11 +247,11 @@ namespace PII_VIII
         {
             if (isPublicImage)
             {
-                escPic.Image = Image.FromFile(@"C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PII-VIII-master\\PII-VIII-master\\PII VIII\\images\escolaparticular.png");
+                escPic.Image = Image.FromFile(@"C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PIII-VIII-master\\PII-VIII\PII VIII\\images\\escolaparticular.png");
             }
             else
             {
-                escPic.Image = Image.FromFile(@"C:\Users\Pichau\OneDrive\Área de Trabalho\Documentos\Área de Trabalho\PII-VIII-master\PII-VIII-master\PII VIII\images\escolapublica.jpg");
+                escPic.Image = Image.FromFile(@"C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\zÁrea de Trabalho\\PIII-VIII-master\\PII-VIII\\PII VIII\\images\\escolapublica.jpg");
             }
             isPublicImage = !isPublicImage;
         }
@@ -253,7 +259,7 @@ namespace PII_VIII
 
 
 
-        
+
 
 
 
@@ -262,7 +268,7 @@ namespace PII_VIII
         //CABEÇALHO DDO PROJETO
         private void CreateHeader()
         {
-            
+
             headerPanel = new Panel
             {
                 Dock = DockStyle.Top,
@@ -276,7 +282,7 @@ namespace PII_VIII
             {
                 Image = Image.FromFile("images/unifenas1.logo.png"),
                 SizeMode = PictureBoxSizeMode.StretchImage,
-                Size = new Size(280, 80), 
+                Size = new Size(280, 80),
                 Location = new System.Drawing.Point(10, 10)
             };
             headerPanel.Controls.Add(logoPic);
@@ -365,10 +371,10 @@ namespace PII_VIII
             form.StartPosition = FormStartPosition.Manual;
             form.Location = new System.Drawing.Point(this.Location.X + this.Width, this.Location.Y);
             form.BackColor = Color.FromArgb(224, 224, 224);
-            form.Opacity = 0; 
+            form.Opacity = 0;
             form.Show();
 
-            
+
             for (double i = 0; i <= 1; i += 0.02)
             {
                 form.Opacity = i;
@@ -385,8 +391,8 @@ namespace PII_VIII
 
 
 
-            //CONNECT COM SQL E NEO4J
-            private void ConectarSqlServer()
+        //CONNECT COM SQL E NEO4J
+        private void ConectarSqlServer()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -431,7 +437,7 @@ namespace PII_VIII
 
         private async void sobrebtn_click(object sender, EventArgs e)
         {
-            
+
         }
         private async void contatobtn_click(object sender, EventArgs e)
         {
