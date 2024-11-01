@@ -80,7 +80,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CadastroAlunoDesempenhoDisciplina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroAlunoDesempenhoDisciplina.Designer.cs">
+      <DependentUpon>CadastroAlunoDesempenhoDisciplina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CadastroEscolaRec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroEscolaRec.Designer.cs">
+      <DependentUpon>CadastroEscolaRec.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomProjeto.cs" />
+    <Compile Include="DatabaseService.cs" />
     <Compile Include="EndAluno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +161,12 @@
     <Compile Include="Relatórios.Designer.cs">
       <DependentUpon>Relatórios.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CadastroAlunoDesempenhoDisciplina.resx">
+      <DependentUpon>CadastroAlunoDesempenhoDisciplina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastroEscolaRec.resx">
+      <DependentUpon>CadastroEscolaRec.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EndAluno.resx">
       <DependentUpon>EndAluno.cs</DependentUpon>
     </EmbeddedResource>

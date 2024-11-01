@@ -1,6 +1,6 @@
 ﻿namespace PII_VIII
 {
-    partial class Relatórios
+    partial class CadastroEscolaRec
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // Relatórios
+            // CadastroEscolaRec
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1413, 858);
-            this.Name = "Relatórios";
-            this.Text = "Relatórios";
-            this.Load += new System.EventHandler(this.Relatórios_Load);
+            this.ClientSize = new System.Drawing.Size(1190, 974);
+            this.Name = "CadastroEscolaRec";
+            this.Text = "CadastroEscolaRec";
+            this.Load += new System.EventHandler(this.CadastroEscolaRec_Load);
             this.ResumeLayout(false);
 
         }

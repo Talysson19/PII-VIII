@@ -36,6 +36,7 @@ namespace PII_VIII
         private PictureBox escPubPic;
         private PictureBox escPartPic;
 
+        private Button Sair;
 
         private PictureBox escPic;
         private Timer imageSwitchTimer;
@@ -56,13 +57,9 @@ namespace PII_VIII
             this.Load += new EventHandler(Form1_Load);
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
-            ApplyHoverEffect(button7, button6, button5, button4, button3, button2, button1);
+            ApplyHoverEffect( button6, button5, button4, button3, button2, button1);
             SetupImageSwitcher();
             CreateHeader();
-
-
-
-
         }
 
 
@@ -80,6 +77,7 @@ namespace PII_VIII
                 else timer.Stop();
             };
             timer.Start();
+           
 
             titulos = new Label
             {
@@ -138,7 +136,7 @@ namespace PII_VIII
 
             ConectarSqlServer();
             await ConectarNeo4jAsync();
-            MessageBox.Show("Conexão com SQL Server e Neo4j realizada com sucesso!");
+            //MessageBox.Show("Conexão com SQL Server e Neo4j realizada com sucesso!");
         }
 
 
@@ -210,17 +208,6 @@ namespace PII_VIII
             return bmp;
         }
 
-
-
-
-
-
-
-
-
-
-
-
         //alternando as imgs
         private void SetupImageSwitcher()
         {
@@ -268,6 +255,18 @@ namespace PII_VIII
         //CABEÇALHO DDO PROJETO
         private void CreateHeader()
         {
+            Sair = new Button
+            {
+                Text = "Sair",
+                Size = new Size(10, 10),
+                Dock = DockStyle.Right,
+                Width = 100,
+                BackColor = Color.FromArgb(31, 31, 31),
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat
+            };
+            Sair.FlatAppearance.BorderSize = 0;
+            Sair.Click += new EventHandler(Sair_Click);
 
             headerPanel = new Panel
             {
@@ -300,6 +299,9 @@ namespace PII_VIII
             relatoriobtn = CreateHeaderButton("Relatório");
             relatoriobtn.Click += new EventHandler(relatoriobtn_click);
 
+            Sair.Click += new EventHandler(Sair_Click);
+
+
             sobrebtn = CreateHeaderButton("Sobre");
             sobrebtn.Click += new EventHandler(sobrebtn_click);
 
@@ -309,7 +311,7 @@ namespace PII_VIII
             headerPanel.Controls.Add(relatoriobtn);
             headerPanel.Controls.Add(sobrebtn);
             headerPanel.Controls.Add(contatobtn);
-
+            headerPanel.Controls.Add(Sair);
             CenterHeaderElements();
         }
 
@@ -350,7 +352,10 @@ namespace PII_VIII
             CenterHeaderElements();
         }
 
-
+        private void Sair_Click(object sender, EventArgs e)
+        {
+            Application.Exit(); 
+        }
 
 
 
@@ -451,7 +456,7 @@ namespace PII_VIII
         }
 
 
-
+        
         private async void endereçoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EndAluno endAluno = new EndAluno();

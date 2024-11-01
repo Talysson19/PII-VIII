@@ -10,21 +10,18 @@ using System.Windows.Forms;
 
 namespace PII_VIII
 {
-    //soulindo
-    public partial class infoDisciplinas : Form
+    public partial class CadastroAlunoDesempenhoDisciplina : Form
     {
-        public infoDisciplinas()
+        public CadastroAlunoDesempenhoDisciplina()
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.Sizable;
         }
 
-        private void infoDisciplinas_Load(object sender, EventArgs e)
+        private void CadastroAlunoDesempenhoDisciplina_Load(object sender, EventArgs e)
         {
             this.BackColor = System.Drawing.Color.FromArgb(224, 224, 224);
         }
-
-       
     }
 }
