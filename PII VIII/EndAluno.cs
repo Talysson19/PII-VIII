@@ -21,7 +21,13 @@ namespace PII_VIII
 
         private void EndAluno_Load(object sender, EventArgs e)
         {
-            this.BackColor = System.Drawing.Color.FromArgb(224, 224, 224);
+            this.BackColor = System.Drawing.Color.FromArgb(211, 211, 211);
+            this.WindowState = FormWindowState.Normal;
+        }
+
+        private void btnSalvarEndA_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

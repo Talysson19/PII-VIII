@@ -23,5 +23,13 @@ namespace PII_VIII
         {
             this.BackColor = System.Drawing.Color.FromArgb(224, 224, 224);
         }
+
+        private void btnCadastrarEndA_Click(object sender, EventArgs e)
+        {
+           
+            EndAluno endAluno = new EndAluno();
+            endAluno.ShowDialog(); 
+
+        }
     }
 }
