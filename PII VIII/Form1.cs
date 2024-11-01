@@ -14,6 +14,7 @@ namespace PII_VIII
 {
     public partial class Form1 : Form
     {
+        //salvando
         private string connectionString =
             @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
 
