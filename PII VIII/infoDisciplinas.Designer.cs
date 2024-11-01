@@ -28,34 +28,57 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSalvarDisc = new System.Windows.Forms.Button();
+            this.lblNome = new System.Windows.Forms.Label();
+            this.txtDisciplina = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button1
+            // btnSalvarDisc
             // 
-            this.button1.Location = new System.Drawing.Point(25, 29);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSalvarDisc.Location = new System.Drawing.Point(76, 81);
+            this.btnSalvarDisc.Name = "btnSalvarDisc";
+            this.btnSalvarDisc.Size = new System.Drawing.Size(162, 41);
+            this.btnSalvarDisc.TabIndex = 0;
+            this.btnSalvarDisc.Text = "Cadastrar Disciplina";
+            this.btnSalvarDisc.UseVisualStyleBackColor = true;
+            // 
+            // lblNome
+            // 
+            this.lblNome.AutoSize = true;
+            this.lblNome.Location = new System.Drawing.Point(48, 45);
+            this.lblNome.Name = "lblNome";
+            this.lblNome.Size = new System.Drawing.Size(52, 13);
+            this.lblNome.TabIndex = 1;
+            this.lblNome.Text = "Disciplina";
+            // 
+            // txtDisciplina
+            // 
+            this.txtDisciplina.Location = new System.Drawing.Point(106, 42);
+            this.txtDisciplina.Name = "txtDisciplina";
+            this.txtDisciplina.Size = new System.Drawing.Size(194, 20);
+            this.txtDisciplina.TabIndex = 2;
             // 
             // infoDisciplinas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(533, 292);
-            this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Controls.Add(this.txtDisciplina);
+            this.Controls.Add(this.lblNome);
+            this.Controls.Add(this.btnSalvarDisc);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "infoDisciplinas";
             this.Text = "infoDisciplinas";
             this.Load += new System.EventHandler(this.infoDisciplinas_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSalvarDisc;
+        private System.Windows.Forms.Label lblNome;
+        private System.Windows.Forms.TextBox txtDisciplina;
     }
 }
