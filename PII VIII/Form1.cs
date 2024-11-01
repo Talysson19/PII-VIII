@@ -14,6 +14,13 @@ namespace PII_VIII
 {
     public partial class Form1 : Form
     {
+        //ATENÇÃO!!!!!!!!!!!!!
+        //FAÇA AS ALTERAÇÕES NA SUA BRANCH > PASSE PARA A BRANCH MASTER
+        //ENTRE EM Exibir > Alterações > Insira uma Mensagem de texto para salvar > Confirma Tudo
+        //ENTRE NAS OPÇÕES DAS BRANCH > CLIQUE NOS 3 PONTINHOS DA DIREITA > Gerenciar Ramificações
+        //NA OPÇÃO De Saída > CLIQUE EM 'Enviar por Push'
+
+
         private string connectionString =
             @"Server=GABRIEL\SQLEXPRESS09;Database=EscolaCC;Integrated Security=True;";
 
