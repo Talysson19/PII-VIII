@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.sidebarPanel = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -42,7 +41,6 @@
             // sidebarPanel
             // 
             this.sidebarPanel.AutoScrollMargin = new System.Drawing.Size(200, 0);
-            this.sidebarPanel.Controls.Add(this.button7);
             this.sidebarPanel.Controls.Add(this.button1);
             this.sidebarPanel.Controls.Add(this.button2);
             this.sidebarPanel.Controls.Add(this.button3);
@@ -55,19 +53,6 @@
             this.sidebarPanel.Size = new System.Drawing.Size(360, 925);
             this.sidebarPanel.TabIndex = 3;
             this.sidebarPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // button7
-            // 
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(119, 769);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(93, 45);
-            this.button7.TabIndex = 10;
-            this.button7.Text = "SAIR";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button1
             // 
@@ -171,7 +156,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button7;
     }
 }
 
