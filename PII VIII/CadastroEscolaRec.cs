@@ -22,6 +22,7 @@ namespace PII_VIII
         private void CadastroEscolaRec_Load(object sender, EventArgs e)
         {
             this.BackColor = System.Drawing.Color.FromArgb(224, 224, 224);
+         
         }
     }
 }

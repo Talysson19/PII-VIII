@@ -50,7 +50,7 @@
             this.sidebarPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebarPanel.Location = new System.Drawing.Point(0, 0);
             this.sidebarPanel.Name = "sidebarPanel";
-            this.sidebarPanel.Size = new System.Drawing.Size(360, 925);
+            this.sidebarPanel.Size = new System.Drawing.Size(365, 925);
             this.sidebarPanel.TabIndex = 3;
             this.sidebarPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 

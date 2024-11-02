@@ -35,7 +35,7 @@
             // 
             // txtDisciplina
             // 
-            this.txtDisciplina.Location = new System.Drawing.Point(299, 164);
+            this.txtDisciplina.Location = new System.Drawing.Point(109, 27);
             this.txtDisciplina.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDisciplina.Name = "txtDisciplina";
             this.txtDisciplina.Size = new System.Drawing.Size(289, 26);
@@ -44,7 +44,7 @@
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(212, 168);
+            this.lblNome.Location = new System.Drawing.Point(22, 31);
             this.lblNome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(76, 20);
@@ -53,7 +53,7 @@
             // 
             // btnSalvarDisc
             // 
-            this.btnSalvarDisc.Location = new System.Drawing.Point(254, 224);
+            this.btnSalvarDisc.Location = new System.Drawing.Point(64, 87);
             this.btnSalvarDisc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSalvarDisc.Name = "btnSalvarDisc";
             this.btnSalvarDisc.Size = new System.Drawing.Size(243, 63);
