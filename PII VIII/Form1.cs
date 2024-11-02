@@ -57,7 +57,7 @@ namespace PII_VIII
             this.Load += new EventHandler(Form1_Load);
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
-            ApplyHoverEffect( button6, button5, button4, button3, button2, button1);
+            ApplyHoverEffect(button8,button7);
             SetupImageSwitcher();
             CreateHeader();
         }
@@ -446,7 +446,7 @@ namespace PII_VIII
         }
         private async void contatobtn_click(object sender, EventArgs e)
         {
-            ;
+            
         }
 
         private async void relatorio_click(object sender, EventArgs e)
@@ -494,47 +494,18 @@ namespace PII_VIII
         }
 
 
-        private async void button1_Click(object sender, EventArgs e)
+     
+
+        private void button7_Click_1(object sender, EventArgs e)
         {
-            this.button1.BackColor = Color.FromArgb(31, 31, 31);
-            infoAluno infoAluno = new infoAluno();
-            await MostrarComTransicaoAsync(infoAluno);
-        }
-        private async void button2_Click(object sender, EventArgs e)
-        {
-            this.button2.BackColor = Color.FromArgb(38, 50, 56, 22);
-            infoEscola infoEscola = new infoEscola();
-            await MostrarComTransicaoAsync(infoEscola);
+            CadastroAlunoDesempenhoDisciplina cadAl = new CadastroAlunoDesempenhoDisciplina();
+            cadAl.ShowDialog();
         }
 
-        private async void button3_Click(object sender, EventArgs e)
+        private void button8_Click(object sender, EventArgs e)
         {
-            this.button3.BackColor = Color.FromArgb(38, 50, 56, 22);
-            infoProfessores infoProf = new infoProfessores();
-            await MostrarComTransicaoAsync(infoProf);
-        }
-        private async void button4_Click(object sender, EventArgs e)
-        {
-            this.button4.BackColor = Color.FromArgb(38, 50, 56, 22);
-            infoDisciplinas infoDisciplinas = new infoDisciplinas();
-            await MostrarComTransicaoAsync(infoDisciplinas);
-        }
-        private async void button5_Click(object sender, EventArgs e)
-        {
-            this.button5.BackColor = Color.FromArgb(38, 50, 56, 22);
-            infoRecursosEdu infoRec = new infoRecursosEdu();
-            await MostrarComTransicaoAsync(infoRec);
-        }
-        private async void button6_Click(object sender, EventArgs e)
-        {
-            this.button6.BackColor = Color.FromArgb(38, 50, 56, 22);
-            infoDesempenhoAca infoDesem = new infoDesempenhoAca();
-            await MostrarComTransicaoAsync(infoDesem);
-        }
-
-        private void Form1_Load_1(object sender, EventArgs e)
-        {
-
+            CadastroEscolaRec cadEscola = new CadastroEscolaRec();
+            cadEscola.ShowDialog();
         }
 
         private void button7_Click(object sender, EventArgs e)

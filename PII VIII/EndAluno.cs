@@ -15,7 +15,7 @@ namespace PII_VIII
         public EndAluno()
         {
             InitializeComponent();
-            this.WindowState = FormWindowState.Maximized; 
+            this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.Sizable;
         }
 
