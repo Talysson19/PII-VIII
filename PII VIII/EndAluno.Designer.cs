@@ -41,6 +41,8 @@
             this.txtCidadeEndA = new System.Windows.Forms.TextBox();
             this.txtEstadoEndA = new System.Windows.Forms.TextBox();
             this.btnSalvarEndA = new System.Windows.Forms.Button();
+            this.IDAluno = new System.Windows.Forms.Label();
+            this.txtEndAID = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -141,19 +143,37 @@
             // 
             // btnSalvarEndA
             // 
-            this.btnSalvarEndA.Location = new System.Drawing.Point(504, 188);
+            this.btnSalvarEndA.Location = new System.Drawing.Point(489, 242);
             this.btnSalvarEndA.Name = "btnSalvarEndA";
-            this.btnSalvarEndA.Size = new System.Drawing.Size(116, 101);
+            this.btnSalvarEndA.Size = new System.Drawing.Size(116, 53);
             this.btnSalvarEndA.TabIndex = 12;
             this.btnSalvarEndA.Text = "Salvar e Sair\r\n";
             this.btnSalvarEndA.UseVisualStyleBackColor = true;
             this.btnSalvarEndA.Click += new System.EventHandler(this.btnSalvarEndA_Click);
+            // 
+            // IDAluno
+            // 
+            this.IDAluno.AutoSize = true;
+            this.IDAluno.Location = new System.Drawing.Point(24, 310);
+            this.IDAluno.Name = "IDAluno";
+            this.IDAluno.Size = new System.Drawing.Size(54, 16);
+            this.IDAluno.TabIndex = 13;
+            this.IDAluno.Text = "IDAluno";
+            // 
+            // txtEndAID
+            // 
+            this.txtEndAID.Location = new System.Drawing.Point(136, 304);
+            this.txtEndAID.Name = "txtEndAID";
+            this.txtEndAID.Size = new System.Drawing.Size(77, 22);
+            this.txtEndAID.TabIndex = 14;
             // 
             // EndAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(711, 360);
+            this.Controls.Add(this.txtEndAID);
+            this.Controls.Add(this.IDAluno);
             this.Controls.Add(this.btnSalvarEndA);
             this.Controls.Add(this.txtEstadoEndA);
             this.Controls.Add(this.txtCidadeEndA);
@@ -191,5 +211,7 @@
         private System.Windows.Forms.TextBox txtCidadeEndA;
         private System.Windows.Forms.TextBox txtEstadoEndA;
         private System.Windows.Forms.Button btnSalvarEndA;
+        private System.Windows.Forms.Label IDAluno;
+        private System.Windows.Forms.TextBox txtEndAID;
     }
 }
