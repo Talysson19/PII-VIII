@@ -2,6 +2,8 @@
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Threading.Tasks;
 
 
 namespace PII_VIII
@@ -14,6 +16,49 @@ namespace PII_VIII
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.Sizable;
+            ApplyFadeInTransition();
+        }
+
+        private void ApplyFadeInTransition()
+        {
+            this.Opacity = 0; // Define a opacidade inicial como 0
+            Timer fadeInTimer = new Timer { Interval = 10 }; // Cria um timer para controle da opacidade
+            fadeInTimer.Tick += (s, e) =>
+            {
+                if (this.Opacity < 1)
+                {
+                    this.Opacity += 0.04; // Aumenta a opacidade gradualmente
+                }
+                else
+                {
+                    fadeInTimer.Stop(); // Para o timer quando a opacidade atinge 1
+                }
+            };
+            fadeInTimer.Start(); // Inicia o timer para começar o efeito
+        }
+
+
+        private async Task MostrarComTransicaoAsync(CadastroAlunoDesempenhoDisciplina form)
+        {
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = new System.Drawing.Point(this.Location.X + this.Width, this.Location.Y);
+            form.BackColor = Color.FromArgb(224, 224, 224);
+            form.Opacity = 0;
+            form.Show();
+
+
+            for (double i = 0; i <= 1; i += 0.02)
+            {
+                form.Opacity = i;
+                await Task.Delay(10);
+            }
+
+            for (int i = this.Location.X + this.Width; i >= this.Location.X; i -= 10)
+            {
+                form.Location = new System.Drawing.Point(i, form.Location.Y);
+                await Task.Delay(1);
+            }
+
         }
 
         private void CadastroAlunoDesempenhoDisciplina_Load(object sender, EventArgs e)
@@ -23,7 +68,7 @@ namespace PII_VIII
 
         private void btnCadastrarEndA_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
+            string connectionString = @"Server=DESKTOP-DQNSI4G;Database=EscolaCC;Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -82,7 +127,7 @@ namespace PII_VIII
 
         private void btnSalvarDisc_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
+            string connectionString = @"Server=DESKTOP-DQNSI4G;Database=EscolaCC;Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -132,7 +177,7 @@ namespace PII_VIII
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
+            string connectionString = @"Server=DESKTOP-DQNSI4G;Database=EscolaCC;Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

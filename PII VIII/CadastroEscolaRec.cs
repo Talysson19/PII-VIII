@@ -17,6 +17,25 @@ namespace PII_VIII
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.Sizable;
+            ApplyFadeInTransition();
+        }
+
+        private void ApplyFadeInTransition()
+        {
+            this.Opacity = 0; // Define a opacidade inicial como 0
+            Timer fadeInTimer = new Timer { Interval = 10 }; // Cria um timer para controle da opacidade
+            fadeInTimer.Tick += (s, e) =>
+            {
+                if (this.Opacity < 1)
+                {
+                    this.Opacity += 0.04; // Aumenta a opacidade gradualmente
+                }
+                else
+                {
+                    fadeInTimer.Stop(); // Para o timer quando a opacidade atinge 1
+                }
+            };
+            fadeInTimer.Start(); // Inicia o timer para começar o efeito
         }
 
         private void CadastroEscolaRec_Load(object sender, EventArgs e)
@@ -26,7 +45,7 @@ namespace PII_VIII
 
         private void btnCadastrosEscolas_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
+            string connectionString = @"Server=DESKTOP-DQNSI4G;Database=EscolaCC;Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -77,7 +96,7 @@ namespace PII_VIII
         private void btnCadastroRec_Click(object sender, EventArgs e)
         {
 
-            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
+            string connectionString = @"Server=DESKTOP-DQNSI4G;Database=EscolaCC;Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -133,7 +152,7 @@ namespace PII_VIII
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
+            string connectionString = @"Server=DESKTOP-DQNSI4G;Database=EscolaCC;Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

@@ -17,6 +17,25 @@ namespace PII_VIII
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.Sizable;
+            ApplyFadeInTransition();
+        }
+
+        private void ApplyFadeInTransition()
+        {
+            this.Opacity = 0; // Define a opacidade inicial como 0
+            Timer fadeInTimer = new Timer { Interval = 10 }; // Cria um timer para controle da opacidade
+            fadeInTimer.Tick += (s, e) =>
+            {
+                if (this.Opacity < 1)
+                {
+                    this.Opacity += 0.04; // Aumenta a opacidade gradualmente
+                }
+                else
+                {
+                    fadeInTimer.Stop(); // Para o timer quando a opacidade atinge 1
+                }
+            };
+            fadeInTimer.Start(); // Inicia o timer para começar o efeito
         }
 
         private void EndEscola_Load(object sender, EventArgs e)
