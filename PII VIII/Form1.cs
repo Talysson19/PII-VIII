@@ -21,7 +21,7 @@ namespace PII_VIII
 
 
         private string connectionString =
-            @"Server=GABRIEL\SQLEXPRESS09;Database=EscolaCC;Integrated Security=True;";
+            @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
 
         private bool isDragging = false;
         private System.Drawing.Point lastCursor;
@@ -35,6 +35,7 @@ namespace PII_VIII
         private PictureBox escPubPic;
         private PictureBox escPartPic;
 
+        private Button Sair;
 
         private PictureBox escPic;
         private Timer imageSwitchTimer;
@@ -55,13 +56,9 @@ namespace PII_VIII
             this.Load += new EventHandler(Form1_Load);
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
-            ApplyHoverEffect(button7, button6, button5, button4, button3, button2, button1);
+            ApplyHoverEffect(button8,button7);
             SetupImageSwitcher();
             CreateHeader();
-
-
-
-
         }
 
 
@@ -79,6 +76,7 @@ namespace PII_VIII
                 else timer.Stop();
             };
             timer.Start();
+           
 
             titulos = new Label
             {
@@ -112,7 +110,7 @@ namespace PII_VIII
 
             escPubPic = new PictureBox
             {
-                Image = Image.FromFile(@"C:\\Users\ogabr\OneDrive\Área de Trabalho\pii\PII VIII\images\escolapublica.jpg"),
+                Image = Image.FromFile(@"C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PIII-VIII-master\\PII VIII\\images\\escolapublica.jpg"),
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 Size = new Size(400, 280),
                 Location = new System.Drawing.Point(500, 150),
@@ -125,7 +123,7 @@ namespace PII_VIII
 
             escPartPic = new PictureBox
             {
-                Image = Image.FromFile(@"C:\\Users\ogabr\OneDrive\Área de Trabalho\pii\PII VIII\images\\escolaparticular.png"),
+                Image = Image.FromFile(@"C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PIII-VIII-master\\PII VIII\\images\\escolaparticular.png"),
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 Size = new Size(400, 280),
                 Location = new System.Drawing.Point(500, 150),
@@ -137,7 +135,7 @@ namespace PII_VIII
 
             ConectarSqlServer();
             await ConectarNeo4jAsync();
-            MessageBox.Show("Conexão com SQL Server e Neo4j realizada com sucesso!");
+            //MessageBox.Show("Conexão com SQL Server e Neo4j realizada com sucesso!");
         }
 
 
@@ -209,17 +207,6 @@ namespace PII_VIII
             return bmp;
         }
 
-
-
-
-
-
-
-
-
-
-
-
         //alternando as imgs
         private void SetupImageSwitcher()
         {
@@ -232,7 +219,7 @@ namespace PII_VIII
             this.Controls.Add(escPic);
 
 
-            escPic.Image = Image.FromFile(@"C:\\Users\\ogabr\\OneDrive\\Área de Trabalho\\pii\\PII VIII\\images\\escolapublica.jpg");
+            escPic.Image = Image.FromFile(@"C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PIII-VIII-master\\PII VIII\\images\\escolapublica.jpg");
 
 
             imageSwitchTimer = new Timer();
@@ -246,11 +233,11 @@ namespace PII_VIII
         {
             if (isPublicImage)
             {
-                escPic.Image = Image.FromFile(@"C:\\Users\ogabr\\OneDrive\\Área de Trabalho\\pii\\PII VIII\images\\escolaparticular.png");
+                escPic.Image = Image.FromFile(@"C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PIII-VIII-master\\PII VIII\\images\\escolaparticular.png");
             }
             else
             {
-                escPic.Image = Image.FromFile(@"C:\\Users\\ogabr\\OneDrive\\Área de Trabalho\\pii\\PII VIII\\images\escolapublica.jpg");
+                escPic.Image = Image.FromFile(@"C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PIII-VIII-master\\PII VIII\\images\\escolapublica.jpg");
             }
             isPublicImage = !isPublicImage;
         }
@@ -267,6 +254,18 @@ namespace PII_VIII
         //CABEÇALHO DDO PROJETO
         private void CreateHeader()
         {
+            Sair = new Button
+            {
+                Text = "Sair",
+                Size = new Size(10, 10),
+                Dock = DockStyle.Right,
+                Width = 100,
+                BackColor = Color.FromArgb(31, 31, 31),
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat
+            };
+            Sair.FlatAppearance.BorderSize = 0;
+            Sair.Click += new EventHandler(Sair_Click);
 
             headerPanel = new Panel
             {
@@ -299,6 +298,9 @@ namespace PII_VIII
             relatoriobtn = CreateHeaderButton("Relatório");
             relatoriobtn.Click += new EventHandler(relatoriobtn_click);
 
+            Sair.Click += new EventHandler(Sair_Click);
+
+
             sobrebtn = CreateHeaderButton("Sobre");
             sobrebtn.Click += new EventHandler(sobrebtn_click);
 
@@ -308,7 +310,7 @@ namespace PII_VIII
             headerPanel.Controls.Add(relatoriobtn);
             headerPanel.Controls.Add(sobrebtn);
             headerPanel.Controls.Add(contatobtn);
-
+            headerPanel.Controls.Add(Sair);
             CenterHeaderElements();
         }
 
@@ -349,7 +351,10 @@ namespace PII_VIII
             CenterHeaderElements();
         }
 
-
+        private void Sair_Click(object sender, EventArgs e)
+        {
+            Application.Exit(); 
+        }
 
 
 
@@ -440,7 +445,7 @@ namespace PII_VIII
         }
         private async void contatobtn_click(object sender, EventArgs e)
         {
-            ;
+            
         }
 
         private async void relatorio_click(object sender, EventArgs e)
@@ -450,7 +455,7 @@ namespace PII_VIII
         }
 
 
-
+        
         private async void endereçoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EndAluno endAluno = new EndAluno();
@@ -488,47 +493,18 @@ namespace PII_VIII
         }
 
 
-        private async void button1_Click(object sender, EventArgs e)
+     
+
+        private void button7_Click_1(object sender, EventArgs e)
         {
-            this.button1.BackColor = Color.FromArgb(31, 31, 31);
-            infoAluno infoAluno = new infoAluno();
-            await MostrarComTransicaoAsync(infoAluno);
-        }
-        private async void button2_Click(object sender, EventArgs e)
-        {
-            this.button2.BackColor = Color.FromArgb(38, 50, 56, 22);
-            infoEscola infoEscola = new infoEscola();
-            await MostrarComTransicaoAsync(infoEscola);
+            CadastroAlunoDesempenhoDisciplina cadAl = new CadastroAlunoDesempenhoDisciplina();
+            cadAl.ShowDialog();
         }
 
-        private async void button3_Click(object sender, EventArgs e)
+        private void button8_Click(object sender, EventArgs e)
         {
-            this.button3.BackColor = Color.FromArgb(38, 50, 56, 22);
-            infoProfessores infoProf = new infoProfessores();
-            await MostrarComTransicaoAsync(infoProf);
-        }
-        private async void button4_Click(object sender, EventArgs e)
-        {
-            this.button4.BackColor = Color.FromArgb(38, 50, 56, 22);
-            infoDisciplinas infoDisciplinas = new infoDisciplinas();
-            await MostrarComTransicaoAsync(infoDisciplinas);
-        }
-        private async void button5_Click(object sender, EventArgs e)
-        {
-            this.button5.BackColor = Color.FromArgb(38, 50, 56, 22);
-            infoRecursosEdu infoRec = new infoRecursosEdu();
-            await MostrarComTransicaoAsync(infoRec);
-        }
-        private async void button6_Click(object sender, EventArgs e)
-        {
-            this.button6.BackColor = Color.FromArgb(38, 50, 56, 22);
-            infoDesempenhoAca infoDesem = new infoDesempenhoAca();
-            await MostrarComTransicaoAsync(infoDesem);
-        }
-
-        private void Form1_Load_1(object sender, EventArgs e)
-        {
-
+            CadastroEscolaRec cadEscola = new CadastroEscolaRec();
+            cadEscola.ShowDialog();
         }
 
         private void button7_Click(object sender, EventArgs e)
