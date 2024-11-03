@@ -21,7 +21,7 @@ namespace PII_VIII
 
 
         private string connectionString =
-            @"Server=GABRIEL\SQLEXPRESS09;Database=EscolaCC;Integrated Security=True;";
+             @"Server=GABRIEL\SQLEXPRESS09;Database=EscolaCC;Integrated Security=True;";
 
         private bool isDragging = false;
         private System.Drawing.Point lastCursor;
