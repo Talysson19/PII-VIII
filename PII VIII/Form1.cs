@@ -57,7 +57,7 @@ namespace PII_VIII
             this.Load += new EventHandler(Form1_Load);
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
-            ApplyHoverEffect(button8, button7);
+            ApplyHoverEffect(button8,button7);
             SetupImageSwitcher();
             CreateHeader();
         }
@@ -77,7 +77,7 @@ namespace PII_VIII
                 else timer.Stop();
             };
             timer.Start();
-
+           
 
             titulos = new Label
             {
@@ -354,7 +354,7 @@ namespace PII_VIII
 
         private void Sair_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Application.Exit(); 
         }
 
 
@@ -446,7 +446,7 @@ namespace PII_VIII
         }
         private async void contatobtn_click(object sender, EventArgs e)
         {
-
+            
         }
 
         private async void relatorio_click(object sender, EventArgs e)
@@ -456,7 +456,7 @@ namespace PII_VIII
         }
 
 
-
+        
         private async void endereçoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EndAluno endAluno = new EndAluno();
@@ -494,7 +494,7 @@ namespace PII_VIII
         }
 
 
-
+     
 
         private void button7_Click_1(object sender, EventArgs e)
         {

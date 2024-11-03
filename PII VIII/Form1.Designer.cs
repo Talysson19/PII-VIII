@@ -28,11 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.sidebarPanel = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.sidebarPanel = new System.Windows.Forms.Panel();
             this.sidebarPanel.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // sidebarPanel
+            // 
+            this.sidebarPanel.AutoScrollMargin = new System.Drawing.Size(200, 0);
+            this.sidebarPanel.Controls.Add(this.button8);
+            this.sidebarPanel.Controls.Add(this.button7);
+            this.sidebarPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.sidebarPanel.Location = new System.Drawing.Point(0, 0);
+            this.sidebarPanel.Name = "sidebarPanel";
+            this.sidebarPanel.Size = new System.Drawing.Size(365, 925);
+            this.sidebarPanel.TabIndex = 3;
+            this.sidebarPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button8
             // 
@@ -45,6 +57,7 @@
             this.button8.TabIndex = 11;
             this.button8.Text = "Cadastro Escolas";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
@@ -57,17 +70,7 @@
             this.button7.TabIndex = 10;
             this.button7.Text = "Cadastro Alunos";
             this.button7.UseVisualStyleBackColor = true;
-            // 
-            // sidebarPanel
-            // 
-            this.sidebarPanel.AutoScrollMargin = new System.Drawing.Size(200, 0);
-            this.sidebarPanel.Controls.Add(this.button8);
-            this.sidebarPanel.Controls.Add(this.button7);
-            this.sidebarPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.sidebarPanel.Location = new System.Drawing.Point(0, 0);
-            this.sidebarPanel.Name = "sidebarPanel";
-            this.sidebarPanel.Size = new System.Drawing.Size(365, 925);
-            this.sidebarPanel.TabIndex = 4;
+            this.button7.Click += new System.EventHandler(this.button7_Click_1);
             // 
             // Form1
             // 
@@ -86,10 +89,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Panel sidebarPanel;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
     }
 }
 

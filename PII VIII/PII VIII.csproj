@@ -112,42 +112,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="infoAluno.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="infoAluno.Designer.cs">
-      <DependentUpon>infoAluno.cs</DependentUpon>
-    </Compile>
-    <Compile Include="infoDesempenhoAca.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="infoDesempenhoAca.Designer.cs">
-      <DependentUpon>infoDesempenhoAca.cs</DependentUpon>
-    </Compile>
-    <Compile Include="infoDisciplinas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="infoDisciplinas.Designer.cs">
-      <DependentUpon>infoDisciplinas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="infoEscola.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="infoEscola.Designer.cs">
-      <DependentUpon>infoEscola.cs</DependentUpon>
-    </Compile>
-    <Compile Include="infoProfessores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="infoProfessores.Designer.cs">
-      <DependentUpon>infoProfessores.cs</DependentUpon>
-    </Compile>
-    <Compile Include="infoRecursosEdu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="infoRecursosEdu.Designer.cs">
-      <DependentUpon>infoRecursosEdu.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -175,24 +139,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="infoAluno.resx">
-      <DependentUpon>infoAluno.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="infoDesempenhoAca.resx">
-      <DependentUpon>infoDesempenhoAca.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="infoDisciplinas.resx">
-      <DependentUpon>infoDisciplinas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="infoEscola.resx">
-      <DependentUpon>infoEscola.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="infoProfessores.resx">
-      <DependentUpon>infoProfessores.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="infoRecursosEdu.resx">
-      <DependentUpon>infoRecursosEdu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
