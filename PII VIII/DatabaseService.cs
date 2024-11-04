@@ -44,25 +44,30 @@ namespace PII_VIII
             return studentCount;
         }
 
-        public async Task<List<string>> GetSchoolsFromNeo4j()
+        public async Task<Dictionary<int, string>> GetSchoolAddressesFromNeo4j()
         {
-            List<string> schoolAddresses = new List<string>();
-            var session = neo4jDriver.AsyncSession();
+            var schoolAddresses = new Dictionary<int, string>();
 
-            try
+            using (var session = neo4jDriver.AsyncSession())
             {
-                var result = await session.RunAsync("MATCH (e:EnderecoEscola) RETURN e.Rua AS EnderecoEscola");
-                await result.ForEachAsync(record =>
+                var result = await session.RunAsync("MATCH (p:enderecoEscola) RETURN p.idescola AS IDEscola, p.nome AS Nome, p.numero AS Numero, p.bairro AS Bairro, p.cidade AS Cidade, p.estado AS Estado, p.cep AS CEP");
+
+                while (await result.FetchAsync())
                 {
-                    var endereco = record["EnderecoEscola"].As<string>();
-                    Console.WriteLine($"Endereço: {endereco}");
-                    schoolAddresses.Add(endereco);
-                });
+                    int escolaId = result.Current["IDEscola"].As<int>();
+                    string nome = result.Current["Nome"].As<string>();
+                    string numero = result.Current["Numero"].As<string>();
+                    string bairro = result.Current["Bairro"].As<string>();
+                    string cidade = result.Current["Cidade"].As<string>();
+                    string estado = result.Current["Estado"].As<string>();
+                    string cep = result.Current["CEP"].As<string>();
+
+                    string enderecoCompleto = $"{nome}, {numero}, {bairro}, {cidade} - {estado}, {cep}";
+
+                    schoolAddresses[escolaId] = enderecoCompleto;
+                }
             }
-            finally
-            {
-                await session.CloseAsync();
-            }
+
             return schoolAddresses;
         }
     }

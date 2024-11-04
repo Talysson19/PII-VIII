@@ -11,15 +11,15 @@ namespace PII_VIII
         private DatabaseService databaseService;
         private Button Sair;
         private DataGridView dataGridView;
-        
-        
+
+
 
         public Relatórios()
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
-            databaseService = new DatabaseService(); 
+            databaseService = new DatabaseService();
             this.BackColor = System.Drawing.Color.FromArgb(224, 224, 224);
             CustomizeDesign();
             ApplyHoverEffect();
@@ -35,7 +35,7 @@ namespace PII_VIII
         private async Task LoadCombinedDataAsync()
         {
             DataTable schoolsTable = databaseService.GetSchoolsFromSQL();
-            var schoolAddresses = await databaseService.GetSchoolsFromNeo4j();
+            var schoolAddresses = await databaseService.GetSchoolAddressesFromNeo4j();
 
             DataTable combinedTable = new DataTable();
             combinedTable.Columns.Add("IDEscola", typeof(int));
@@ -46,9 +46,8 @@ namespace PII_VIII
             combinedTable.Columns.Add("Número de Alunos", typeof(int));
             combinedTable.Columns.Add("Endereço", typeof(string));
 
-            for (int i = 0; i < schoolsTable.Rows.Count; i++)
+            foreach (DataRow row in schoolsTable.Rows)
             {
-                DataRow row = schoolsTable.Rows[i];
                 int escolaId = Convert.ToInt32(row["IDEscola"]);
                 string nomeEscola = row["Nome"].ToString();
                 int enderecoEscolaId = Convert.ToInt32(row["IDEnderecoEscola"]);
@@ -56,7 +55,9 @@ namespace PII_VIII
                 string nivelEnsino = row["NivelEnsino"].ToString();
                 int studentCount = databaseService.GetStudentCountBySchoolSQL(escolaId);
 
-                string endereco = schoolAddresses.Count > i ? schoolAddresses[i] : "Endereço não disponível";
+                string endereco = schoolAddresses.ContainsKey(enderecoEscolaId)
+                    ? schoolAddresses[enderecoEscolaId]
+                    : "Endereço não disponível";
 
                 combinedTable.Rows.Add(escolaId, nomeEscola, enderecoEscolaId, tipo, nivelEnsino, studentCount, endereco);
             }
@@ -124,7 +125,7 @@ namespace PII_VIII
           
             dataGridView = new DataGridView
             {
-                Size = new Size(705, 255),
+                Size = new Size(720, 265),
                 Location = new Point(350, 200), 
                 BackgroundColor = Color.White,
                 ForeColor = Color.Black,
