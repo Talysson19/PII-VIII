@@ -76,12 +76,18 @@ namespace PII_VIII
                 });
 
                 MessageBox.Show("Dados salvos com sucesso!");
-                this.Close();
+               
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Erro ao salvar dados: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }      
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CadastroEscolaRec cadE = new CadastroEscolaRec();
+            cadE.ShowDialog();
         }
     }
 }

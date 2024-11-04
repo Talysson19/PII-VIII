@@ -43,6 +43,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNomeEndE = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtEndEID
@@ -64,12 +65,12 @@
             // 
             // btnSalvarEndE
             // 
-            this.btnSalvarEndE.Location = new System.Drawing.Point(554, 312);
+            this.btnSalvarEndE.Location = new System.Drawing.Point(449, 350);
             this.btnSalvarEndE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSalvarEndE.Name = "btnSalvarEndE";
             this.btnSalvarEndE.Size = new System.Drawing.Size(130, 66);
             this.btnSalvarEndE.TabIndex = 27;
-            this.btnSalvarEndE.Text = "Salvar e Sair";
+            this.btnSalvarEndE.Text = "Salvar";
             this.btnSalvarEndE.UseVisualStyleBackColor = true;
             this.btnSalvarEndE.Click += new System.EventHandler(this.btnSalvarEndE_Click);
             // 
@@ -175,11 +176,23 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "Rua / Avenida";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(620, 350);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(130, 66);
+            this.button1.TabIndex = 30;
+            this.button1.Text = "Cadastrar Escola";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // EndEscola
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtEndEID);
             this.Controls.Add(this.IDAluno);
             this.Controls.Add(this.btnSalvarEndE);
@@ -221,5 +234,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNomeEndE;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }

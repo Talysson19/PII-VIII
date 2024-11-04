@@ -486,8 +486,8 @@ namespace PII_VIII
 
         private void button8_Click(object sender, EventArgs e)
         {
-            CadastroEscolaRec cadEscola = new CadastroEscolaRec();
-            cadEscola.ShowDialog();
+            EndEscola endE = new EndEscola();
+            endE.ShowDialog();
         }
 
         private void button7_Click(object sender, EventArgs e)
