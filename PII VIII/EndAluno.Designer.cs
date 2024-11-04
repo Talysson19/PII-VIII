@@ -57,9 +57,9 @@
             this.IDAluno.AutoSize = true;
             this.IDAluno.Location = new System.Drawing.Point(39, 335);
             this.IDAluno.Name = "IDAluno";
-            this.IDAluno.Size = new System.Drawing.Size(62, 16);
+            this.IDAluno.Size = new System.Drawing.Size(54, 16);
             this.IDAluno.TabIndex = 43;
-            this.IDAluno.Text = "IDEscola";
+            this.IDAluno.Text = "IDAluno";
             // 
             // btnSalvarEndA
             // 
