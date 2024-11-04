@@ -20,8 +20,26 @@ namespace PII_VIII
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.Sizable;
             _connection = new Neo4jConnection("bolt://localhost:7687", "neo4j", "EscolaCC");
+            ApplyFadeInTransition();
         }
 
+        private void ApplyFadeInTransition()
+        {
+            this.Opacity = 0; 
+            Timer fadeInTimer = new Timer { Interval = 10 };
+            fadeInTimer.Tick += (s, e) =>
+            {
+                if (this.Opacity < 1)
+                {
+                    this.Opacity += 0.04; 
+                }
+                else
+                {
+                    fadeInTimer.Stop(); 
+                }
+            };
+            fadeInTimer.Start();
+        }
 
         private void EndEscola_Load(object sender, EventArgs e)
         {
@@ -74,6 +92,12 @@ namespace PII_VIII
             {
                 MessageBox.Show($"Erro ao salvar dados: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CadastroAlunoDesempenhoDisciplina cadA = new CadastroAlunoDesempenhoDisciplina();
+            cadA.ShowDialog();
         }
     }
 }

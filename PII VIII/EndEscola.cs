@@ -17,11 +17,30 @@ namespace PII_VIII
         public EndEscola()
         {
             InitializeComponent();
-            this.WindowState = FormWindowState.Normal;
+            this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.Sizable;
             _connection = new Neo4jConnection("bolt://localhost:7687", "neo4j", "EscolaCC");
+            ApplyFadeInTransition();
         }
-    
+
+        private void ApplyFadeInTransition()
+        {
+            this.Opacity = 0;
+            Timer fadeInTimer = new Timer { Interval = 10 };
+            fadeInTimer.Tick += (s, e) =>
+            {
+                if (this.Opacity < 1)
+                {
+                    this.Opacity += 0.04;
+                }
+                else
+                {
+                    fadeInTimer.Stop();
+                }
+            };
+            fadeInTimer.Start();
+        }
+
 
         private void EndEscola_Load(object sender, EventArgs e)
         {

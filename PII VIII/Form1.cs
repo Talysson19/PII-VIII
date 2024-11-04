@@ -431,8 +431,6 @@ namespace PII_VIII
 
 
         //CONEXÃO ENTRE OS FORMS
-
-
         private async void relatoriobtn_click(object sender, EventArgs e)
         {
             Relatórios rel = new Relatórios();
@@ -454,8 +452,6 @@ namespace PII_VIII
             await MostrarComTransicaoAsync(rel);
         }
 
-
-        
         private async void endereçoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EndAluno endAluno = new EndAluno();
@@ -463,22 +459,12 @@ namespace PII_VIII
 
         }
 
-
-
         private async void endereçoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             EndEscola endEscola = new EndEscola();
             await MostrarComTransicaoAsync(endEscola);
 
         }
-
-
-
-
-
-
-
-
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -492,13 +478,10 @@ namespace PII_VIII
             await MostrarComTransicaoAsync(rel);
         }
 
-
-     
-
         private void button7_Click_1(object sender, EventArgs e)
         {
-            CadastroAlunoDesempenhoDisciplina cadAl = new CadastroAlunoDesempenhoDisciplina();
-            cadAl.ShowDialog();
+            EndAluno endA = new EndAluno();
+            endA.ShowDialog();
         }
 
         private void button8_Click(object sender, EventArgs e)

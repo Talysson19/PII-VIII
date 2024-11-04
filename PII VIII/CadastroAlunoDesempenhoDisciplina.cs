@@ -21,20 +21,20 @@ namespace PII_VIII
 
         private void ApplyFadeInTransition()
         {
-            this.Opacity = 0; // Define a opacidade inicial como 0
-            Timer fadeInTimer = new Timer { Interval = 10 }; // Cria um timer para controle da opacidade
+            this.Opacity = 0;
+            Timer fadeInTimer = new Timer { Interval = 10 }; 
             fadeInTimer.Tick += (s, e) =>
             {
                 if (this.Opacity < 1)
                 {
-                    this.Opacity += 0.04; // Aumenta a opacidade gradualmente
+                    this.Opacity += 0.04;
                 }
                 else
                 {
-                    fadeInTimer.Stop(); // Para o timer quando a opacidade atinge 1
+                    fadeInTimer.Stop();
                 }
             };
-            fadeInTimer.Start(); // Inicia o timer para começar o efeito
+            fadeInTimer.Start();
         }
 
 
@@ -127,7 +127,7 @@ namespace PII_VIII
 
         private void btnSalvarDisc_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Server=DESKTOP-DQNSI4G;Database=EscolaCC;Integrated Security=True;";
+            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
