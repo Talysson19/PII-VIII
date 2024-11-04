@@ -45,7 +45,7 @@ namespace PII_VIII
 
         private void btnCadastrosEscolas_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Server=DESKTOP-DQNSI4G;Database=EscolaCC;Integrated Security=True;";
+            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -96,7 +96,7 @@ namespace PII_VIII
         private void btnCadastroRec_Click(object sender, EventArgs e)
         {
 
-            string connectionString = @"Server=DESKTOP-DQNSI4G;Database=EscolaCC;Integrated Security=True;";
+            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -152,7 +152,7 @@ namespace PII_VIII
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Server=DESKTOP-DQNSI4G;Database=EscolaCC;Integrated Security=True;";
+            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
