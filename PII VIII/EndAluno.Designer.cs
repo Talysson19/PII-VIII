@@ -53,7 +53,7 @@
             this.btnSalvarEndAluno.Name = "btnSalvarEndAluno";
             this.btnSalvarEndAluno.Size = new System.Drawing.Size(130, 66);
             this.btnSalvarEndAluno.TabIndex = 42;
-            this.btnSalvarEndAluno.Text = "Salvar e Sair\r\n";
+            this.btnSalvarEndAluno.Text = "Salvar\r\n";
             this.btnSalvarEndAluno.UseVisualStyleBackColor = true;
             this.btnSalvarEndAluno.Click += new System.EventHandler(this.btnSalvarEndAluno_Click);
             // 

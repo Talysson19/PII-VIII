@@ -86,7 +86,7 @@ namespace PII_VIII
                 });
 
                 MessageBox.Show("Dados salvos com sucesso!");
-                this.Close();
+               
             }
             catch (Exception ex)
             {
