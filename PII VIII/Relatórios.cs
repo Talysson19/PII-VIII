@@ -31,7 +31,6 @@ namespace PII_VIII
             this.BackColor = System.Drawing.Color.FromArgb(224, 224, 224);
 
         }
-        
         private async Task LoadCombinedDataAsync()
         {
             DataTable schoolsTable = databaseService.GetSchoolsFromSQL();
@@ -99,8 +98,6 @@ namespace PII_VIII
                 Sair.Click += new EventHandler(Sair_Click);
             
 
-
-            
             Label titleLabel = new Label
             {
                 Text = "Relatórios de Escolas",
