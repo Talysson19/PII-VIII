@@ -11,7 +11,10 @@ namespace PII_VIII
         private DatabaseService databaseService;
         private Button Sair;
         private DataGridView dataGridView;
-
+        private Panel headerPanel;
+        private PictureBox logoPic;
+        private Label toggleLabel;
+        private Panel sideBarPanel;
 
 
         public Relatórios()
@@ -23,14 +26,15 @@ namespace PII_VIII
             this.BackColor = System.Drawing.Color.FromArgb(224, 224, 224);
             CustomizeDesign();
             ApplyHoverEffect();
+
         }
 
         private async void Relatórios_Load(object sender, EventArgs e)
         {
             await LoadCombinedDataAsync();
-            this.BackColor = System.Drawing.Color.FromArgb(224, 224, 224);
 
         }
+
         private async Task LoadCombinedDataAsync()
         {
             DataTable schoolsTable = databaseService.GetSchoolsFromSQL();
@@ -64,8 +68,8 @@ namespace PII_VIII
             dataGridView.DataSource = combinedTable;
         }
 
-        
-       
+
+
 
         private void CustomizeDesign()
         {
@@ -76,13 +80,14 @@ namespace PII_VIII
                 BackColor = Color.FromArgb(31, 31, 31)
             };
 
-            Panel sideBarPanel = new Panel
+            logoPic = new PictureBox
             {
-                Dock = DockStyle.Left,
-                Height = 20,
-                BackColor = Color.FromArgb(31, 31, 31)
+                Image = Image.FromFile("images/unifenas1.logo.png"),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Size = new Size(280, 80),
+                Location = new System.Drawing.Point(10, 10)
             };
-
+            headerPanel.Controls.Add(logoPic);
 
             Sair = new Button
             {
@@ -94,9 +99,9 @@ namespace PII_VIII
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat
             };
-                Sair.FlatAppearance.BorderSize = 0;
-                Sair.Click += new EventHandler(Sair_Click);
-            
+            Sair.FlatAppearance.BorderSize = 0;
+            Sair.Click += new EventHandler(Sair_Click);
+
 
             Label titleLabel = new Label
             {
@@ -106,6 +111,43 @@ namespace PII_VIII
                 Dock = DockStyle.Fill,
                 TextAlign = ContentAlignment.MiddleCenter
             };
+
+
+
+            toggleLabel = new Label
+            {
+                Text = "≡",
+                Font = new Font("Arial", 20, FontStyle.Bold),
+                AutoSize = true,
+                BackColor = Color.FromArgb(200,200,200),
+                Location = new Point(5, headerPanel.Height + 5),
+                ForeColor = Color.Black,
+                Cursor = Cursors.Hand
+            };
+            toggleLabel.Click += ToggleLabel_Click;
+            this.Controls.Add(toggleLabel);
+
+            sideBarPanel = new Panel
+            {
+                Location = new Point(0, headerPanel.Height),
+                Size = new Size(0, this.ClientSize.Height - headerPanel.Height),
+                BackColor = Color.Gray
+            };
+
+            this.Resize += (s, e) =>
+            {
+                headerPanel.Width = this.ClientSize.Width;
+                sideBarPanel.Height = this.ClientSize.Height - headerPanel.Height;
+            };
+
+            logoPic = new PictureBox
+            {
+                Image = Image.FromFile("images/unifenas1.logo.png"),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Size = new Size(280, 80),
+                Location = new System.Drawing.Point(10, 10)
+            };
+            headerPanel.Controls.Add(logoPic);
 
             headerPanel.Controls.Add(titleLabel);
             headerPanel.Controls.Add(Sair);
@@ -119,11 +161,11 @@ namespace PII_VIII
             };
             this.Controls.Add(bodyPanel);
 
-          
+
             dataGridView = new DataGridView
             {
                 Size = new Size(720, 265),
-                Location = new Point(350, 200), 
+                Location = new Point(350, 200),
                 BackgroundColor = Color.White,
                 ForeColor = Color.Black,
                 BorderStyle = BorderStyle.None,
@@ -142,10 +184,32 @@ namespace PII_VIII
                 RowHeadersVisible = false,
                 ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
             };
-            dataGridView.CellClick += (s, e) => dataGridView.ClearSelection(); 
+            dataGridView.CellClick += (s, e) => dataGridView.ClearSelection();
 
             bodyPanel.Controls.Add(dataGridView);
         }
+
+
+
+        private void ToggleLabel_Click(object sender, EventArgs e)
+        {
+            if (sideBarPanel.Width == 0)
+            {
+
+                this.toggleLabel.BackColor = Color.FromArgb(127, 127, 127);
+                sideBarPanel.Width = 200;
+
+
+            }
+            else
+            {
+                this.toggleLabel.BackColor = Color.FromArgb(200, 200, 200);
+                sideBarPanel.Width = 0;
+            }
+
+
+        }
+
 
         private void Sair_Click(object sender, EventArgs e)
         {
@@ -167,6 +231,6 @@ namespace PII_VIII
             }
         }
 
-        
+
     }
 }
