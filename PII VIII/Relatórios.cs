@@ -16,6 +16,11 @@ namespace PII_VIII
         private Label toggleLabel;
         private Panel sideBarPanel;
 
+        private Timer sidebarTimer;
+        private bool isSidebarVisible = false;
+        private const int maxSidebarWidth = 350;
+        private const int widthStep = 20;
+        private const int opacityStep = 20;
 
         public Relatórios()
         {
@@ -26,6 +31,54 @@ namespace PII_VIII
             this.BackColor = System.Drawing.Color.FromArgb(224, 224, 224);
             CustomizeDesign();
             ApplyHoverEffect();
+
+
+            sidebarTimer = new Timer { Interval = 20 };
+            sidebarTimer.Tick += SidebarTimer_Tick;
+
+            sideBarPanel.BackColor = Color.FromArgb(0, Color.Gray);
+
+        }
+
+        private void SidebarTimer_Tick(object sender, EventArgs e)
+        {
+
+            if (isSidebarVisible)
+            {
+                if (sideBarPanel.Width < maxSidebarWidth)
+                {
+                    sideBarPanel.Width += widthStep;
+                }
+
+                int currentAlpha = sideBarPanel.BackColor.A + opacityStep;
+                if (currentAlpha >= 255)
+                {
+                    sideBarPanel.BackColor = Color.FromArgb(255, Color.Gray);
+                    sidebarTimer.Stop();
+                }
+                else
+                {
+                    sideBarPanel.BackColor = Color.FromArgb(currentAlpha, Color.Gray);
+                }
+            }
+            else
+            {
+                if (sideBarPanel.Width > 0)
+                {
+                    sideBarPanel.Width -= widthStep;
+                }
+
+                int currentAlpha = sideBarPanel.BackColor.A - opacityStep;
+                if (currentAlpha <= 0)
+                {
+                    sideBarPanel.BackColor = Color.FromArgb(0, Color.Gray);
+                    sidebarTimer.Stop();
+                }
+                else
+                {
+                    sideBarPanel.BackColor = Color.FromArgb(currentAlpha, Color.Gray);
+                }
+            }
 
         }
 
@@ -127,7 +180,7 @@ namespace PII_VIII
             toggleLabel.Click += ToggleLabel_Click;
             this.Controls.Add(toggleLabel);
 
-            sideBarPanel = new Panel
+            sideBarPanel = new BufferedPanel
             {
                 Location = new Point(0, headerPanel.Height),
                 Size = new Size(0, this.ClientSize.Height - headerPanel.Height),
@@ -189,27 +242,26 @@ namespace PII_VIII
             bodyPanel.Controls.Add(dataGridView);
         }
 
-
-
         private void ToggleLabel_Click(object sender, EventArgs e)
         {
-            if (sideBarPanel.Width == 0)
+            isSidebarVisible = !isSidebarVisible;
+            sidebarTimer.Start();
+
+            if (isSidebarVisible)
             {
-
-                this.toggleLabel.BackColor = Color.FromArgb(127, 127, 127);
-                sideBarPanel.Width = 200;
-
-
+                sideBarPanel.Width = 0;
+                sideBarPanel.BackColor = Color.FromArgb(0, Color.Gray);
+                toggleLabel.BackColor = Color.FromArgb(127, 127, 127);
             }
             else
             {
-                this.toggleLabel.BackColor = Color.FromArgb(200, 200, 200);
-                sideBarPanel.Width = 0;
+                toggleLabel.BackColor = Color.FromArgb(200, 200, 200);
             }
-
-
         }
 
+
+
+      
 
         private void Sair_Click(object sender, EventArgs e)
         {

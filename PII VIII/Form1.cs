@@ -135,7 +135,7 @@ namespace PII_VIII
 
             ConectarSqlServer();
             await ConectarNeo4jAsync();
-            MessageBox.Show("Conexão com SQL Server e Neo4j realizada com sucesso!");
+           // MessageBox.Show("Conexão com SQL Server e Neo4j realizada com sucesso!");
         }
 
 

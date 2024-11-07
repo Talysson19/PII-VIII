@@ -80,6 +80,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BufferedPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CadastroAlunoDesempenhoDisciplina.cs">
       <SubType>Form</SubType>
     </Compile>
