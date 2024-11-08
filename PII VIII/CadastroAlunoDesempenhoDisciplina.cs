@@ -36,7 +36,15 @@ namespace PII_VIII
             };
             fadeInTimer.Start();
         }
+        //DESIGN CADASTRO
 
+     
+
+
+
+
+
+        //FIM DESGIN CADASTRO
 
         private async Task MostrarComTransicaoAsync(CadastroAlunoDesempenhoDisciplina form)
         {

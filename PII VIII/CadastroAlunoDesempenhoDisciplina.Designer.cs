@@ -83,10 +83,13 @@
             // 
             // btnSalvarDisc
             // 
-            this.btnSalvarDisc.Location = new System.Drawing.Point(872, 105);
+            this.btnSalvarDisc.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnSalvarDisc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalvarDisc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnSalvarDisc.Location = new System.Drawing.Point(859, 109);
             this.btnSalvarDisc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSalvarDisc.Name = "btnSalvarDisc";
-            this.btnSalvarDisc.Size = new System.Drawing.Size(185, 42);
+            this.btnSalvarDisc.Size = new System.Drawing.Size(198, 59);
             this.btnSalvarDisc.TabIndex = 3;
             this.btnSalvarDisc.Text = "Cadastrar Disciplina";
             this.btnSalvarDisc.UseVisualStyleBackColor = true;
@@ -238,11 +241,14 @@
             // 
             // btnCadastrarEndA
             // 
-            this.btnCadastrarEndA.Location = new System.Drawing.Point(263, 506);
+            this.btnCadastrarEndA.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnCadastrarEndA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrarEndA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnCadastrarEndA.Location = new System.Drawing.Point(247, 502);
             this.btnCadastrarEndA.Name = "btnCadastrarEndA";
-            this.btnCadastrarEndA.Size = new System.Drawing.Size(118, 77);
+            this.btnCadastrarEndA.Size = new System.Drawing.Size(198, 59);
             this.btnCadastrarEndA.TabIndex = 52;
-            this.btnCadastrarEndA.Text = "Cadastrar Endereço do Aluno";
+            this.btnCadastrarEndA.Text = "Cadastrar  Aluno";
             this.btnCadastrarEndA.UseVisualStyleBackColor = true;
             this.btnCadastrarEndA.Click += new System.EventHandler(this.btnCadastrarEndA_Click);
             // 
@@ -310,9 +316,12 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(579, 524);
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.button1.Location = new System.Drawing.Point(676, 541);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(226, 59);
+            this.button1.Size = new System.Drawing.Size(198, 59);
             this.button1.TabIndex = 105;
             this.button1.Text = "Cadastro End Alunos";
             this.button1.UseVisualStyleBackColor = true;
@@ -377,9 +386,12 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1306, 265);
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.button2.Location = new System.Drawing.Point(1297, 261);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(207, 39);
+            this.button2.Size = new System.Drawing.Size(198, 69);
             this.button2.TabIndex = 114;
             this.button2.Text = "Desempenho Acadêmico";
             this.button2.UseVisualStyleBackColor = true;
