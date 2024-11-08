@@ -145,7 +145,7 @@
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(263, 49);
+            this.txtNome.Location = new System.Drawing.Point(263, 51);
             this.txtNome.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(220, 26);
