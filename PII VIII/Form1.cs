@@ -17,7 +17,7 @@ namespace PII_VIII
 
 
         private string connectionString =
-             @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
+             @"Server=DESKTOP-R5PIHTR\SQLEXPRESS01;Database=EscolaCC;Integrated Security=True;";
 
         private bool isDragging = false;
         private System.Drawing.Point lastCursor;
@@ -103,7 +103,7 @@ namespace PII_VIII
 
             escPubPic = new PictureBox
             {
-                Image = Image.FromFile(@"C:\Users\Pichau\OneDrive\Área de Trabalho\Documentos\Área de Trabalho\PII-VIII-master\PII-VIII\PII VIII\images\\escolapublica.jpg"),
+                Image = Image.FromFile(@"D:\Usuario\Desktop\PII VII\PII VIII\images\\escolapublica.jpg"),
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 Size = new Size(400, 280),
                 Location = new System.Drawing.Point(500, 150),
@@ -116,7 +116,7 @@ namespace PII_VIII
 
             escPartPic = new PictureBox
             {
-                Image = Image.FromFile(@"C:\Users\Pichau\OneDrive\Área de Trabalho\Documentos\Área de Trabalho\PII-VIII-master\PII-VIII\PII VIII\images\\escolaparticular.png"),
+                Image = Image.FromFile(@"D:\Usuario\Desktop\PII VII\PII VIII\images\\escolaparticular.png"),
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 Size = new Size(400, 280),
                 Location = new System.Drawing.Point(500, 150),
@@ -211,7 +211,7 @@ namespace PII_VIII
             this.Controls.Add(escPic);
 
 
-            escPic.Image = Image.FromFile(@"C:\Users\Pichau\OneDrive\Área de Trabalho\Documentos\Área de Trabalho\PII-VIII-master\PII-VIII\PII VIII\images\\escolapublica.jpg");
+            escPic.Image = Image.FromFile(@"D:\Usuario\Desktop\PII VII\PII VIII\images\\escolapublica.jpg");
 
 
             imageSwitchTimer = new Timer();
@@ -225,11 +225,11 @@ namespace PII_VIII
         {
             if (isPublicImage)
             {
-                escPic.Image = Image.FromFile(@"C:\Users\Pichau\OneDrive\Área de Trabalho\Documentos\Área de Trabalho\PII-VIII-master\PII-VIII\PII VIII\images\\escolaparticular.png");
+                escPic.Image = Image.FromFile(@"D:\Usuario\Desktop\PII VII\PII VIII\images\\escolaparticular.png");
             }
             else
             {
-                escPic.Image = Image.FromFile(@"C:\Users\Pichau\OneDrive\Área de Trabalho\Documentos\Área de Trabalho\PII-VIII-master\PII-VIII\PII VIII\images\\escolapublica.jpg");
+                escPic.Image = Image.FromFile(@"D:\Usuario\Desktop\PII VII\PII VIII\images\\escolapublica.jpg");
             }
             isPublicImage = !isPublicImage;
         }
