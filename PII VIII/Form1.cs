@@ -348,10 +348,10 @@ namespace PII_VIII
             Application.Exit(); 
         }
 
-        private void contatobtn_click(object sender, EventArgs e)
+        private async void contatobtn_click(object sender, EventArgs e)
         {
              Contato contatoa = new Contato();
-            contatoa.ShowDialog();
+            await MostrarComTransicaoAsync(contatoa);
         }
 
         //CORPO DO PROJETO
