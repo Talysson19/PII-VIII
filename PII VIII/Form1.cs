@@ -13,11 +13,7 @@ namespace PII_VIII
 {
     public partial class Form1 : Form
     {
-        //ATENÇÃO!!!!!!!!!!!!!
-        //FAÇA AS ALTERAÇÕES NA SUA BRANCH > PASSE PARA A BRANCH MASTER
-        //ENTRE EM Exibir > Alterações > Insira uma Mensagem de texto para salvar > Confirma Tudo
-        //ENTRE NAS OPÇÕES DAS BRANCH > CLIQUE NOS 3 PONTINHOS DA DIREITA > Gerenciar Ramificações
-        //NA OPÇÃO De Saída > CLIQUE EM 'Enviar por Push'
+        
 
 
         private string connectionString =
@@ -27,8 +23,6 @@ namespace PII_VIII
         private System.Drawing.Point lastCursor;
         private System.Drawing.Point lastMenuStrip;
 
-
-        //Objetos para colocar no projeto
         private Label descricaoProjeto;
         private PictureBox logoPic;
         private Label titulos;
@@ -45,7 +39,6 @@ namespace PII_VIII
         private float opacity = 1.0f;
 
 
-        //CABECALHO
         private Panel headerPanel;
         private Label titleLabel;
         private Button relatoriobtn, sobrebtn, contatobtn;
@@ -135,7 +128,7 @@ namespace PII_VIII
 
             ConectarSqlServer();
             await ConectarNeo4jAsync();
-           // MessageBox.Show("Conexão com SQL Server e Neo4j realizada com sucesso!");
+            //MessageBox.Show("Conexão com SQL Server e Neo4j realizada com sucesso!");
         }
 
 
@@ -165,7 +158,6 @@ namespace PII_VIII
                 {
                     opacity = 0;
                     isFadingOut = false;
-                    // Troque a imagem aqui
                     if (escPubPic.Visible)
                     {
                         escPic.Visible = false;
@@ -356,18 +348,13 @@ namespace PII_VIII
             Application.Exit(); 
         }
 
-
-
+        private void contatobtn_click(object sender, EventArgs e)
+        {
+             Contato contatoa = new Contato();
+            contatoa.ShowDialog();
+        }
 
         //CORPO DO PROJETO
-
-
-
-
-
-
-
-
 
         //TRANSIÇÃO ENTRE OS FORMS
         private async Task MostrarComTransicaoAsync(Form form)
@@ -441,10 +428,7 @@ namespace PII_VIII
         {
 
         }
-        private async void contatobtn_click(object sender, EventArgs e)
-        {
-            
-        }
+       
 
         private async void relatorio_click(object sender, EventArgs e)
         {

@@ -95,6 +95,12 @@
     <Compile Include="CadastroEscolaRec.Designer.cs">
       <DependentUpon>CadastroEscolaRec.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contato.Designer.cs">
+      <DependentUpon>Contato.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomProjeto.cs" />
     <Compile Include="DatabaseService.cs" />
     <Compile Include="EndAluno.cs">
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CadastroEscolaRec.resx">
       <DependentUpon>CadastroEscolaRec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contato.resx">
+      <DependentUpon>Contato.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EndAluno.resx">
       <DependentUpon>EndAluno.cs</DependentUpon>
