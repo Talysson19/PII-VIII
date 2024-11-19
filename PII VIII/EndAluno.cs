@@ -144,7 +144,7 @@ namespace PII_VIII
             button1 = new Button
             {
                 Text = "Cadastro Aluno",
-                Size = new Size(100, 40),
+                Size = new Size(100, 50),
                 Location = new System.Drawing.Point(this.ClientSize.Width - 250, this.ClientSize.Height - 60),
                 Anchor = AnchorStyles.Bottom | AnchorStyles.Right,
                 BackColor = Color.Black,
@@ -198,22 +198,36 @@ namespace PII_VIII
         private void ApplyStyles()
         {
             this.BackColor = Color.FromArgb(211, 211, 211);
+            foreach (Control control in this.Controls)
+            {
+                if (control is Button button)
+                {
+                    button.FlatStyle = FlatStyle.Flat;
+                    button.BackColor = Color.Black;
+                    button.ForeColor = Color.White;
+                    button.Font = new Font("Arial", 10, FontStyle.Bold);
+                    button.FlatAppearance.BorderSize = 1;
+                    button.FlatAppearance.BorderColor = Color.White;
+                }
+            }
 
 
             foreach (Control control in this.Controls)
             {
                 if (control is TextBox textBox)
                 {
+                    textBox.Font = new Font("Arial", 10);
                     textBox.BackColor = Color.WhiteSmoke;
                     textBox.BorderStyle = BorderStyle.FixedSingle;
                     textBox.Margin = new Padding(10);
-                    textBox.ForeColor = Color.Gray;
                 }
             }
+
             foreach (Control control in this.Controls)
             {
                 if (control is ComboBox comboBox)
                 {
+                    comboBox.Font = new Font("Arial", 10);
                     comboBox.BackColor = Color.WhiteSmoke;
                     comboBox.Padding = new Padding(10);
                     comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -224,6 +238,7 @@ namespace PII_VIII
             {
                 if (control is Label label)
                 {
+                    label.Font = new Font("Arial", 10);
                     label.ForeColor = Color.Black;
                 }
             }

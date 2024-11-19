@@ -16,6 +16,7 @@ namespace PII_VIII
 
         public EndEscola()
         {
+
             this.FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
@@ -177,13 +178,33 @@ namespace PII_VIII
             contentPanel.Controls.Add(buttonLayout);
             this.Controls.Add(contentPanel);
         }
-
+        
 
         private void ApplyStyles()
         {
             this.BackColor = Color.FromArgb(211, 211, 211);
+            foreach (Control control in this.Controls)
+            {
+                if (control is Button button)
+                {
+                    button.FlatStyle = FlatStyle.Flat;
+                    button.BackColor = Color.Black;
+                    button.ForeColor = Color.White;
+                    button.Font = new Font("Arial", 10, FontStyle.Bold);
+                    button.FlatAppearance.BorderSize = 1;
+                    button.FlatAppearance.BorderColor = Color.White;
+                }
+            }
 
-           
+            foreach (Control control in this.Controls)
+            {
+                if (control is TextBox textBox)
+                {
+                    textBox.Font = new Font("Arial", 10);
+                    textBox.BackColor = Color.WhiteSmoke;
+                }
+            }
+
 
             foreach (Control control in this.Controls)
             {
