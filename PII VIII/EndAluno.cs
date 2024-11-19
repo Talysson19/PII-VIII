@@ -238,8 +238,10 @@ namespace PII_VIII
             {
                 if (control is Label label)
                 {
-                    label.Font = new Font("Arial", 10);
-                    label.ForeColor = Color.Black;
+                    label.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                    label.ForeColor = Color.FromArgb(31, 31, 31);
+                    label.BackColor = Color.Transparent;
+                    label.TextAlign = ContentAlignment.MiddleLeft;
                 }
             }
         }

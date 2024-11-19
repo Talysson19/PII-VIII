@@ -145,6 +145,18 @@ namespace PII_VIII
                     textBox.BackColor = Color.WhiteSmoke;
                 }
             }
+            foreach (Control control in this.Controls)
+            {
+                if (control is Label label)
+                {
+
+                    label.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                    label.ForeColor = Color.FromArgb(31, 31, 31);
+                    label.BackColor = Color.Transparent;
+                    label.TextAlign = ContentAlignment.MiddleLeft;
+
+                }
+            }
         }
 
 
