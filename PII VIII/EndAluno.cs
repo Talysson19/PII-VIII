@@ -26,6 +26,16 @@ namespace PII_VIII
             InicializarConteudo();
             ApplyFadeInTransition();
             ApplyStyles();
+
+            txtIDEndAluno.TextAlign = HorizontalAlignment.Center;
+            txtRua.TextAlign = HorizontalAlignment.Center;
+            txtNum.TextAlign = HorizontalAlignment.Center;
+            txtCep.TextAlign = HorizontalAlignment.Center;
+            txtBairro.TextAlign = HorizontalAlignment.Center;
+            txtCidade.TextAlign = HorizontalAlignment.Center;
+            txtEstado.TextAlign = HorizontalAlignment.Center;
+
+            AddPlaceholders();
         }
         
         private void Button1_Click(object sender, EventArgs e)
@@ -189,40 +199,36 @@ namespace PII_VIII
         {
             this.BackColor = Color.FromArgb(211, 211, 211);
 
-            foreach (Control control in contentPanel.Controls)
+
+            foreach (Control control in this.Controls)
             {
-                if (control is Button button)
+                if (control is TextBox textBox)
                 {
-                    button.FlatStyle = FlatStyle.Flat;
-                    button.BackColor = Color.FromArgb(31, 31, 31, 12);
-                    button.ForeColor = Color.Black;
-                    button.Font = new Font("Arial", 10, FontStyle.Bold);
-                    button.FlatAppearance.BorderSize = 2;
-                    button.FlatAppearance.BorderColor = Color.Black;
-                    button.FlatAppearance.MouseOverBackColor = Color.AntiqueWhite;
-                }
-                else if (control is TextBox textBox)
-                {
-                    textBox.Font = new Font("Arial", 10);
-                    textBox.BackColor
-                    = Color.WhiteSmoke;
+                    textBox.BackColor = Color.WhiteSmoke;
                     textBox.BorderStyle = BorderStyle.FixedSingle;
                     textBox.Margin = new Padding(10);
+                    textBox.ForeColor = Color.Gray;
                 }
-                else if (control is ComboBox comboBox)
+            }
+            foreach (Control control in this.Controls)
+            {
+                if (control is ComboBox comboBox)
                 {
-                    comboBox.Font = new Font("Arial", 10);
                     comboBox.BackColor = Color.WhiteSmoke;
                     comboBox.Padding = new Padding(10);
                     comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
                 }
-                else if (control is Label label)
+            }
+
+            foreach (Control control in this.Controls)
+            {
+                if (control is Label label)
                 {
-                    label.Font = new Font("Arial", 8);
                     label.ForeColor = Color.Black;
                 }
             }
         }
+
 
         private void EndEscola_Load(object sender, EventArgs e)
         {
@@ -256,6 +262,43 @@ namespace PII_VIII
                 }
             };
             fadeOutTimer.Start();
+        }
+        private void AddPlaceholderEvents(TextBox textBox, string placeholder)
+        {
+            if (string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                textBox.Text = placeholder;
+                textBox.ForeColor = Color.Gray;
+            }
+
+            textBox.Enter += (s, e) =>
+            {
+                if (textBox.Text == placeholder)
+                {
+                    textBox.Text = "";
+                    textBox.ForeColor = Color.Black;
+                }
+            };
+
+            textBox.Leave += (s, e) =>
+            {
+                if (string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    textBox.Text = placeholder;
+                    textBox.ForeColor = Color.Gray;
+                }
+            };
+        }
+
+        private void AddPlaceholders()
+        {
+            AddPlaceholderEvents(txtIDEndAluno, "Digite o ID...");
+            AddPlaceholderEvents(txtRua, "Digite a rua...");
+            AddPlaceholderEvents(txtNum, "Digite o número...");
+            AddPlaceholderEvents(txtCep, "Digite o CEP...");
+            AddPlaceholderEvents(txtBairro, "Digite o bairro...");
+            AddPlaceholderEvents(txtCidade, "Digite a cidade...");
+            AddPlaceholderEvents(txtEstado, "Digite o estado...");
         }
     }
 }

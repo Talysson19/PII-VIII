@@ -69,7 +69,7 @@
             this.txtCidade.Location = new System.Drawing.Point(260, 523);
             this.txtCidade.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCidade.Name = "txtCidade";
-            this.txtCidade.Size = new System.Drawing.Size(121, 26);
+            this.txtCidade.Size = new System.Drawing.Size(167, 26);
             this.txtCidade.TabIndex = 40;
             // 
             // txtCep
@@ -85,7 +85,7 @@
             this.txtBairro.Location = new System.Drawing.Point(260, 460);
             this.txtBairro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtBairro.Name = "txtBairro";
-            this.txtBairro.Size = new System.Drawing.Size(126, 26);
+            this.txtBairro.Size = new System.Drawing.Size(167, 26);
             this.txtBairro.TabIndex = 38;
             // 
             // txtNum
@@ -93,7 +93,7 @@
             this.txtNum.Location = new System.Drawing.Point(260, 347);
             this.txtNum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNum.Name = "txtNum";
-            this.txtNum.Size = new System.Drawing.Size(77, 26);
+            this.txtNum.Size = new System.Drawing.Size(167, 26);
             this.txtNum.TabIndex = 37;
             // 
             // label6
@@ -146,7 +146,7 @@
             this.txtRua.Location = new System.Drawing.Point(260, 293);
             this.txtRua.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtRua.Name = "txtRua";
-            this.txtRua.Size = new System.Drawing.Size(156, 26);
+            this.txtRua.Size = new System.Drawing.Size(167, 26);
             this.txtRua.TabIndex = 31;
             // 
             // label1
@@ -162,7 +162,7 @@
             // 
             this.txtIDEndAluno.Location = new System.Drawing.Point(260, 238);
             this.txtIDEndAluno.Name = "txtIDEndAluno";
-            this.txtIDEndAluno.Size = new System.Drawing.Size(156, 26);
+            this.txtIDEndAluno.Size = new System.Drawing.Size(167, 26);
             this.txtIDEndAluno.TabIndex = 43;
             // 
             // label7

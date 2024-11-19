@@ -24,6 +24,15 @@ namespace PII_VIII
             InicializarCabecalho();
             InicializarConteudo();
             ApplyStyles();
+
+
+            AddPlaceholderEvents(txtNomeEndE, "Digite o nome da escola...");
+            AddPlaceholderEvents(txtNumEndE, "Digite o número...");
+            AddPlaceholderEvents(txtCEPEndE, "Digite o CEP...");
+            AddPlaceholderEvents(txtBairroEndE, "Digite o bairro...");
+            AddPlaceholderEvents(txtCidadeEndE, "Digite a cidade...");
+            AddPlaceholderEvents(txtEstadoEndE, "Digite o estado...");
+            AddPlaceholderEvents(txtEndEID, "Digite o ID...");
         }
      
 
@@ -169,43 +178,70 @@ namespace PII_VIII
             this.Controls.Add(contentPanel);
         }
 
+
         private void ApplyStyles()
         {
             this.BackColor = Color.FromArgb(211, 211, 211);
 
-            foreach (Control control in contentPanel.Controls)
+           
+
+            foreach (Control control in this.Controls)
             {
-                if (control is Button button)
-                {
-                    button.FlatStyle = FlatStyle.Flat;
-                    button.BackColor = Color.FromArgb(31, 31, 31, 12);
-                    button.ForeColor = Color.Black;
-                    button.Font = new Font("Arial", 10, FontStyle.Bold);
-                    button.FlatAppearance.BorderSize = 2;
-                    button.FlatAppearance.BorderColor = Color.Black;
-                    button.FlatAppearance.MouseOverBackColor = Color.AntiqueWhite;
-                }
-                else if (control is TextBox textBox)
+                if (control is TextBox textBox)
                 {
                     textBox.Font = new Font("Arial", 10);
                     textBox.BackColor = Color.WhiteSmoke;
                     textBox.BorderStyle = BorderStyle.FixedSingle;
                     textBox.Margin = new Padding(10);
                 }
-                else if (control is ComboBox comboBox)
+            }
+
+            foreach (Control control in this.Controls)
+            {
+                if (control is ComboBox comboBox)
                 {
                     comboBox.Font = new Font("Arial", 10);
                     comboBox.BackColor = Color.WhiteSmoke;
                     comboBox.Padding = new Padding(10);
                     comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
                 }
-                else if (control is Label label)
+            }
+
+            foreach (Control control in this.Controls)
+            {
+                if (control is Label label)
                 {
-                    label.Font = new Font("Arial", 8);
+                    label.Font = new Font("Arial", 10);
                     label.ForeColor = Color.Black;
                 }
             }
         }
+
+        private void AddPlaceholderEvents(TextBox textBox, string placeholder)
+        {
+            textBox.Text = placeholder;
+            textBox.ForeColor = Color.Gray;
+
+            textBox.Enter += (s, e) =>
+            {
+                if (textBox.Text == placeholder)
+                {
+                    textBox.Text = "";
+                    textBox.ForeColor = Color.Black;
+                }
+            };
+
+            textBox.Leave += (s, e) =>
+            {
+                if (string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    textBox.Text = placeholder;
+                    textBox.ForeColor = Color.Gray;
+                }
+            };
+        }
+
+
 
         private async void btnSalvarEndE_Click(object sender, EventArgs e)
         {
