@@ -249,7 +249,7 @@
             this.btnCadastrarEndA.TabIndex = 52;
             this.btnCadastrarEndA.Text = "Cadastrar  Aluno";
             this.btnCadastrarEndA.UseVisualStyleBackColor = true;
-            this.btnCadastrarEndA.Click += new System.EventHandler(this.btnCadastrarEndA_Click);
+            this.btnCadastrarEndA.Click += new System.EventHandler(this.btnCadastrarEndA_Click_1);
             // 
             // txtIDEscola
             // 

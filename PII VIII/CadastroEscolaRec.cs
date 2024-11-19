@@ -176,7 +176,7 @@ namespace PII_VIII
 
         private void btnCadastrosEscolas_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Server=DESKTOP-R5PIHTR\SQLEXPRESS01;Database=EscolaCC;Integrated Security=True;";
+            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -223,7 +223,7 @@ namespace PII_VIII
 
         private void btnCadastroRec_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Server=DESKTOP-R5PIHTR\SQLEXPRESS01;Database=EscolaCC;Integrated Security=True;";
+            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -267,6 +267,62 @@ namespace PII_VIII
                 }
             }
         }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    MessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
+                    return;
+                }
+            }
+
+            string nomeProf = txtNomeProf.Text;
+            DateTime dataNascimentoProf = dtpDataNasciProf.Value;
+            string generoProf = cmbGeneroProf.SelectedItem?.ToString();
+            string nivelEdu = txtNivelEducaProf.Text;
+            string especializacao = txtEspecializaçãoProf.Text;
+            int idEscola = int.Parse(txtIDEscolaProf.Text);
+            DateTime dataIngressoProf = dtpDataIngressoProf.Value;
+
+
+
+            string query = "INSERT INTO Professores (Nome, DataNascimentoProf, Genero, NivelEducacao, Especializacao, IDEscola, DataIngresso) " +
+                           "VALUES (@Nome, @DataNascimentoProf, @Genero, @NivelEducacao, @Especializacao, @IDEscola, @DataIngresso)";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@Nome", nomeProf);
+                command.Parameters.AddWithValue("@DataNascimentoProf", dataNascimentoProf);
+                command.Parameters.AddWithValue("@Genero", generoProf ?? (object)DBNull.Value);
+                command.Parameters.AddWithValue("@NivelEducacao", nivelEdu);
+                command.Parameters.AddWithValue("@Especializacao", especializacao);
+                command.Parameters.AddWithValue("@IDEscola", idEscola);
+                command.Parameters.AddWithValue("@DataIngresso", dataIngressoProf);
+
+
+                try
+                {
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    MessageBox.Show(rowsAffected > 0 ? "Professor cadastrado com sucesso!" : "Erro ao cadastrar aluno.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao inserir dados: " + ex.Message);
+                }
+            }
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -274,10 +330,7 @@ namespace PII_VIII
             endEscola.ShowDialog();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-          
-        }
+        
 
         private async void button2_Click_1(object sender, EventArgs e)
         {

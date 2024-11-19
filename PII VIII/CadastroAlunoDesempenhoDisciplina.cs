@@ -14,7 +14,7 @@ namespace PII_VIII
             this.FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
-            this.Text = "Cadastro de Aluno e Desempenho"; 
+            this.Text = "Cadastro de Aluno e Desempenho";
             ApplyFadeInTransition();
             ApplyStyles();
             InicializarBotaoSair();
@@ -60,7 +60,7 @@ namespace PII_VIII
                 );
             };
 
-            
+
 
             this.Controls.Add(panelHeader);
         }
@@ -122,7 +122,7 @@ namespace PII_VIII
 
         private void ApplyStyles()
         {
-            this.BackColor = Color.FromArgb(245, 245, 245); 
+            this.BackColor = Color.FromArgb(245, 245, 245);
 
             foreach (Control control in this.Controls)
             {
@@ -132,8 +132,8 @@ namespace PII_VIII
                     button.BackColor = Color.FromArgb(31, 31, 31, 12);
                     button.ForeColor = Color.Black;
                     button.Font = new Font("Arial", 10, FontStyle.Bold);
-                    button.FlatAppearance.BorderSize = 1; 
-                    button.FlatAppearance.BorderColor = Color.Black; 
+                    button.FlatAppearance.BorderSize = 1;
+                    button.FlatAppearance.BorderColor = Color.Black;
                     button.FlatAppearance.MouseOverBackColor = Color.AntiqueWhite;
                 }
             }
@@ -175,15 +175,6 @@ namespace PII_VIII
         }
 
 
-        private void btnCadastrarEndA_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void btnSalvarDisc_Click(object sender, EventArgs e)
-        {
-          
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -203,10 +194,11 @@ namespace PII_VIII
             fadeOutTimer.Start();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-    
-        }
+
+
+
+       
+
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -224,6 +216,154 @@ namespace PII_VIII
                 }
             };
             fadeOutTimer.Start();
+        }
+
+        private void btnCadastrarEndA_Click_1(object sender, EventArgs e)
+        {
+            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    MessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
+                    return;
+                }
+            }
+
+            string nome = txtNome.Text;
+            DateTime dataNascimento = dtpDataNascimento.Value;
+            string genero = cmbGenero.SelectedItem?.ToString();
+            string racaEtnia = cmbRaca.SelectedItem?.ToString();
+            int idEscola = int.Parse(txtIDEscola.Text);
+            string classeSocial = cmbClasseSocial.SelectedItem?.ToString();
+            string alunoEspecial = txtPcd.Text == "Sim" ? "Sim" : "Não";
+            string bolsa = txtBolsa.Text.Trim().Equals("Sim", StringComparison.OrdinalIgnoreCase) ? "Sim" : "Não";
+            int idEnderecoAluno = int.Parse(txtEndAluno.Text);
+            string abandono = txtAbandono.Text.Trim().Equals("Sim", StringComparison.OrdinalIgnoreCase) ? "Sim" : "Não";
+
+            string query = "INSERT INTO Alunos (Nome, DataNascimento, Genero, RacaEtnia, ClasseSocial, AlunoEspecial, Bolsa, IDEnderecoAluno, Abandono, IDEscola) " +
+                           "VALUES (@Nome, @DataNascimento, @Genero, @RacaEtnia, @ClasseSocial, @AlunoEspecial, @Bolsa, @IDEnderecoAluno, @Abandono, @IDEscola)";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@Nome", nome);
+                command.Parameters.AddWithValue("@DataNascimento", dataNascimento);
+                command.Parameters.AddWithValue("@Genero", genero ?? (object)DBNull.Value);
+                command.Parameters.AddWithValue("@RacaEtnia", racaEtnia ?? (object)DBNull.Value);
+                command.Parameters.AddWithValue("@ClasseSocial", classeSocial ?? (object)DBNull.Value);
+                command.Parameters.AddWithValue("@AlunoEspecial", alunoEspecial);
+                command.Parameters.AddWithValue("@Bolsa", bolsa);
+                command.Parameters.AddWithValue("@IDEnderecoAluno", idEnderecoAluno);
+                command.Parameters.AddWithValue("@Abandono", abandono);
+                command.Parameters.AddWithValue("@IDEscola", idEscola);
+
+                try
+                {
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    MessageBox.Show(rowsAffected > 0 ? "Aluno cadastrado com sucesso!" : "Erro ao cadastrar aluno.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao inserir dados: " + ex.Message);
+                }
+            }
+        }
+
+        private void btnSalvarDisc_Click(object sender, EventArgs e)
+        {
+            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    MessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
+                    return;
+                }
+            }
+
+            string nomeDis = txtDisciplina.Text;
+
+
+
+            string query = "INSERT INTO Disciplinas (Nome) " +
+                           "VALUES (@Nome)";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@Nome", nomeDis);
+
+
+                try
+                {
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    MessageBox.Show(rowsAffected > 0 ? "Disciplina cadastrada com sucesso!" : "Erro ao cadastrar aluno.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao inserir dados: " + ex.Message);
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    MessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
+                    return;
+                }
+            }
+
+            int idAluno = int.Parse(txtIDAluno.Text);
+            int idDisciplina = int.Parse(txtIDDisciplina.Text);
+            float notaMedia = float.Parse(txtNota.Text);
+
+            string query = "INSERT INTO DesempenhoAcademico (IDAluno, IDDisciplina, NotaMedia) " +
+                           "VALUES (@IDAluno, @IDDisciplina, @NotaMedia)";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@IDAluno", idAluno);
+                command.Parameters.AddWithValue("@IDDisciplina", idDisciplina);
+                command.Parameters.AddWithValue("@NotaMedia", notaMedia);
+
+                try
+                {
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    MessageBox.Show(rowsAffected > 0 ? "Desempenho Acadêmico cadastrado com sucesso!" : "Erro ao cadastrar aluno.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao inserir dados: " + ex.Message);
+                }
+            }
         }
     }
 }
