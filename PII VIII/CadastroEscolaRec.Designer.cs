@@ -46,7 +46,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnCadastroRec = new System.Windows.Forms.Button();
             this.txtQtd = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.cmbGeneroProf = new System.Windows.Forms.ComboBox();
             this.txtNomeProf = new System.Windows.Forms.TextBox();
@@ -62,7 +61,6 @@
             this.txtNivelEducaProf = new System.Windows.Forms.TextBox();
             this.txtEspecializaçãoProf = new System.Windows.Forms.TextBox();
             this.txtIDEscolaProf = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCadastrosEscolas
@@ -250,16 +248,6 @@
             this.txtQtd.Size = new System.Drawing.Size(182, 26);
             this.txtQtd.TabIndex = 103;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(598, 876);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(226, 59);
-            this.button1.TabIndex = 104;
-            this.button1.Text = "Cadastro End Escola";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -405,22 +393,11 @@
             this.txtIDEscolaProf.Size = new System.Drawing.Size(182, 26);
             this.txtIDEscolaProf.TabIndex = 124;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(12, 453);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(109, 61);
-            this.button2.TabIndex = 125;
-            this.button2.Text = "Sair";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
-            // 
             // CadastroEscolaRec
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1575, 974);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.txtIDEscolaProf);
             this.Controls.Add(this.txtEspecializaçãoProf);
             this.Controls.Add(this.txtNivelEducaProf);
@@ -436,7 +413,6 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.btnCadastroProf);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtQtd);
             this.Controls.Add(this.txtIDEscola);
             this.Controls.Add(this.label2);
@@ -499,6 +475,5 @@
         private System.Windows.Forms.TextBox txtNivelEducaProf;
         private System.Windows.Forms.TextBox txtEspecializaçãoProf;
         private System.Windows.Forms.TextBox txtIDEscolaProf;
-        private System.Windows.Forms.Button button2;
     }
 }

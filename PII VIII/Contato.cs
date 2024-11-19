@@ -85,7 +85,7 @@ namespace PII_VIII
         {
             sairbtn = new Button
             {
-                Text = "Sair",
+                Text = "Voltar",
                 Size = new Size(100, 40),
                 Location = new Point(this.ClientSize.Width - 120, this.ClientSize.Height - 60),
                 Anchor = AnchorStyles.Bottom | AnchorStyles.Right,
@@ -101,9 +101,20 @@ namespace PII_VIII
 
         private void VoltarParaForm1()
         {
-            Form1 form1 = new Form1();
-            form1.Show();
-            this.Close();
+            Timer fadeOutTimer = new Timer { Interval = 10 };
+            fadeOutTimer.Tick += (s, ev) =>
+            {
+                if (this.Opacity > 0)
+                {
+                    this.Opacity -= 0.04;
+                }
+                else
+                {
+                    fadeOutTimer.Stop();
+                    this.Close();
+                }
+            };
+            fadeOutTimer.Start();
         }
 
         private GroupBox CriarGroupBoxParaDesenvolvedor(Desenvolvedor dev, int topPosition, int formWidth, int groupBoxHeight)

@@ -8,6 +8,8 @@ namespace PII_VIII
 {
     public partial class EndAluno : Form
     {
+        private Button sairbtn;
+        private Button button1;
         private readonly Neo4jConnection _connection;
         private Panel headerPanel;
         private PictureBox logoPic;
@@ -24,6 +26,12 @@ namespace PII_VIII
             InicializarConteudo();
             ApplyFadeInTransition();
             ApplyStyles();
+        }
+        
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            CadastroAlunoDesempenhoDisciplina cada = new CadastroAlunoDesempenhoDisciplina();
+            cada.ShowDialog();
         }
 
         private void ApplyFadeInTransition()
@@ -71,7 +79,7 @@ namespace PII_VIII
 
             titleLabel = new Label
             {
-                Text = "Cadastro End Aluno",
+                Text = "Cadastro Endereço Aluno",
                 ForeColor = Color.White,
                 Font = new Font("Arial", 20, FontStyle.Bold),
                 AutoSize = true
@@ -87,9 +95,58 @@ namespace PII_VIII
                 titleLabel.Location = new System.Drawing.Point((headerPanel.Width - titleLabel.Width) / 2, (headerPanel.Height - titleLabel.Height) / 2);
             };
         }
+        
 
+        private void VoltarParaForm1()
+        {
+            Timer fadeOutTimer = new Timer { Interval = 10 };
+            fadeOutTimer.Tick += (s, ev) =>
+            {
+                if (this.Opacity > 0)
+                {
+                    this.Opacity -= 0.04;
+                }
+                else
+                {
+                    fadeOutTimer.Stop();
+                    this.Close();
+                }
+            };
+            fadeOutTimer.Start();
+        }
         private void InicializarConteudo()
         {
+            sairbtn = new Button
+            {
+                Text = "Voltar",
+                Size = new Size(100, 40),
+                Location = new System.Drawing.Point(this.ClientSize.Width - 120, this.ClientSize.Height - 60),
+                Anchor = AnchorStyles.Bottom | AnchorStyles.Right,
+                BackColor = Color.Black,
+                ForeColor = Color.White,
+                Font = new Font("Arial", 10, FontStyle.Bold),
+                FlatStyle = FlatStyle.Flat
+            };
+            sairbtn.FlatAppearance.BorderSize = 0;
+            sairbtn.Click += (sender, e) => VoltarParaForm1();
+            this.Controls.Add(sairbtn);
+
+            button1 = new Button
+            {
+                Text = "Cadastro Aluno",
+                Size = new Size(100, 40),
+                Location = new System.Drawing.Point(this.ClientSize.Width - 250, this.ClientSize.Height - 60),
+                Anchor = AnchorStyles.Bottom | AnchorStyles.Right,
+                BackColor = Color.Black,
+                ForeColor = Color.White,
+                Font = new Font("Arial", 9, FontStyle.Bold),
+                FlatStyle = FlatStyle.Flat
+            };
+
+            this.Controls.Add(button1);
+
+            button1.Click += Button1_Click;
+
             contentPanel = new Panel
             {
                 Dock = DockStyle.Fill,
@@ -185,7 +242,20 @@ namespace PII_VIII
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Timer fadeOutTimer = new Timer { Interval = 10 };
+            fadeOutTimer.Tick += (s, ev) =>
+            {
+                if (this.Opacity > 0)
+                {
+                    this.Opacity -= 0.04;
+                }
+                else
+                {
+                    fadeOutTimer.Stop();
+                    this.Close();
+                }
+            };
+            fadeOutTimer.Start();
         }
     }
 }

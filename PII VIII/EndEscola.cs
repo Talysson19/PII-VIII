@@ -1,13 +1,13 @@
 ﻿using Neo4j.Driver;
 using System;
 using System.Drawing;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PII_VIII
 {
     public partial class EndEscola : Form
     {
+        private Button sairbtn;
         private readonly Neo4jConnection _connection;
         private Panel headerPanel;
         private PictureBox logoPic;
@@ -25,7 +25,25 @@ namespace PII_VIII
             InicializarConteudo();
             ApplyStyles();
         }
+     
 
+        private void VoltarParaForm1()
+        {
+            Timer fadeOutTimer = new Timer { Interval = 10 };
+            fadeOutTimer.Tick += (s, ev) =>
+            {
+                if (this.Opacity > 0)
+                {
+                    this.Opacity -= 0.04;
+                }
+                else
+                {
+                    fadeOutTimer.Stop();
+                    this.Close();
+                }
+            };
+            fadeOutTimer.Start();
+        }
         private void ApplyFadeInTransition()
         {
             this.Opacity = 0;
@@ -98,6 +116,21 @@ namespace PII_VIII
 
         private void InicializarConteudo()
         {
+            sairbtn = new Button
+            {
+                Text = "Voltar",
+                Size = new Size(100, 40),
+                Location = new System.Drawing.Point(this.ClientSize.Width - 120, this.ClientSize.Height - 60),
+                Anchor = AnchorStyles.Bottom | AnchorStyles.Right,
+                BackColor = Color.Black,
+                ForeColor = Color.White,
+                Font = new Font("Arial", 10, FontStyle.Bold),
+                FlatStyle = FlatStyle.Flat
+            };
+            sairbtn.FlatAppearance.BorderSize = 0;
+            sairbtn.Click += (sender, e) => VoltarParaForm1();
+            this.Controls.Add(sairbtn); 
+
             contentPanel = new Panel
             {
                 Dock = DockStyle.Fill,
@@ -218,7 +251,20 @@ namespace PII_VIII
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Timer fadeOutTimer = new Timer { Interval = 10 };
+            fadeOutTimer.Tick += (s, ev) =>
+            {
+                if (this.Opacity > 0)
+                {
+                    this.Opacity -= 0.04;
+                }
+                else
+                {
+                    fadeOutTimer.Stop();
+                    this.Close();
+                }
+            };
+            fadeOutTimer.Start();
         }
     }
 }

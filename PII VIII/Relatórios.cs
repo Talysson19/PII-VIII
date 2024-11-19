@@ -188,7 +188,20 @@ namespace PII_VIII
 
         private void Sair_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Timer fadeOutTimer = new Timer { Interval = 10 };
+            fadeOutTimer.Tick += (s, ev) =>
+            {
+                if (this.Opacity > 0)
+                {
+                    this.Opacity -= 0.04;
+                }
+                else
+                {
+                    fadeOutTimer.Stop();
+                    this.Close();
+                }
+            };
+            fadeOutTimer.Start();
         }
 
         private void button1_Click(object sender, EventArgs e)

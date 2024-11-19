@@ -8,15 +8,99 @@ namespace PII_VIII
 {
     public partial class CadastroAlunoDesempenhoDisciplina : Form
     {
+        private Button sairbtn;
         public CadastroAlunoDesempenhoDisciplina()
         {
+            this.FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.Text = "Cadastro de Aluno e Desempenho"; 
             ApplyFadeInTransition();
             ApplyStyles();
+            InicializarBotaoSair();
+            AddHeader();
         }
+
+        private void AddHeader()
+        {
+            Panel panelHeader = new Panel
+            {
+                Dock = DockStyle.Top,
+                BackColor = Color.FromArgb(31, 31, 31),
+                Height = 120
+            };
+
+            PictureBox pictureBox = new PictureBox
+            {
+                Image = Image.FromFile("images/unifenas1.logo.png"),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Size = new Size(280, 80),
+                Location = new Point(10, 20)
+            };
+            panelHeader.Controls.Add(pictureBox);
+
+            Label lblTitle = new Label
+            {
+                Text = "Cadastro de Aluno e Desempenho",
+                Font = new Font("Arial", 20, FontStyle.Bold),
+                ForeColor = Color.White,
+                AutoSize = true
+            };
+            lblTitle.Location = new Point(
+                (panelHeader.Width - lblTitle.Width) / 2,
+                (panelHeader.Height - lblTitle.Height) / 2
+            );
+            panelHeader.Controls.Add(lblTitle);
+
+            this.Resize += (s, e) =>
+            {
+                lblTitle.Location = new Point(
+                    (panelHeader.Width - lblTitle.Width) / 2,
+                    (panelHeader.Height - lblTitle.Height) / 2
+                );
+            };
+
+            
+
+            this.Controls.Add(panelHeader);
+        }
+
+        private void InicializarBotaoSair()
+        {
+            sairbtn = new Button
+            {
+                Text = "Endereço Aluno",
+                Size = new Size(100, 40),
+                Location = new Point(this.ClientSize.Width - 120, this.ClientSize.Height - 60),
+                Anchor = AnchorStyles.Bottom | AnchorStyles.Right,
+                BackColor = Color.Black,
+                ForeColor = Color.White,
+                Font = new Font("Arial", 10, FontStyle.Bold),
+                FlatStyle = FlatStyle.Flat
+            };
+            sairbtn.FlatAppearance.BorderSize = 0;
+            sairbtn.Click += (sender, e) => VoltarParaForm1();
+            this.Controls.Add(sairbtn);
+        }
+
+        private void VoltarParaForm1()
+        {
+            Timer fadeOutTimer = new Timer { Interval = 10 };
+            fadeOutTimer.Tick += (s, ev) =>
+            {
+                if (this.Opacity > 0)
+                {
+                    this.Opacity -= 0.04;
+                }
+                else
+                {
+                    fadeOutTimer.Stop();
+                    this.Close();
+                }
+            };
+            fadeOutTimer.Start();
+        }
+
 
         private void ApplyFadeInTransition()
         {
@@ -93,23 +177,53 @@ namespace PII_VIII
 
         private void btnCadastrarEndA_Click(object sender, EventArgs e)
         {
-            // Código para cadastrar aluno
+           
         }
 
         private void btnSalvarDisc_Click(object sender, EventArgs e)
         {
-            // Código para cadastrar disciplina
+          
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            EndAluno endAluno = new EndAluno();
-            endAluno.ShowDialog();
+            Timer fadeOutTimer = new Timer { Interval = 10 };
+            fadeOutTimer.Tick += (s, ev) =>
+            {
+                if (this.Opacity > 0)
+                {
+                    this.Opacity -= 0.04;
+                }
+                else
+                {
+                    fadeOutTimer.Stop();
+                    this.Close();
+                }
+            };
+            fadeOutTimer.Start();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Código para cadastro de desempenho acadêmico
+    
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Timer fadeOutTimer = new Timer { Interval = 10 };
+            fadeOutTimer.Tick += (s, ev) =>
+            {
+                if (this.Opacity > 0)
+                {
+                    this.Opacity -= 0.04;
+                }
+                else
+                {
+                    fadeOutTimer.Stop();
+                    this.Close();
+                }
+            };
+            fadeOutTimer.Start();
         }
     }
 }

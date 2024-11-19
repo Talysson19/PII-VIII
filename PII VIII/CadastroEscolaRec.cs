@@ -7,45 +7,121 @@ namespace PII_VIII
 {
     public partial class CadastroEscolaRec : Form
     {
+        private Button sairbtn;
         public CadastroEscolaRec()
         {
 
             this.FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
-            this.Text = "Cadastro de Escolas e Professores"; 
             ApplyFadeInTransition();
-            ApplyStyles();
-            AddHeader(); 
+            InicializarBotaoSair();
+            AddHeader();
+
+            InitializeButton();
+        }
+        private void InitializeButton()
+        {
+            button1 = new Button
+            {
+                Text = "Endereço Escola",
+                Size = new Size(100, 40),
+                Location = new Point(this.ClientSize.Width - 250, this.ClientSize.Height - 60),
+                Anchor = AnchorStyles.Bottom | AnchorStyles.Right,
+                BackColor = Color.Black,
+                ForeColor = Color.White,
+                Font = new Font("Arial", 9, FontStyle.Bold),
+                FlatStyle = FlatStyle.Flat
+            };
+
+            this.Controls.Add(button1);
+
+            button1.Click += Button1_Click;
+        }
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            EndEscola endEscola = new EndEscola();
+            endEscola.ShowDialog();
+        }
+
+        private void InicializarBotaoSair()
+        {
+            sairbtn = new Button
+            {
+                Text = "Voltar",
+                Size = new Size(100, 40),
+                Location = new Point(this.ClientSize.Width - 120, this.ClientSize.Height - 60),
+                Anchor = AnchorStyles.Bottom | AnchorStyles.Right,
+                BackColor = Color.Black,
+                ForeColor = Color.White,
+                Font = new Font("Arial", 10, FontStyle.Bold),
+                FlatStyle = FlatStyle.Flat
+            };
+            sairbtn.FlatAppearance.BorderSize = 0;
+            sairbtn.Click += (sender, e) => VoltarParaForm1();
+            this.Controls.Add(sairbtn);
+        }
+
+        private void VoltarParaForm1()
+        {
+            Timer fadeOutTimer = new Timer { Interval = 10 };
+            fadeOutTimer.Tick += (s, ev) =>
+            {
+                if (this.Opacity > 0)
+                {
+                    this.Opacity -= 0.04;
+                }
+                else
+                {
+                    fadeOutTimer.Stop();
+                    this.Close();
+                }
+            };
+            fadeOutTimer.Start();
         }
 
         private void AddHeader()
         {
-            Panel panelHeader = new Panel();
-            panelHeader.Dock = DockStyle.Top;
-            panelHeader.BackColor = Color.FromArgb(31, 31, 31);
-            panelHeader.Height = 120;  
+            Panel panelHeader = new Panel
+            {
+                Dock = DockStyle.Top,
+                BackColor = Color.FromArgb(31, 31, 31),
+                Height = 120
+            };
 
-            Label lblTitle = new Label();
-            lblTitle.Text = "Cadastro End Aluno"; 
-            lblTitle.Font = new Font("Arial", 24, FontStyle.Bold);
-            lblTitle.ForeColor = Color.White;
-            lblTitle.Dock = DockStyle.Fill;
-            lblTitle.TextAlign = ContentAlignment.MiddleCenter;
+            PictureBox pictureBox = new PictureBox
+            {
+                Image = Image.FromFile("images/unifenas1.logo.png"),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Size = new Size(280, 80),
+                Location = new Point(10, 20)
+            };
+            panelHeader.Controls.Add(pictureBox);
 
+            Label lblTitle = new Label
+            {
+                Text = "Cadastro de Escolas e Professores",
+                Font = new Font("Arial", 20, FontStyle.Bold),
+                ForeColor = Color.White,
+                AutoSize = true
+            };
+            lblTitle.Location = new Point(
+                (panelHeader.Width - lblTitle.Width) / 2,
+                (panelHeader.Height - lblTitle.Height) / 2
+            );
             panelHeader.Controls.Add(lblTitle);
 
-            PictureBox pictureBox = new PictureBox();
-            pictureBox.Image = Image.FromFile("images/unifenas1.logo.png");  
-            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox.Width = 80;  
-            pictureBox.Height = 80; 
-            pictureBox.Location = new Point(10, 10);
-
-            panelHeader.Controls.Add(pictureBox);
+            this.Resize += (s, e) =>
+            {
+                lblTitle.Location = new Point(
+                    (panelHeader.Width - lblTitle.Width) / 2,
+                    (panelHeader.Height - lblTitle.Height) / 2
+                );
+            };
 
             this.Controls.Add(panelHeader);
         }
+
 
         private void ApplyFadeInTransition()
         {
@@ -200,12 +276,26 @@ namespace PII_VIII
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Similar ao cadastro de escola e recursos, o código para cadastro de professor
+          
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        private async void button2_Click_1(object sender, EventArgs e)
         {
-            this.Close();
+            Timer fadeOutTimer = new Timer { Interval = 10 };
+            fadeOutTimer.Tick += (s, ev) =>
+            {
+                if (this.Opacity > 0)
+                {
+                    this.Opacity -= 0.04;
+                }
+                else
+                {
+                    fadeOutTimer.Stop();
+                    this.Close(); 
+                }
+            };
+            fadeOutTimer.Start();
         }
     }
 }
+

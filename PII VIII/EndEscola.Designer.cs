@@ -43,8 +43,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNomeEndE = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtEndEID
@@ -177,34 +175,11 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "Rua / Avenida";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(761, 666);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 66);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "Cadastrar Escola";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(949, 525);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 49);
-            this.button2.TabIndex = 31;
-            this.button2.Text = "Sair";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // EndEscola
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1397, 787);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtEndEID);
             this.Controls.Add(this.IDAluno);
             this.Controls.Add(this.btnSalvarEndE);
@@ -245,7 +220,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNomeEndE;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
     }
 }
