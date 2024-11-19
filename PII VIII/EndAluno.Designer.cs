@@ -48,10 +48,9 @@
             // 
             // btnSalvarEndAluno
             // 
-            this.btnSalvarEndAluno.Location = new System.Drawing.Point(398, 353);
-            this.btnSalvarEndAluno.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSalvarEndAluno.Location = new System.Drawing.Point(354, 282);
             this.btnSalvarEndAluno.Name = "btnSalvarEndAluno";
-            this.btnSalvarEndAluno.Size = new System.Drawing.Size(130, 66);
+            this.btnSalvarEndAluno.Size = new System.Drawing.Size(116, 53);
             this.btnSalvarEndAluno.TabIndex = 42;
             this.btnSalvarEndAluno.Text = "Salvar\r\n";
             this.btnSalvarEndAluno.UseVisualStyleBackColor = true;
@@ -59,127 +58,123 @@
             // 
             // txtEstado
             // 
-            this.txtEstado.Location = new System.Drawing.Point(174, 393);
-            this.txtEstado.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtEstado.Location = new System.Drawing.Point(155, 314);
             this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Size = new System.Drawing.Size(167, 26);
+            this.txtEstado.Size = new System.Drawing.Size(149, 22);
             this.txtEstado.TabIndex = 41;
             // 
             // txtCidade
             // 
-            this.txtCidade.Location = new System.Drawing.Point(174, 329);
-            this.txtCidade.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCidade.Location = new System.Drawing.Point(155, 263);
             this.txtCidade.Name = "txtCidade";
-            this.txtCidade.Size = new System.Drawing.Size(121, 26);
+            this.txtCidade.Size = new System.Drawing.Size(149, 22);
             this.txtCidade.TabIndex = 40;
             // 
             // txtCep
             // 
-            this.txtCep.Location = new System.Drawing.Point(174, 206);
-            this.txtCep.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCep.Location = new System.Drawing.Point(155, 165);
             this.txtCep.Name = "txtCep";
-            this.txtCep.Size = new System.Drawing.Size(167, 26);
+            this.txtCep.Size = new System.Drawing.Size(149, 22);
             this.txtCep.TabIndex = 39;
             // 
             // txtBairro
             // 
-            this.txtBairro.Location = new System.Drawing.Point(174, 266);
-            this.txtBairro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtBairro.Location = new System.Drawing.Point(155, 213);
             this.txtBairro.Name = "txtBairro";
-            this.txtBairro.Size = new System.Drawing.Size(126, 26);
+            this.txtBairro.Size = new System.Drawing.Size(149, 22);
             this.txtBairro.TabIndex = 38;
             // 
             // txtNum
             // 
-            this.txtNum.Location = new System.Drawing.Point(174, 153);
-            this.txtNum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtNum.Location = new System.Drawing.Point(155, 122);
             this.txtNum.Name = "txtNum";
-            this.txtNum.Size = new System.Drawing.Size(77, 26);
+            this.txtNum.Size = new System.Drawing.Size(149, 22);
             this.txtNum.TabIndex = 37;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 396);
+            this.label6.Location = new System.Drawing.Point(25, 317);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 20);
+            this.label6.Size = new System.Drawing.Size(50, 16);
             this.label6.TabIndex = 36;
             this.label6.Text = "Estado";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 332);
+            this.label5.Location = new System.Drawing.Point(25, 266);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 20);
+            this.label5.Size = new System.Drawing.Size(51, 16);
             this.label5.TabIndex = 35;
             this.label5.Text = "Cidade";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 270);
+            this.label4.Location = new System.Drawing.Point(25, 216);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 20);
+            this.label4.Size = new System.Drawing.Size(43, 16);
             this.label4.TabIndex = 34;
             this.label4.Text = "Bairro";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 210);
+            this.label3.Location = new System.Drawing.Point(25, 168);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 20);
+            this.label3.Size = new System.Drawing.Size(34, 16);
             this.label3.TabIndex = 33;
             this.label3.Text = "CEP";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 156);
+            this.label2.Location = new System.Drawing.Point(25, 125);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 20);
+            this.label2.Size = new System.Drawing.Size(55, 16);
             this.label2.TabIndex = 32;
             this.label2.Text = "Numero";
             // 
             // txtRua
             // 
-            this.txtRua.Location = new System.Drawing.Point(174, 99);
-            this.txtRua.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtRua.Location = new System.Drawing.Point(155, 79);
             this.txtRua.Name = "txtRua";
-            this.txtRua.Size = new System.Drawing.Size(156, 26);
+            this.txtRua.Size = new System.Drawing.Size(423, 22);
             this.txtRua.TabIndex = 31;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 102);
+            this.label1.Location = new System.Drawing.Point(25, 82);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 20);
+            this.label1.Size = new System.Drawing.Size(92, 16);
             this.label1.TabIndex = 30;
             this.label1.Text = "Rua / Avenida";
             // 
             // txtIDEndAluno
             // 
-            this.txtIDEndAluno.Location = new System.Drawing.Point(174, 44);
+            this.txtIDEndAluno.Location = new System.Drawing.Point(155, 35);
+            this.txtIDEndAluno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtIDEndAluno.Name = "txtIDEndAluno";
-            this.txtIDEndAluno.Size = new System.Drawing.Size(156, 26);
+            this.txtIDEndAluno.Size = new System.Drawing.Size(149, 22);
             this.txtIDEndAluno.TabIndex = 43;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 50);
+            this.label7.Location = new System.Drawing.Point(11, 40);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(148, 20);
+            this.label7.Size = new System.Drawing.Size(122, 16);
             this.label7.TabIndex = 44;
             this.label7.Text = "ID Endereco Aluno:";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(580, 353);
+            this.button1.Location = new System.Drawing.Point(516, 282);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 63);
+            this.button1.Size = new System.Drawing.Size(116, 50);
             this.button1.TabIndex = 45;
             this.button1.Text = "Cadastrar Aluno";
             this.button1.UseVisualStyleBackColor = true;
@@ -187,9 +182,9 @@
             // 
             // EndAluno
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(711, 360);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtIDEndAluno);
@@ -206,6 +201,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtRua);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "EndAluno";
             this.Text = "EndAluno";
             this.ResumeLayout(false);

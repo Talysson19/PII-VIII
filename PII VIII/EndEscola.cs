@@ -18,6 +18,15 @@ namespace PII_VIII
             _connection = new Neo4jConnection("bolt://localhost:7687", "neo4j", "EscolaCC");
             ApplyFadeInTransition();
             ApplyStyles();
+
+            // Configurando placeholders
+            AddPlaceholderEvents(txtNomeEndE, "Digite o nome da escola...");
+            AddPlaceholderEvents(txtNumEndE, "Digite o número...");
+            AddPlaceholderEvents(txtCEPEndE, "Digite o CEP...");
+            AddPlaceholderEvents(txtBairroEndE, "Digite o bairro...");
+            AddPlaceholderEvents(txtCidadeEndE, "Digite a cidade...");
+            AddPlaceholderEvents(txtEstadoEndE, "Digite o estado...");
+            AddPlaceholderEvents(txtEndEID, "Digite o ID da escola...");
         }
 
         private void ApplyFadeInTransition()
@@ -47,10 +56,10 @@ namespace PII_VIII
                 if (control is Button button)
                 {
                     button.FlatStyle = FlatStyle.Flat;
-                    button.BackColor = Color.FromArgb(31, 31, 31, 12); ;
+                    button.BackColor = Color.FromArgb(31, 31, 31, 12);
                     button.ForeColor = Color.Black;
                     button.Font = new Font("Arial", 10, FontStyle.Bold);
-                    button.FlatAppearance.BorderSize = 2; 
+                    button.FlatAppearance.BorderSize = 2;
                     button.FlatAppearance.BorderColor = Color.Black;
                     button.FlatAppearance.MouseOverBackColor = Color.AntiqueWhite;
                 }
@@ -73,8 +82,8 @@ namespace PII_VIII
                 {
                     comboBox.Font = new Font("Arial", 10);
                     comboBox.BackColor = Color.WhiteSmoke;
-                    comboBox.Padding = new Padding(10); 
-                    comboBox.DropDownStyle = ComboBoxStyle.DropDownList; 
+                    comboBox.Padding = new Padding(10);
+                    comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
                 }
             }
 
@@ -88,9 +97,28 @@ namespace PII_VIII
             }
         }
 
-        private void EndEscola_Load(object sender, EventArgs e)
+        private void AddPlaceholderEvents(TextBox textBox, string placeholder)
         {
-            this.BackColor = Color.FromArgb(211, 211, 211);
+            textBox.Text = placeholder;
+            textBox.ForeColor = Color.Gray;
+
+            textBox.Enter += (s, e) =>
+            {
+                if (textBox.Text == placeholder)
+                {
+                    textBox.Text = "";
+                    textBox.ForeColor = Color.Black;
+                }
+            };
+
+            textBox.Leave += (s, e) =>
+            {
+                if (string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    textBox.Text = placeholder;
+                    textBox.ForeColor = Color.Gray;
+                }
+            };
         }
 
         private async void btnSalvarEndE_Click(object sender, EventArgs e)
@@ -134,5 +162,7 @@ namespace PII_VIII
             CadastroEscolaRec cadE = new CadastroEscolaRec();
             cadE.ShowDialog();
         }
+
+        
     }
 }
