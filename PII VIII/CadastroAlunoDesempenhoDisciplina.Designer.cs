@@ -85,10 +85,10 @@
             this.btnSalvarDisc.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnSalvarDisc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvarDisc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnSalvarDisc.Location = new System.Drawing.Point(900, 421);
+            this.btnSalvarDisc.Location = new System.Drawing.Point(892, 419);
             this.btnSalvarDisc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSalvarDisc.Name = "btnSalvarDisc";
-            this.btnSalvarDisc.Size = new System.Drawing.Size(198, 59);
+            this.btnSalvarDisc.Size = new System.Drawing.Size(230, 76);
             this.btnSalvarDisc.TabIndex = 3;
             this.btnSalvarDisc.Text = "Cadastrar Disciplina";
             this.btnSalvarDisc.UseVisualStyleBackColor = true;
@@ -243,9 +243,9 @@
             this.btnCadastrarEndA.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnCadastrarEndA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrarEndA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnCadastrarEndA.Location = new System.Drawing.Point(288, 814);
+            this.btnCadastrarEndA.Location = new System.Drawing.Point(276, 814);
             this.btnCadastrarEndA.Name = "btnCadastrarEndA";
-            this.btnCadastrarEndA.Size = new System.Drawing.Size(198, 59);
+            this.btnCadastrarEndA.Size = new System.Drawing.Size(223, 59);
             this.btnCadastrarEndA.TabIndex = 52;
             this.btnCadastrarEndA.Text = "Cadastrar  Aluno";
             this.btnCadastrarEndA.UseVisualStyleBackColor = true;

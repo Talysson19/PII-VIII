@@ -17,7 +17,7 @@ namespace PII_VIII
             ApplyFadeInTransition();
             InicializarBotaoSair();
             AddHeader();
-
+            ApplyStyles();
             InitializeButton();
         }
         private void InitializeButton()
@@ -143,19 +143,18 @@ namespace PII_VIII
 
         private void ApplyStyles()
         {
-            this.BackColor = Color.FromArgb(245, 245, 245); 
+            this.BackColor = Color.FromArgb(245, 245, 245);
 
             foreach (Control control in this.Controls)
             {
                 if (control is Button button)
                 {
                     button.FlatStyle = FlatStyle.Flat;
-                    button.BackColor = Color.FromArgb(31, 31, 31, 12);
-                    button.ForeColor = Color.Black;
+                    button.BackColor = Color.Black;
+                    button.ForeColor = Color.White;
                     button.Font = new Font("Arial", 10, FontStyle.Bold);
                     button.FlatAppearance.BorderSize = 1;
-                    button.FlatAppearance.BorderColor = Color.Black; 
-                    button.FlatAppearance.MouseOverBackColor = Color.AntiqueWhite;
+                    button.FlatAppearance.BorderColor = Color.White;
                 }
             }
 

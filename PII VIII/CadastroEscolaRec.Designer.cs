@@ -65,9 +65,9 @@
             // 
             // btnCadastrosEscolas
             // 
-            this.btnCadastrosEscolas.Location = new System.Drawing.Point(377, 682);
+            this.btnCadastrosEscolas.Location = new System.Drawing.Point(338, 663);
             this.btnCadastrosEscolas.Name = "btnCadastrosEscolas";
-            this.btnCadastrosEscolas.Size = new System.Drawing.Size(151, 78);
+            this.btnCadastrosEscolas.Size = new System.Drawing.Size(221, 71);
             this.btnCadastrosEscolas.TabIndex = 0;
             this.btnCadastrosEscolas.Text = "Cadastrar Escolas";
             this.btnCadastrosEscolas.UseVisualStyleBackColor = true;
@@ -232,9 +232,9 @@
             // 
             // btnCadastroRec
             // 
-            this.btnCadastroRec.Location = new System.Drawing.Point(834, 682);
+            this.btnCadastroRec.Location = new System.Drawing.Point(815, 653);
             this.btnCadastroRec.Name = "btnCadastroRec";
-            this.btnCadastroRec.Size = new System.Drawing.Size(182, 78);
+            this.btnCadastroRec.Size = new System.Drawing.Size(221, 81);
             this.btnCadastroRec.TabIndex = 94;
             this.btnCadastroRec.Text = "Cadastrar Recursos:";
             this.btnCadastroRec.UseVisualStyleBackColor = true;
@@ -314,9 +314,9 @@
             // 
             // btnCadastroProf
             // 
-            this.btnCadastroProf.Location = new System.Drawing.Point(1355, 898);
+            this.btnCadastroProf.Location = new System.Drawing.Point(1336, 884);
             this.btnCadastroProf.Name = "btnCadastroProf";
-            this.btnCadastroProf.Size = new System.Drawing.Size(151, 78);
+            this.btnCadastroProf.Size = new System.Drawing.Size(221, 67);
             this.btnCadastroProf.TabIndex = 105;
             this.btnCadastroProf.Text = "Cadastrar Professores";
             this.btnCadastroProf.UseVisualStyleBackColor = true;
