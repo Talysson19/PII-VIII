@@ -40,10 +40,8 @@ namespace PII_VIII
 
         private void ApplyStyles()
         {
-            // Cor de fundo do formulário
             this.BackColor = Color.FromArgb(211, 211, 211);
 
-            // Estilizar botões
             foreach (Control control in this.Controls)
             {
                 if (control is Button button)
@@ -52,13 +50,12 @@ namespace PII_VIII
                     button.BackColor = Color.FromArgb(31, 31, 31, 12);
                     button.ForeColor = Color.Black;
                     button.Font = new Font("Arial", 10, FontStyle.Bold);
-                    button.FlatAppearance.BorderSize = 2; // Borda preta
-                    button.FlatAppearance.BorderColor = Color.Black; // Cor da borda
+                    button.FlatAppearance.BorderSize = 2; 
+                    button.FlatAppearance.BorderColor = Color.Black; 
                     button.FlatAppearance.MouseOverBackColor = Color.AntiqueWhite;
                 }
             }
 
-            // Estilizar TextBoxes
             foreach (Control control in this.Controls)
             {
                 if (control is TextBox textBox)
@@ -66,23 +63,21 @@ namespace PII_VIII
                     textBox.Font = new Font("Arial", 10);
                     textBox.BackColor = Color.WhiteSmoke;
                     textBox.BorderStyle = BorderStyle.FixedSingle;
-                    textBox.Margin = new Padding(10); // Adiciona espaço interno
+                    textBox.Margin = new Padding(10); 
                 }
             }
 
-            // Estilizar ComboBoxes
             foreach (Control control in this.Controls)
             {
                 if (control is ComboBox comboBox)
                 {
                     comboBox.Font = new Font("Arial", 10);
                     comboBox.BackColor = Color.WhiteSmoke;
-                    comboBox.Padding = new Padding(10); // Adiciona espaço interno
-                    comboBox.DropDownStyle = ComboBoxStyle.DropDownList; // Previne edição no combo
+                    comboBox.Padding = new Padding(10); 
+                    comboBox.DropDownStyle = ComboBoxStyle.DropDownList; 
                 }
             }
 
-            // Estilizar Labels
             foreach (Control control in this.Controls)
             {
                 if (control is Label label)
@@ -95,7 +90,6 @@ namespace PII_VIII
 
         private void EndEscola_Load(object sender, EventArgs e)
         {
-            // Aplique o fundo novamente ao carregar
             this.BackColor = Color.FromArgb(211, 211, 211);
         }
 

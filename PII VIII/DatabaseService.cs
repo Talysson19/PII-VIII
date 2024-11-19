@@ -9,7 +9,7 @@ namespace PII_VIII
 {
     public class DatabaseService
     {
-        private readonly string sqlConnectionString = "Server=DESKTOP-R5PIHTR\\SQLEXPRESS01;Database=EscolaCC;Integrated Security=True;";
+        private readonly string sqlConnectionString = "Server=DESKTOP-DIFT32I\\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
         private readonly IDriver neo4jDriver = GraphDatabase.Driver("bolt://localhost:7687", AuthTokens.Basic("neo4j", "EscolaCC"));
 
         public DataTable GetSchoolsFromSQL()

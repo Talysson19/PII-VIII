@@ -13,7 +13,6 @@ namespace PII_VIII
             _driver = GraphDatabase.Driver(uri, AuthTokens.Basic(username, password));
         }
 
-        // Método para criar uma sessão de escrita
         public async Task ExecuteWriteAsync(Func<IAsyncQueryRunner, Task> writeAction)
         {
             using (var session = _driver.AsyncSession())
@@ -22,7 +21,6 @@ namespace PII_VIII
             }
         }
 
-        // Método para criar uma sessão de leitura (caso precise no futuro)
         public async Task ExecuteReadAsync(Func<IAsyncQueryRunner, Task> readAction)
         {
             using (var session = _driver.AsyncSession())
@@ -31,7 +29,6 @@ namespace PII_VIII
             }
         }
 
-        // Método para liberar recursos
         public void Dispose()
         {
             _driver?.Dispose();

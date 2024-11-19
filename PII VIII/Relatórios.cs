@@ -11,37 +11,34 @@ namespace PII_VIII
         private DatabaseService databaseService;
         private Button Sair;
         private DataGridView dataGridView;
-
         private Panel headerPanel;
-        private Panel sideBarPanel;
         private PictureBox logoPic;
+        private Label toggleLabel;
+        private Panel sideBarPanel;
+
+
+
+        
 
         public Relatórios()
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
-
             databaseService = new DatabaseService();
-            sideBarPanel = new Panel();
-            headerPanel = new Panel();
-            dataGridView = new DataGridView();
-            Sair = new Button();
-
+            this.BackColor = System.Drawing.Color.FromArgb(224, 224, 224);
             CustomizeDesign();
             ApplyHoverEffect();
 
 
 
-        }
-        
+            sideBarPanel.BackColor = Color.FromArgb(0, Color.Gray);
 
-       
+        }
 
         private async void Relatórios_Load(object sender, EventArgs e)
         {
             await LoadCombinedDataAsync();
-            this.BackColor = System.Drawing.Color.White;
 
         }
 
@@ -83,19 +80,11 @@ namespace PII_VIII
 
         private void CustomizeDesign()
         {
-            headerPanel = new Panel
+            Panel headerPanel = new Panel
             {
                 Dock = DockStyle.Top,
                 Height = 119,
                 BackColor = Color.FromArgb(31, 31, 31)
-            };
-
-            sideBarPanel = new Panel
-            {
-                Location = new Point(0, headerPanel.Height), 
-                Width = 240, 
-                Height = this.ClientSize.Height - headerPanel.Height,
-                BackColor = Color.FromArgb(180, 180, 180)
             };
 
             logoPic = new PictureBox
@@ -103,21 +92,23 @@ namespace PII_VIII
                 Image = Image.FromFile("images/unifenas1.logo.png"),
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 Size = new Size(280, 80),
-                Location = new Point(10, 10)
+                Location = new System.Drawing.Point(10, 10)
             };
             headerPanel.Controls.Add(logoPic);
 
             Sair = new Button
             {
                 Text = "Sair",
-                Size = new Size(100, 30),
+                Size = new Size(10, 10),
                 Dock = DockStyle.Right,
+                Width = 100,
                 BackColor = Color.FromArgb(31, 31, 31),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat
             };
             Sair.FlatAppearance.BorderSize = 0;
-            Sair.Click += Sair_Click;
+            Sair.Click += new EventHandler(Sair_Click);
+
 
             Label titleLabel = new Label
             {
@@ -127,9 +118,36 @@ namespace PII_VIII
                 Dock = DockStyle.Fill,
                 TextAlign = ContentAlignment.MiddleCenter
             };
+
+
+
+
+            sideBarPanel = new BufferedPanel
+            {
+                Location = new Point(0, headerPanel.Height),
+                Size = new Size(0, this.ClientSize.Height - headerPanel.Height),
+                BackColor = Color.Gray
+
+            };
+
+
+            this.Resize += (s, e) =>
+            {
+                headerPanel.Width = this.ClientSize.Width;
+                sideBarPanel.Height = this.ClientSize.Height - headerPanel.Height;
+            };
+
+            logoPic = new PictureBox
+            {
+                Image = Image.FromFile("images/unifenas1.logo.png"),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Size = new Size(280, 80),
+                Location = new System.Drawing.Point(10, 10)
+            };
+            headerPanel.Controls.Add(logoPic);
+
             headerPanel.Controls.Add(titleLabel);
             headerPanel.Controls.Add(Sair);
-
             this.Controls.Add(headerPanel);
             this.Controls.Add(sideBarPanel);
 
@@ -139,6 +157,7 @@ namespace PII_VIII
                 BackColor = Color.FromArgb(31, 31, 31, 12)
             };
             this.Controls.Add(bodyPanel);
+
 
             dataGridView = new DataGridView
             {
@@ -165,19 +184,7 @@ namespace PII_VIII
             dataGridView.CellClick += (s, e) => dataGridView.ClearSelection();
 
             bodyPanel.Controls.Add(dataGridView);
-
-            this.Resize += (s, e) =>
-            {
-                headerPanel.Width = this.ClientSize.Width;
-                sideBarPanel.Height = this.ClientSize.Height - headerPanel.Height;
-            };
         }
-
-
-
-
-
-
 
         private void Sair_Click(object sender, EventArgs e)
         {

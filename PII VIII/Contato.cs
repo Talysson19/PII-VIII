@@ -164,7 +164,7 @@ namespace PII_VIII
         private void CopiarParaAreaDeTransferencia(string texto)
         {
             Clipboard.SetText(texto);
-            MessageBox.Show("E-mail copiado para a área de transferência!", "Copiado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+           // MessageBox.Show("E-mail copiado para a área de transferência!", "Copiado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 
