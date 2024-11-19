@@ -9,12 +9,42 @@ namespace PII_VIII
     {
         public CadastroEscolaRec()
         {
+
+            this.FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.Text = "Cadastro de Escolas e Professores"; // Título do formulário
+            this.Text = "Cadastro de Escolas e Professores"; 
             ApplyFadeInTransition();
             ApplyStyles();
+            AddHeader(); 
+        }
+
+        private void AddHeader()
+        {
+            Panel panelHeader = new Panel();
+            panelHeader.Dock = DockStyle.Top;
+            panelHeader.BackColor = Color.FromArgb(31, 31, 31);
+            panelHeader.Height = 120;  
+
+            Label lblTitle = new Label();
+            lblTitle.Text = "Cadastro End Aluno"; 
+            lblTitle.Font = new Font("Arial", 24, FontStyle.Bold);
+            lblTitle.ForeColor = Color.White;
+            lblTitle.Dock = DockStyle.Fill;
+            lblTitle.TextAlign = ContentAlignment.MiddleCenter;
+
+            panelHeader.Controls.Add(lblTitle);
+
+            PictureBox pictureBox = new PictureBox();
+            pictureBox.Image = Image.FromFile("images/unifenas1.logo.png");  
+            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox.Width = 80;  
+            pictureBox.Height = 80; 
+            pictureBox.Location = new Point(10, 10);
+
+            panelHeader.Controls.Add(pictureBox);
+
+            this.Controls.Add(panelHeader);
         }
 
         private void ApplyFadeInTransition()
@@ -37,9 +67,8 @@ namespace PII_VIII
 
         private void ApplyStyles()
         {
-            this.BackColor = Color.FromArgb(245, 245, 245); // Cor de fundo suave
+            this.BackColor = Color.FromArgb(245, 245, 245); 
 
-            // Estilizar botões com borda preta
             foreach (Control control in this.Controls)
             {
                 if (control is Button button)
@@ -48,13 +77,12 @@ namespace PII_VIII
                     button.BackColor = Color.FromArgb(31, 31, 31, 12);
                     button.ForeColor = Color.Black;
                     button.Font = new Font("Arial", 10, FontStyle.Bold);
-                    button.FlatAppearance.BorderSize = 1; // Tamanho da borda
-                    button.FlatAppearance.BorderColor = Color.Black; // Cor da borda preta
+                    button.FlatAppearance.BorderSize = 1;
+                    button.FlatAppearance.BorderColor = Color.Black; 
                     button.FlatAppearance.MouseOverBackColor = Color.AntiqueWhite;
                 }
             }
 
-            // Estilizar TextBoxes
             foreach (Control control in this.Controls)
             {
                 if (control is TextBox textBox)
@@ -67,7 +95,6 @@ namespace PII_VIII
 
         private void CadastroEscolaRec_Load(object sender, EventArgs e)
         {
-            // Definir fundo e layout do formulário
             this.BackColor = Color.FromArgb(224, 224, 224);
         }
 
@@ -174,6 +201,11 @@ namespace PII_VIII
         private void button2_Click(object sender, EventArgs e)
         {
             // Similar ao cadastro de escola e recursos, o código para cadastro de professor
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

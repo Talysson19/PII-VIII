@@ -13,7 +13,7 @@ namespace PII_VIII
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.Text = "Cadastro de Aluno e Desempenho"; // Título do formulário
+            this.Text = "Cadastro de Aluno e Desempenho"; 
             ApplyFadeInTransition();
             ApplyStyles();
         }
@@ -38,9 +38,8 @@ namespace PII_VIII
 
         private void ApplyStyles()
         {
-            this.BackColor = Color.FromArgb(245, 245, 245); // Cor de fundo suave
+            this.BackColor = Color.FromArgb(245, 245, 245); 
 
-            // Estilizar botões com borda preta
             foreach (Control control in this.Controls)
             {
                 if (control is Button button)
@@ -49,13 +48,12 @@ namespace PII_VIII
                     button.BackColor = Color.FromArgb(31, 31, 31, 12);
                     button.ForeColor = Color.Black;
                     button.Font = new Font("Arial", 10, FontStyle.Bold);
-                    button.FlatAppearance.BorderSize = 1; // Borda de tamanho 2
-                    button.FlatAppearance.BorderColor = Color.Black; // Cor da borda preta
+                    button.FlatAppearance.BorderSize = 1; 
+                    button.FlatAppearance.BorderColor = Color.Black; 
                     button.FlatAppearance.MouseOverBackColor = Color.AntiqueWhite;
                 }
             }
 
-            // Estilizar TextBoxes
             foreach (Control control in this.Controls)
             {
                 if (control is TextBox textBox)
@@ -92,7 +90,6 @@ namespace PII_VIII
             this.BackColor = Color.FromArgb(224, 224, 224);
         }
 
-        // Métodos de evento para botões de cadastro
 
         private void btnCadastrarEndA_Click(object sender, EventArgs e)
         {

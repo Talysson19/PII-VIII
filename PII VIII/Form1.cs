@@ -455,7 +455,6 @@ namespace PII_VIII
             this.sidebarPanel.BackColor = Color.FromArgb(31, 31, 31, 12);
         }
 
-        //Buttons
         private async void homeButton_click(object sender, EventArgs e)
         {
             Relatórios rel = new Relatórios();
