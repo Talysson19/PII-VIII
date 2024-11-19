@@ -41,8 +41,9 @@
             this.sidebarPanel.Controls.Add(this.button7);
             this.sidebarPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebarPanel.Location = new System.Drawing.Point(0, 0);
+            this.sidebarPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sidebarPanel.Name = "sidebarPanel";
-            this.sidebarPanel.Size = new System.Drawing.Size(365, 925);
+            this.sidebarPanel.Size = new System.Drawing.Size(324, 740);
             this.sidebarPanel.TabIndex = 3;
             this.sidebarPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -51,9 +52,10 @@
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(48, 374);
+            this.button8.Location = new System.Drawing.Point(43, 299);
+            this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(266, 68);
+            this.button8.Size = new System.Drawing.Size(236, 54);
             this.button8.TabIndex = 11;
             this.button8.Text = "Cadastro Escolas";
             this.button8.UseVisualStyleBackColor = true;
@@ -64,9 +66,10 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(48, 490);
+            this.button7.Location = new System.Drawing.Point(43, 392);
+            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(266, 68);
+            this.button7.Size = new System.Drawing.Size(236, 54);
             this.button7.TabIndex = 10;
             this.button7.Text = "Cadastro Alunos";
             this.button7.UseVisualStyleBackColor = true;
@@ -74,15 +77,14 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScrollMargin = new System.Drawing.Size(200, 0);
-            this.ClientSize = new System.Drawing.Size(1537, 925);
+            this.ClientSize = new System.Drawing.Size(1366, 740);
             this.Controls.Add(this.sidebarPanel);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
-            this.Text = "Página Principal";
             this.sidebarPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
