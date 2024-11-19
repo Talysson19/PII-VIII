@@ -37,7 +37,7 @@ namespace PII_VIII
 
             AddPlaceholders();
         }
-        
+
         private void Button1_Click(object sender, EventArgs e)
         {
             CadastroAlunoDesempenhoDisciplina cada = new CadastroAlunoDesempenhoDisciplina();
@@ -105,7 +105,7 @@ namespace PII_VIII
                 titleLabel.Location = new System.Drawing.Point((headerPanel.Width - titleLabel.Width) / 2, (headerPanel.Height - titleLabel.Height) / 2);
             };
         }
-       
+
 
         private void VoltarParaForm1()
         {
@@ -235,10 +235,6 @@ namespace PII_VIII
             this.BackColor = Color.FromArgb(211, 211, 211);
         }
 
-        private async void btnSalvarEndAluno_Click(object sender, EventArgs e)
-        {
-            // Método de salvar endereço do aluno (sem alterações)
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -300,5 +296,54 @@ namespace PII_VIII
             AddPlaceholderEvents(txtCidade, "Digite a cidade...");
             AddPlaceholderEvents(txtEstado, "Digite o estado...");
         }
+
+        private async void btnSalvarEndAluno_Click(object sender, EventArgs e)
+        {
+            string rua = txtRua.Text.Trim();
+            int numero;
+            string cep = txtCep.Text.Trim();
+            string bairro = txtBairro.Text.Trim();
+            string cidade = txtCidade.Text.Trim();
+            string estado = txtEstado.Text.Trim();
+
+            if (!int.TryParse(txtIDEndAluno.Text, out int idEndAluno))
+            {
+                MessageBox.Show("ID do Endereço Aluno deve ser um número válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!int.TryParse(txtNum.Text, out numero))
+            {
+                MessageBox.Show("Número deve ser um número válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            try
+            {
+                await _connection.ExecuteWriteAsync(async tx =>
+                {
+                    var query = "CREATE (e:EnderecoAluno {idEnderecoAluno: $idEnderecoAluno, Rua: $Rua, Numero: $Numero, CEP: $Cep, Bairro: $Bairro, Cidade: $Cidade, Estado: $Estado})";
+                    var parameters = new
+                    {
+                        idEnderecoAluno = idEndAluno,
+                        Rua = rua,
+                        Numero = numero.ToString(),
+                        Cep = cep,
+                        Bairro = bairro,
+                        Cidade = cidade,
+                        Estado = estado
+                    };
+                    await tx.RunAsync(query, parameters);
+                });
+
+
+                MessageBox.Show("Dados salvos com sucesso!");
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao salvar dados: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
+        
