@@ -95,7 +95,7 @@ namespace PII_VIII
                 titleLabel.Location = new System.Drawing.Point((headerPanel.Width - titleLabel.Width) / 2, (headerPanel.Height - titleLabel.Height) / 2);
             };
         }
-        
+       
 
         private void VoltarParaForm1()
         {
