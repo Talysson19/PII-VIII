@@ -12,7 +12,7 @@ namespace PII_VIII
     public partial class CadastroAlunoDesempenhoDisciplina : Form
     {
         private Button sairbtn;
-        
+
         public CadastroAlunoDesempenhoDisciplina()
         {
             this.FormBorderStyle = FormBorderStyle.None;
@@ -23,9 +23,9 @@ namespace PII_VIII
             ApplyStyles();
             InicializarBotaoSair();
             AddHeader();
-            
+
         }
-    
+
 
         private void AddHeader()
         {
@@ -44,7 +44,7 @@ namespace PII_VIII
             Panel panelAluno = new Panel
             {
                 Name = "panelAluno",
-                Size = new Size(80, 80),  
+                Size = new Size(80, 80),
                 BackColor = Color.Black,
                 Location = new Point(150, 270),
             };
@@ -52,8 +52,8 @@ namespace PII_VIII
             PictureBox pictureAluno = new PictureBox
             {
                 Size = new Size(80, 80),
-                Location = new Point(0, 0), 
-                Image = Image.FromFile("C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PII-VIII-master\\PII-VIII\\PII VIII\\Resources\\aluno.png"),
+                Location = new Point(0, 0),
+                Image = Image.FromFile("C:\\Users\\ogabr\\OneDrive\\Área de Trabalho\\PII-VIII-master\\PII-VIII-master\\PII VIII\\Resources\\aluno.png"),
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 BackColor = Color.FromArgb(224, 224, 224)
             };
@@ -120,14 +120,14 @@ namespace PII_VIII
             {
                 Size = new Size(80, 80),
                 Location = new Point(0, 0),
-                Image = Image.FromFile("C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PII-VIII-master\\PII-VIII\\PII VIII\\Resources\\livro.png"),
+                Image = Image.FromFile("C:\\Users\\ogabr\\OneDrive\\Área de Trabalho\\PII-VIII-master\\PII-VIII-master\\PII VIII\\Resources\\livro.png"),
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 BackColor = Color.FromArgb(224, 224, 224)
             };
 
             panelDisciplina.Controls.Add(pictureDisciplina);
-            this.Controls.Add(lblDc); 
-            this.Controls.Add(panelDisciplina); 
+            this.Controls.Add(lblDc);
+            this.Controls.Add(panelDisciplina);
 
             bool isExpanded = false;
 
@@ -182,7 +182,7 @@ namespace PII_VIII
             {
                 Size = new Size(80, 80),
                 Location = new Point(0, 0),
-                Image = Image.FromFile("C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PII-VIII-master\\PII-VIII\\PII VIII\\Resources\\desempenho1.png"),
+                Image = Image.FromFile("C:\\Users\\ogabr\\OneDrive\\Área de Trabalho\\PII-VIII-master\\PII-VIII-master\\PII VIII\\Resources\\desempenho1.png"),
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 BackColor = Color.FromArgb(224, 224, 224)
             };
@@ -222,7 +222,7 @@ namespace PII_VIII
             this.Controls.Add(panelAluno);
             this.Controls.Add(panelDisciplina);
             this.Controls.Add(panelDesempenho);
-            
+
             //ADD PANEL ALUNO
             label1.Location = new Point(10, 10);
             label1.ForeColor = Color.White;
@@ -371,14 +371,14 @@ namespace PII_VIII
         private void PanelAluno_MouseEnter(object sender, EventArgs e)
         {
             Panel panel = sender as Panel;
-            panel.Size = new Size(300, 300); 
-            panel.BringToFront(); 
+            panel.Size = new Size(300, 300);
+            panel.BringToFront();
         }
 
         private void PanelAluno_MouseLeave(object sender, EventArgs e)
         {
             Panel panel = sender as Panel;
-            panel.Size = new Size(50, 50); 
+            panel.Size = new Size(50, 50);
         }
 
         private void PanelDisciplina_MouseEnter(object sender, EventArgs e)
@@ -406,7 +406,7 @@ namespace PII_VIII
             Panel panel = sender as Panel;
             panel.Size = new Size(50, 50);
         }
-        
+
 
 
         private void InicializarBotaoSair()
@@ -492,7 +492,7 @@ namespace PII_VIII
                 if (ctrl is TextBox txtBox)
                 {
                     txtBox.BorderStyle = BorderStyle.FixedSingle;
-                    txtBox.BackColor = Color.FromArgb(245, 245, 245); 
+                    txtBox.BackColor = Color.FromArgb(245, 245, 245);
                     txtBox.Font = new Font("Segoe UI", 10, FontStyle.Regular);
                     txtBox.ForeColor = Color.Black;
                 }
@@ -505,10 +505,10 @@ namespace PII_VIII
                 {
                     button.FlatStyle = FlatStyle.Flat;
                     button.BackColor = Color.White;
-                    button.ForeColor = Color.Black; 
+                    button.ForeColor = Color.Black;
                     button.Font = new Font("Arial", 10, FontStyle.Bold);
                     button.FlatAppearance.BorderSize = 1;
-                    button.FlatAppearance.BorderColor = Color.White; 
+                    button.FlatAppearance.BorderColor = Color.White;
                 }
             }
 
@@ -582,7 +582,7 @@ namespace PII_VIII
 
 
 
-       
+
 
 
         private void button3_Click(object sender, EventArgs e)
@@ -605,14 +605,14 @@ namespace PII_VIII
 
         private void btnCadastrarEndA_Click_1(object sender, EventArgs e)
         {
-            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
+            string connectionString = @"Server=GABRIEL\SQLEXPRESS09;Database=EscolaCC;Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
                     connection.Open();
-                   // CustomMessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
+                    // CustomMessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
                 }
                 catch (Exception ex)
                 {
@@ -664,18 +664,18 @@ namespace PII_VIII
 
         private void btnSalvarDisc_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
+            string connectionString = @"Server=GABRIEL\SQLEXPRESS09;Database=EscolaCC;Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
                     connection.Open();
-                  //  CustomMessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
+                    //  CustomMessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
                 }
                 catch (Exception ex)
                 {
-                   // CustomMessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
+                    // CustomMessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
                     return;
                 }
             }
@@ -708,19 +708,19 @@ namespace PII_VIII
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
+            string connectionString = @"Server=GABRIEL\SQLEXPRESS09;Database=EscolaCC;Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
                     connection.Open();
-                   // CustomMessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
+                    // CustomMessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
                 }
                 catch (Exception ex)
                 {
-                   // CustomMessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
-                   // CustomMessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
+                    // CustomMessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
+                    // CustomMessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
                     return;
                 }
             }

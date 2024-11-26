@@ -83,13 +83,210 @@ namespace PII_VIII
         private void AddHeader()
         {
 
-            //CRIANDO EXPANSÃO
+            //CRIANDO EXPANSÃO ESCOLA
+            System.Windows.Forms.Label lblEs = new System.Windows.Forms.Label
+            {
+                Text = "Escolas",
+                ForeColor = Color.Black,
+                BackColor = Color.FromArgb(224, 224, 224),
+                Font = new Font("Franklin Gothic", 20, FontStyle.Bold),
+                TextAlign = ContentAlignment.MiddleCenter,
+                Location = new Point(100, 200),
+                Size = new Size(170, 60)
+            };
+
+            Panel paneleEscola = new Panel
+            {
+                Name = "panelAluno",
+                Size = new Size(80, 80),
+                BackColor = Color.Black,
+                Location = new Point(150, 270),
+            };
+
+            PictureBox pictureEscola = new PictureBox
+            {
+                Size = new Size(80, 80),
+                Location = new Point(0, 0),
+                Image = Image.FromFile("C:\\Users\\ogabr\\OneDrive\\Área de Trabalho\\PII-VIII-master\\PII-VIII-master\\PII VIII\\Resources\\escola.png"),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                BackColor = Color.FromArgb(224, 224, 224)
+            };
+
+            paneleEscola.Controls.Add(pictureEscola);
+            this.Controls.Add(paneleEscola);
+            this.Controls.Add(lblEs);
+            bool isAlunoExpanded = false;
+
+            pictureEscola.Click += (s, e) =>
+            {
+                if (!isAlunoExpanded)
+                {
+                    paneleEscola.Size = new Size(300, 400);
+                    paneleEscola.AutoScroll = true;
+                    pictureEscola.Visible = false;
+                }
+
+                isAlunoExpanded = !isAlunoExpanded;
+            };
+
+            paneleEscola.Click += (s, e) =>
+            {
+                if (isAlunoExpanded)
+                {
+                    paneleEscola.Size = new Size(80, 80);
+                    paneleEscola.AutoScroll = false;
+                    pictureEscola.Visible = true;
+                }
+
+                isAlunoExpanded = !isAlunoExpanded;
+            };
+
+
+            //TERMINO EXPANSÃO ESCOLA
 
 
 
 
 
-            //TERMINO EXPANSÃO 
+
+
+
+
+            //CRIANDO EXPANSÃO RECURSOS
+            System.Windows.Forms.Label lblRe = new System.Windows.Forms.Label
+            {
+                Text = "Disciplina",
+                ForeColor = Color.Black,
+                BackColor = Color.FromArgb(224, 224, 224),
+                Font = new Font("Franklin Gothic", 20, FontStyle.Bold),
+                TextAlign = ContentAlignment.MiddleCenter,
+                Location = new Point(510, 200),
+                Size = new Size(170, 60)
+            };
+
+            Panel panelRecursos = new Panel
+            {
+                Name = "panelDisciplina",
+                Size = new Size(80, 80),
+                BackColor = Color.Black,
+                Location = new Point(550, 270)
+            };
+
+            PictureBox pictureRecursos = new PictureBox
+            {
+                Size = new Size(80, 80),
+                Location = new Point(0, 0),
+                Image = Image.FromFile("C:\\Users\\ogabr\\OneDrive\\Área de Trabalho\\PII-VIII-master\\PII-VIII-master\\PII VIII\\Resources\\recursos.png"),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                BackColor = Color.FromArgb(224, 224, 224)
+            };
+
+            panelRecursos.Controls.Add(pictureRecursos);
+            this.Controls.Add(lblRe);
+            this.Controls.Add(panelRecursos);
+
+            bool isExpanded = false;
+
+            pictureRecursos.Click += (s, e) =>
+            {
+                if (!isExpanded)
+                {
+                    panelRecursos.Size = new Size(300, 400);
+                    panelRecursos.AutoScroll = true;
+                    pictureRecursos.Visible = false;
+                }
+
+                isExpanded = !isExpanded;
+            };
+
+            panelRecursos.Click += (s, e) =>
+            {
+                if (isExpanded)
+                {
+                    panelRecursos.Size = new Size(80, 80);
+                    panelRecursos.AutoScroll = false;
+                    pictureRecursos.Visible = true;
+                }
+
+                isExpanded = !isExpanded;
+            };
+
+            //TERMINO EXPANSÃO RECURSOS
+
+
+
+
+
+
+
+
+
+
+            //CRIANDO EXPANSÃO PROFESSORES
+            System.Windows.Forms.Label lblPr = new System.Windows.Forms.Label
+            {
+                Text = "Desempenhos",
+                ForeColor = Color.Black,
+                BackColor = Color.FromArgb(224, 224, 224),
+                Font = new Font("Franklin Gothic", 20, FontStyle.Bold),
+                TextAlign = ContentAlignment.MiddleCenter,
+                Location = new Point(900, 200),
+                Size = new Size(190, 60)
+            };
+            Panel panelProfessor = new Panel
+            {
+                Name = "panelDesempenho",
+                Size = new Size(80, 80),
+                BackColor = Color.Black,
+                Location = new Point(950, 270)
+            };
+
+            PictureBox pictureProfessor = new PictureBox
+            {
+                Size = new Size(80, 80),
+                Location = new Point(0, 0),
+                Image = Image.FromFile("C:\\Users\\ogabr\\OneDrive\\Área de Trabalho\\PII-VIII-master\\PII-VIII-master\\PII VIII\\Resources\\desempenho1.png"),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                BackColor = Color.FromArgb(224, 224, 224)
+            };
+
+            bool isDesempenhoExpanded = false;
+
+            panelProfessor.Controls.Add(pictureProfessor);
+            this.Controls.Add(panelProfessor);
+            this.Controls.Add(lblPr);
+
+            pictureProfessor.Click += (s, e) =>
+            {
+                if (!isDesempenhoExpanded)
+                {
+                    panelProfessor.Size = new Size(300, 400);
+                    panelProfessor.AutoScroll = true;
+                    pictureProfessor.Visible = false;
+                }
+
+                isDesempenhoExpanded = !isDesempenhoExpanded;
+            };
+
+            panelProfessor.Click += (s, e) =>
+            {
+                if (isDesempenhoExpanded)
+                {
+                    panelProfessor.Size = new Size(80, 80);
+                    panelProfessor.AutoScroll = false;
+                    pictureProfessor.Visible = true;
+                }
+
+                isDesempenhoExpanded = !isDesempenhoExpanded;
+            };
+
+
+            //TERMINO EXPANSÃO PROFESSORES
+
+
+
+
+
             Panel panelHeader = new Panel
             {
                 Dock = DockStyle.Top,
@@ -128,6 +325,9 @@ namespace PII_VIII
             };
 
             this.Controls.Add(panelHeader);
+
+
+
         }
 
 
@@ -211,12 +411,12 @@ namespace PII_VIII
             {
                 if (control is Label label)
                 {
-                  
-                        label.Font = new Font("Segoe UI", 10, FontStyle.Bold); 
-                        label.ForeColor = Color.FromArgb(31, 31, 31);         
-                        label.BackColor = Color.Transparent;                 
-                        label.TextAlign = ContentAlignment.MiddleLeft;       
-                    
+
+                    label.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                    label.ForeColor = Color.FromArgb(31, 31, 31);
+                    label.BackColor = Color.Transparent;
+                    label.TextAlign = ContentAlignment.MiddleLeft;
+
                 }
             }
 
@@ -229,7 +429,7 @@ namespace PII_VIII
 
         private void btnCadastrosEscolas_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
+            string connectionString = @"Server=GABRIEL\SQLEXPRESS09;Database=EscolaCC;Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -276,7 +476,7 @@ namespace PII_VIII
 
         private void btnCadastroRec_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
+            string connectionString = @"Server=GABRIEL\SQLEXPRESS09;Database=EscolaCC;Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -322,7 +522,7 @@ namespace PII_VIII
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
+            string connectionString = @"Server=GABRIEL\SQLEXPRESS09;Database=EscolaCC;Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -383,7 +583,7 @@ namespace PII_VIII
             endEscola.ShowDialog();
         }
 
-        
+
 
         private async void button2_Click_1(object sender, EventArgs e)
         {
@@ -397,7 +597,7 @@ namespace PII_VIII
                 else
                 {
                     fadeOutTimer.Stop();
-                    this.Close(); 
+                    this.Close();
                 }
             };
             fadeOutTimer.Start();
