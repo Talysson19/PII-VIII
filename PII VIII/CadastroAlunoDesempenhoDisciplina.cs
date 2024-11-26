@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,10 +20,130 @@ namespace PII_VIII
             ApplyStyles();
             InicializarBotaoSair();
             AddHeader();
+            
         }
+    
 
         private void AddHeader()
         {
+
+            //INICIO EXPANSÃO
+
+            Panel panelAluno = new Panel
+            {
+                Name = "panelAluno",
+                Size = new Size(50, 50),
+                BackColor = Color.Black,
+                Location = new Point(150, 200),
+                AutoScroll = true
+            };
+
+            panelAluno.MouseEnter += (s, e) =>
+            {
+                panelAluno.Size = new Size(400, 400);
+            };
+
+            panelAluno.MouseLeave += (s, e) =>
+            {
+                Point mousePosition = panelAluno.PointToClient(Cursor.Position);
+                if (mousePosition.X < 0 || mousePosition.Y < 0 ||
+                    mousePosition.X > panelAluno.Width || mousePosition.Y > panelAluno.Height)
+                {
+                    panelAluno.Size = new Size(50, 50); 
+                }
+            };
+            Panel panelDisciplina = new Panel
+            {
+                Name = "panelDisciplina",
+                Size = new Size(50, 50),
+                BackColor = Color.Black,
+                Location = new Point(200, 10)
+            };
+            panelDisciplina.MouseEnter += PanelDisciplina_MouseEnter;
+            panelDisciplina.MouseLeave += PanelDisciplina_MouseLeave;
+
+            Panel panelDesempenho = new Panel
+            {
+                Name = "panelDesempenho",
+                Size = new Size(50, 50),
+                BackColor = Color.Black,
+                Location = new Point(400, 10)
+            };
+            panelDesempenho.MouseEnter += PanelDesempenho_MouseEnter;
+            panelDesempenho.MouseLeave += PanelDesempenho_MouseLeave;
+
+            this.Controls.Add(panelAluno);
+            this.Controls.Add(panelDisciplina);
+            this.Controls.Add(panelDesempenho);
+
+            label1.Location = new Point(10, 10);
+            label1.ForeColor = Color.White;
+            txtNome.Location = new Point(10, 40);
+
+            label2.Location = new Point(10, 80);
+            label2.ForeColor = Color.White;
+            dtpDataNascimento.Location = new Point(10, 110);
+
+            label3.Location = new Point(10, 150);
+            label3.ForeColor = Color.White;
+            cmbGenero.Location = new Point(10, 180);
+
+            label4.Location = new Point(10, 220);
+            label4.ForeColor = Color.White;
+            cmbRaca.Location = new Point(10, 250);
+
+            label9.Location = new Point(10, 290);
+            label9.ForeColor = Color.White;
+            txtIDEscola.Location = new Point(10, 320);
+
+            label5.Location = new Point(10, 360);
+            label5.ForeColor = Color.White;
+            cmbClasseSocial.Location = new Point(10, 390);
+
+            label6.Location = new Point(10, 430);
+            label6.ForeColor = Color.White;
+            txtPcd.Location = new Point(10, 460);
+
+            label7.Location = new Point(10, 500);
+            label7.ForeColor = Color.White;
+            txtBolsa.Location = new Point(10, 530);
+
+            label10.Location = new Point(10, 570);
+            label10.ForeColor = Color.White;
+            txtEndAluno.Location = new Point(10, 600);
+
+            label8.Location = new Point(10, 640);
+            label8.ForeColor = Color.White;
+            txtAbandono.Location = new Point(10, 670);
+
+            btnCadastrarEndA.Location = new Point(10, 710);
+
+            panelAluno.Controls.Add(label1);
+            panelAluno.Controls.Add(txtNome);
+            panelAluno.Controls.Add(label2);
+            panelAluno.Controls.Add(dtpDataNascimento);
+            panelAluno.Controls.Add(label3);
+            panelAluno.Controls.Add(cmbGenero);
+            panelAluno.Controls.Add(label4);
+            panelAluno.Controls.Add(cmbRaca);
+            panelAluno.Controls.Add(label9);
+            panelAluno.Controls.Add(txtIDEscola);
+            panelAluno.Controls.Add(label5);
+            panelAluno.Controls.Add(cmbClasseSocial);
+            panelAluno.Controls.Add(label6);
+            panelAluno.Controls.Add(txtPcd);
+            panelAluno.Controls.Add(label7);
+            panelAluno.Controls.Add(txtBolsa);
+            panelAluno.Controls.Add(label10);
+            panelAluno.Controls.Add(txtEndAluno);
+            panelAluno.Controls.Add(label8);
+            panelAluno.Controls.Add(txtAbandono);
+            panelAluno.Controls.Add(btnCadastrarEndA);
+
+            //TERMINO EXPANSÃO
+
+
+
             Panel panelHeader = new Panel
             {
                 Dock = DockStyle.Top,
@@ -64,6 +185,48 @@ namespace PII_VIII
 
             this.Controls.Add(panelHeader);
         }
+
+
+        private void PanelAluno_MouseEnter(object sender, EventArgs e)
+        {
+            Panel panel = sender as Panel;
+            panel.Size = new Size(300, 300); 
+            panel.BringToFront(); 
+        }
+
+        private void PanelAluno_MouseLeave(object sender, EventArgs e)
+        {
+            Panel panel = sender as Panel;
+            panel.Size = new Size(50, 50); 
+        }
+
+        private void PanelDisciplina_MouseEnter(object sender, EventArgs e)
+        {
+            Panel panel = sender as Panel;
+            panel.Size = new Size(300, 300);
+            panel.BringToFront();
+        }
+
+        private void PanelDisciplina_MouseLeave(object sender, EventArgs e)
+        {
+            Panel panel = sender as Panel;
+            panel.Size = new Size(50, 50);
+        }
+
+        private void PanelDesempenho_MouseEnter(object sender, EventArgs e)
+        {
+            Panel panel = sender as Panel;
+            panel.Size = new Size(300, 300);
+            panel.BringToFront();
+        }
+
+        private void PanelDesempenho_MouseLeave(object sender, EventArgs e)
+        {
+            Panel panel = sender as Panel;
+            panel.Size = new Size(50, 50);
+        }
+        
+
 
         private void InicializarBotaoSair()
         {
@@ -123,14 +286,45 @@ namespace PII_VIII
         private void ApplyStyles()
         {
             this.BackColor = Color.FromArgb(245, 245, 245);
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is Label lbl)
+                {
+                    lbl.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                    lbl.ForeColor = Color.FromArgb(31, 31, 31); 
+                }
+            }
+
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is ComboBox cmbBox)
+                {
+                    cmbBox.BackColor = Color.White;
+                    cmbBox.FlatStyle = FlatStyle.Flat;
+                    cmbBox.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+                    cmbBox.ForeColor = Color.Black;
+                }
+            }
+
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is TextBox txtBox)
+                {
+                    txtBox.BorderStyle = BorderStyle.FixedSingle;
+                    txtBox.BackColor = Color.FromArgb(245, 245, 245); 
+                    txtBox.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+                    txtBox.ForeColor = Color.Black;
+                }
+            }
+
 
             foreach (Control control in this.Controls)
             {
                 if (control is Button button)
                 {
                     button.FlatStyle = FlatStyle.Flat;
-                    button.BackColor = Color.Black;
-                    button.ForeColor = Color.White; 
+                    button.BackColor = Color.White;
+                    button.ForeColor = Color.Black; 
                     button.Font = new Font("Arial", 10, FontStyle.Bold);
                     button.FlatAppearance.BorderSize = 1;
                     button.FlatAppearance.BorderColor = Color.White; 

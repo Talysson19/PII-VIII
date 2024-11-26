@@ -144,7 +144,40 @@ namespace PII_VIII
         private void ApplyStyles()
         {
             this.BackColor = Color.FromArgb(245, 245, 245);
-            
+
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is Label lbl)
+                {
+                    lbl.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                    lbl.ForeColor = Color.FromArgb(31, 31, 31);
+                }
+            }
+
+
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is ComboBox cmbBox)
+                {
+                    cmbBox.BackColor = Color.White;
+                    cmbBox.FlatStyle = FlatStyle.Flat;
+                    cmbBox.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+                    cmbBox.ForeColor = Color.Black;
+                }
+            }
+
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is TextBox txtBox)
+                {
+                    txtBox.BorderStyle = BorderStyle.FixedSingle;
+                    txtBox.BackColor = Color.FromArgb(245, 245, 245);
+                    txtBox.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+                    txtBox.ForeColor = Color.Black;
+                }
+            }
+
+
             foreach (Control control in this.Controls)
             {
                 if (control is Button button)

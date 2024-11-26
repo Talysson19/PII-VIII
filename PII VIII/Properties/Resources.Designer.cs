@@ -63,6 +63,26 @@ namespace PII_VIII.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap goran_ivos_iOykDIkZLQw_unsplash {
+            get {
+                object obj = ResourceManager.GetObject("goran-ivos-iOykDIkZLQw-unsplash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Imagem_fundo_pc {
+            get {
+                object obj = ResourceManager.GetObject("Imagem-fundo-pc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap unifenas1_logo {
             get {
                 object obj = ResourceManager.GetObject("unifenas1.logo", resourceCulture);
