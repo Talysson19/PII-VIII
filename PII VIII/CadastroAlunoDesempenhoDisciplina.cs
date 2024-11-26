@@ -2,8 +2,10 @@
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Reflection.Emit;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinLabel = System.Windows.Forms.Label;
 
 namespace PII_VIII
 {
@@ -40,7 +42,7 @@ namespace PII_VIII
 
             panelAluno.MouseEnter += (s, e) =>
             {
-                panelAluno.Size = new Size(400, 400);
+                panelAluno.Size = new Size(300, 400);
             };
 
             panelAluno.MouseLeave += (s, e) =>
@@ -57,25 +59,51 @@ namespace PII_VIII
                 Name = "panelDisciplina",
                 Size = new Size(50, 50),
                 BackColor = Color.Black,
-                Location = new Point(200, 10)
+                Location = new Point(550, 200)
             };
-            panelDisciplina.MouseEnter += PanelDisciplina_MouseEnter;
-            panelDisciplina.MouseLeave += PanelDisciplina_MouseLeave;
+            panelDisciplina.MouseEnter += (s, e) =>
+            {
+                panelDisciplina.Size = new Size(250, 200);
+            };
+
+            panelDisciplina.MouseLeave += (s, e) =>
+            {
+                Point mousePosition = panelDisciplina.PointToClient(Cursor.Position);
+                if (mousePosition.X < 0 || mousePosition.Y < 0 ||
+                    mousePosition.X > panelDisciplina.Width || mousePosition.Y > panelDisciplina.Height)
+                {
+                    panelDisciplina.Size = new Size(50, 50);
+                }
+            };
 
             Panel panelDesempenho = new Panel
             {
                 Name = "panelDesempenho",
                 Size = new Size(50, 50),
                 BackColor = Color.Black,
-                Location = new Point(400, 10)
+                Location = new Point(850, 200)
             };
-            panelDesempenho.MouseEnter += PanelDesempenho_MouseEnter;
-            panelDesempenho.MouseLeave += PanelDesempenho_MouseLeave;
+
+            panelDesempenho.MouseEnter += (s, e) =>
+            {
+                panelDesempenho.Size = new Size(250, 300);
+            };
+
+            panelDesempenho.MouseLeave += (s, e) =>
+            {
+                Point mousePosition = panelDesempenho.PointToClient(Cursor.Position);
+                if (mousePosition.X < 0 || mousePosition.Y < 0 ||
+                    mousePosition.X > panelDesempenho.Width || mousePosition.Y > panelDesempenho.Height)
+                {
+                    panelDesempenho.Size = new Size(50, 50);
+                }
+            };
 
             this.Controls.Add(panelAluno);
             this.Controls.Add(panelDisciplina);
             this.Controls.Add(panelDesempenho);
-
+            
+            //ADD PANEL ALUNO
             label1.Location = new Point(10, 10);
             label1.ForeColor = Color.White;
             txtNome.Location = new Point(10, 40);
@@ -116,7 +144,7 @@ namespace PII_VIII
             label8.ForeColor = Color.White;
             txtAbandono.Location = new Point(10, 670);
 
-            btnCadastrarEndA.Location = new Point(10, 710);
+            btnCadastrarEndA.Location = new Point(10, 700);
 
             panelAluno.Controls.Add(label1);
             panelAluno.Controls.Add(txtNome);
@@ -139,10 +167,41 @@ namespace PII_VIII
             panelAluno.Controls.Add(label8);
             panelAluno.Controls.Add(txtAbandono);
             panelAluno.Controls.Add(btnCadastrarEndA);
+            //ADD PANEL DISCIPLINA
+            lblNome.Location = new Point(10, 10);
+            lblNome.ForeColor = Color.White;
+            txtDisciplina.Location = new Point(10, 40);
 
+            btnSalvarDisc.Location = new Point(10, 70);
+
+            panelDisciplina.Controls.Add(lblNome);
+            panelDisciplina.Controls.Add(txtDisciplina);
+            panelDisciplina.Controls.Add(btnSalvarDisc);
             //TERMINO EXPANSÃO
 
+            //ADD PANEL DESEMPENHO
+            label11.Location = new Point(10, 10);
+            label11.ForeColor = Color.White;
+            txtNota.Location = new Point(10, 40);
 
+            label14.Location = new Point(10, 80);
+            label14.ForeColor = Color.White;
+            txtIDAluno.Location = new Point(10, 110);
+
+            label13.Location = new Point(10, 150);
+            label13.ForeColor = Color.White;
+            txtIDDisciplina.Location = new Point(10, 180);
+
+            button2.Location = new Point(10, 220);
+            panelDesempenho.Controls.Add(label11);
+            panelDesempenho.Controls.Add(txtNota);
+            panelDesempenho.Controls.Add(label14);
+            panelDesempenho.Controls.Add(txtIDAluno);
+            panelDesempenho.Controls.Add(txtIDDisciplina);
+            panelDesempenho.Controls.Add(button2);
+            panelDesempenho.Controls.Add(label13);
+
+            //TERMINO EXPANSÃO 
 
             Panel panelHeader = new Panel
             {
@@ -160,13 +219,15 @@ namespace PII_VIII
             };
             panelHeader.Controls.Add(pictureBox);
 
-            Label lblTitle = new Label
+            System.Windows.Forms.Label lblTitle = new System.Windows.Forms.Label
             {
                 Text = "Cadastro de Aluno e Desempenho",
                 Font = new Font("Arial", 20, FontStyle.Bold),
                 ForeColor = Color.White,
                 AutoSize = true
             };
+
+
             lblTitle.Location = new Point(
                 (panelHeader.Width - lblTitle.Width) / 2,
                 (panelHeader.Height - lblTitle.Height) / 2
@@ -288,10 +349,10 @@ namespace PII_VIII
             this.BackColor = Color.FromArgb(245, 245, 245);
             foreach (Control ctrl in this.Controls)
             {
-                if (ctrl is Label lbl)
+                if (ctrl is System.Windows.Forms.Label lbl)
                 {
                     lbl.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-                    lbl.ForeColor = Color.FromArgb(31, 31, 31); 
+                    lbl.ForeColor = Color.FromArgb(31, 31, 31);
                 }
             }
 
@@ -341,14 +402,12 @@ namespace PII_VIII
             }
             foreach (Control control in this.Controls)
             {
-                if (control is Label label)
+                if (control is System.Windows.Forms.Label label)
                 {
-
                     label.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                     label.ForeColor = Color.FromArgb(31, 31, 31);
                     label.BackColor = Color.Transparent;
                     label.TextAlign = ContentAlignment.MiddleLeft;
-
                 }
             }
         }
@@ -433,11 +492,11 @@ namespace PII_VIII
                 try
                 {
                     connection.Open();
-                    MessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
+                    CustomMessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
+                    CustomMessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
                     return;
                 }
             }
@@ -474,11 +533,11 @@ namespace PII_VIII
                 {
                     connection.Open();
                     int rowsAffected = command.ExecuteNonQuery();
-                    MessageBox.Show(rowsAffected > 0 ? "Aluno cadastrado com sucesso!" : "Erro ao cadastrar aluno.");
+                    CustomMessageBox.Show(rowsAffected > 0 ? "Aluno cadastrado com sucesso!" : "Erro ao cadastrar aluno.");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao inserir dados: " + ex.Message);
+                    CustomMessageBox.Show("Erro ao inserir dados: " + ex.Message);
                 }
             }
         }
@@ -492,11 +551,11 @@ namespace PII_VIII
                 try
                 {
                     connection.Open();
-                    MessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
+                    CustomMessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
+                    CustomMessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
                     return;
                 }
             }
@@ -518,11 +577,11 @@ namespace PII_VIII
                 {
                     connection.Open();
                     int rowsAffected = command.ExecuteNonQuery();
-                    MessageBox.Show(rowsAffected > 0 ? "Disciplina cadastrada com sucesso!" : "Erro ao cadastrar aluno.");
+                    CustomMessageBox.Show(rowsAffected > 0 ? "Disciplina cadastrada com sucesso!" : "Erro ao cadastrar aluno.");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao inserir dados: " + ex.Message);
+                    CustomMessageBox.Show("Erro ao inserir dados: " + ex.Message);
                 }
             }
         }
@@ -536,11 +595,11 @@ namespace PII_VIII
                 try
                 {
                     connection.Open();
-                    MessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
+                    CustomMessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
+                    CustomMessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
                     return;
                 }
             }
@@ -563,11 +622,11 @@ namespace PII_VIII
                 {
                     connection.Open();
                     int rowsAffected = command.ExecuteNonQuery();
-                    MessageBox.Show(rowsAffected > 0 ? "Desempenho Acadêmico cadastrado com sucesso!" : "Erro ao cadastrar aluno.");
+                    CustomMessageBox.Show(rowsAffected > 0 ? "Desempenho Acadêmico cadastrado com sucesso!" : "Erro ao cadastrar aluno.");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao inserir dados: " + ex.Message);
+                    CustomMessageBox.Show("Erro ao inserir dados: " + ex.Message);
                 }
             }
         }

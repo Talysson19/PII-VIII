@@ -82,6 +82,14 @@ namespace PII_VIII
 
         private void AddHeader()
         {
+
+            //CRIANDO EXPANSÃO
+
+
+
+
+
+            //TERMINO EXPANSÃO 
             Panel panelHeader = new Panel
             {
                 Dock = DockStyle.Top,
