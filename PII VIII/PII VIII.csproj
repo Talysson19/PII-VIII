@@ -188,6 +188,9 @@
     <Content Include="images\unifenas1.logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\desempenho1.png" />
+    <None Include="Resources\livro.png" />
+    <None Include="Resources\desempenho.png" />
     <None Include="Resources\aluno.png" />
     <None Include="Resources\Imagem-fundo-pc.jpeg" />
     <None Include="Resources\goran-ivos-iOykDIkZLQw-unsplash.jpg" />

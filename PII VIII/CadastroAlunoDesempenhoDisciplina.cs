@@ -12,6 +12,7 @@ namespace PII_VIII
     public partial class CadastroAlunoDesempenhoDisciplina : Form
     {
         private Button sairbtn;
+        
         public CadastroAlunoDesempenhoDisciplina()
         {
             this.FormBorderStyle = FormBorderStyle.None;
@@ -29,13 +30,23 @@ namespace PII_VIII
         private void AddHeader()
         {
             // INICIO EXPANSÃO E CONTRAÇÃO COM CLIQUE
+            System.Windows.Forms.Label lblAl = new System.Windows.Forms.Label
+            {
+                Text = "Alunos",
+                ForeColor = Color.Black,
+                BackColor = Color.FromArgb(224, 224, 224),
+                Font = new Font("Franklin Gothic", 20, FontStyle.Bold),
+                TextAlign = ContentAlignment.MiddleCenter,
+                Location = new Point(100, 200),
+                Size = new Size(170, 60)
+            };
 
             Panel panelAluno = new Panel
             {
                 Name = "panelAluno",
                 Size = new Size(80, 80),  
                 BackColor = Color.Black,
-                Location = new Point(150, 200),
+                Location = new Point(150, 270),
             };
 
             PictureBox pictureAluno = new PictureBox
@@ -49,31 +60,31 @@ namespace PII_VIII
 
             panelAluno.Controls.Add(pictureAluno);
             this.Controls.Add(panelAluno);
-
-            bool isExpanded = false;
+            this.Controls.Add(lblAl);
+            bool isAlunoExpanded = false;
 
             pictureAluno.Click += (s, e) =>
             {
-                if (!isExpanded)
+                if (!isAlunoExpanded)
                 {
                     panelAluno.Size = new Size(300, 400);
                     panelAluno.AutoScroll = true;
                     pictureAluno.Visible = false;
                 }
 
-                isExpanded = !isExpanded;
+                isAlunoExpanded = !isAlunoExpanded;
             };
 
             panelAluno.Click += (s, e) =>
             {
-                if (isExpanded)
+                if (isAlunoExpanded)
                 {
                     panelAluno.Size = new Size(80, 80);
                     panelAluno.AutoScroll = false;
                     pictureAluno.Visible = true;
                 }
 
-                isExpanded = !isExpanded;
+                isAlunoExpanded = !isAlunoExpanded;
             };
 
             // FIM EXPANSÃO E CONTRAÇÃO COM CLIQUE
@@ -86,55 +97,127 @@ namespace PII_VIII
 
 
             //INICIO EXPANSÃO DISCIPLINA
+            System.Windows.Forms.Label lblDc = new System.Windows.Forms.Label
+            {
+                Text = "Disciplina",
+                ForeColor = Color.Black,
+                BackColor = Color.FromArgb(224, 224, 224),
+                Font = new Font("Franklin Gothic", 20, FontStyle.Bold),
+                TextAlign = ContentAlignment.MiddleCenter,
+                Location = new Point(510, 200),
+                Size = new Size(170, 60)
+            };
+
             Panel panelDisciplina = new Panel
             {
                 Name = "panelDisciplina",
-                Size = new Size(50, 50),
+                Size = new Size(80, 80),
                 BackColor = Color.Black,
-                Location = new Point(550, 200)
-            };
-            panelDisciplina.MouseEnter += (s, e) =>
-            {
-                panelDisciplina.Size = new Size(250, 200);
+                Location = new Point(550, 270)
             };
 
-            panelDisciplina.MouseLeave += (s, e) =>
+            PictureBox pictureDisciplina = new PictureBox
             {
-                Point mousePosition = panelDisciplina.PointToClient(Cursor.Position);
-                if (mousePosition.X < 0 || mousePosition.Y < 0 ||
-                    mousePosition.X > panelDisciplina.Width || mousePosition.Y > panelDisciplina.Height)
-                {
-                    panelDisciplina.Size = new Size(50, 50);
-                }
+                Size = new Size(80, 80),
+                Location = new Point(0, 0),
+                Image = Image.FromFile("C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PII-VIII-master\\PII-VIII\\PII VIII\\Resources\\livro.png"),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                BackColor = Color.FromArgb(224, 224, 224)
             };
+
+            panelDisciplina.Controls.Add(pictureDisciplina);
+            this.Controls.Add(lblDc); 
+            this.Controls.Add(panelDisciplina); 
+
+            bool isExpanded = false;
+
+            pictureDisciplina.Click += (s, e) =>
+            {
+                if (!isExpanded)
+                {
+                    panelDisciplina.Size = new Size(300, 400);
+                    panelDisciplina.AutoScroll = true;
+                    pictureDisciplina.Visible = false;
+                }
+
+                isExpanded = !isExpanded;
+            };
+
+            panelDisciplina.Click += (s, e) =>
+            {
+                if (isExpanded)
+                {
+                    panelDisciplina.Size = new Size(80, 80);
+                    panelDisciplina.AutoScroll = false;
+                    pictureDisciplina.Visible = true;
+                }
+
+                isExpanded = !isExpanded;
+            };
+
             //FIM EXPANSÃO E CONTRAÇÃO DISCIPLINA
 
 
 
-            //INICIO EXPANSÃO DESEMPENHO
+            // INICIO EXPANSÃO DESEMPENH
+            System.Windows.Forms.Label lblDs = new System.Windows.Forms.Label
+            {
+                Text = "Desempenhos",
+                ForeColor = Color.Black,
+                BackColor = Color.FromArgb(224, 224, 224),
+                Font = new Font("Franklin Gothic", 20, FontStyle.Bold),
+                TextAlign = ContentAlignment.MiddleCenter,
+                Location = new Point(900, 200),
+                Size = new Size(190, 60)
+            };
             Panel panelDesempenho = new Panel
             {
                 Name = "panelDesempenho",
-                Size = new Size(50, 50),
+                Size = new Size(80, 80),
                 BackColor = Color.Black,
-                Location = new Point(850, 200)
+                Location = new Point(950, 270)
             };
 
-            panelDesempenho.MouseEnter += (s, e) =>
+            PictureBox pictureDesempenho = new PictureBox
             {
-                panelDesempenho.Size = new Size(250, 300);
+                Size = new Size(80, 80),
+                Location = new Point(0, 0),
+                Image = Image.FromFile("C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PII-VIII-master\\PII-VIII\\PII VIII\\Resources\\desempenho1.png"),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                BackColor = Color.FromArgb(224, 224, 224)
             };
 
-            panelDesempenho.MouseLeave += (s, e) =>
+            bool isDesempenhoExpanded = false;
+
+            panelDesempenho.Controls.Add(pictureDesempenho);
+            this.Controls.Add(panelDesempenho);
+            this.Controls.Add(lblDs);
+
+            pictureDesempenho.Click += (s, e) =>
             {
-                Point mousePosition = panelDesempenho.PointToClient(Cursor.Position);
-                if (mousePosition.X < 0 || mousePosition.Y < 0 ||
-                    mousePosition.X > panelDesempenho.Width || mousePosition.Y > panelDesempenho.Height)
+                if (!isDesempenhoExpanded)
                 {
-                    panelDesempenho.Size = new Size(50, 50);
+                    panelDesempenho.Size = new Size(300, 400);
+                    panelDesempenho.AutoScroll = true;
+                    pictureDesempenho.Visible = false;
                 }
+
+                isDesempenhoExpanded = !isDesempenhoExpanded;
             };
-            //FIM EXPANSÃO E CONTRAÇ~~AO DESEMPENHO
+
+            panelDesempenho.Click += (s, e) =>
+            {
+                if (isDesempenhoExpanded)
+                {
+                    panelDesempenho.Size = new Size(80, 80);
+                    panelDesempenho.AutoScroll = false;
+                    pictureDesempenho.Visible = true;
+                }
+
+                isDesempenhoExpanded = !isDesempenhoExpanded;
+            };
+            // FIM EXPANSÃO E CONTRAÇÃO DESEMPENHO
+
 
             this.Controls.Add(panelAluno);
             this.Controls.Add(panelDisciplina);
