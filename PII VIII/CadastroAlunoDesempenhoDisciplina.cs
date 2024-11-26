@@ -28,32 +28,64 @@ namespace PII_VIII
 
         private void AddHeader()
         {
-
-            //INICIO EXPANSÃO
+            // INICIO EXPANSÃO E CONTRAÇÃO COM CLIQUE
 
             Panel panelAluno = new Panel
             {
                 Name = "panelAluno",
-                Size = new Size(50, 50),
+                Size = new Size(80, 80),  
                 BackColor = Color.Black,
                 Location = new Point(150, 200),
-                AutoScroll = true
             };
 
-            panelAluno.MouseEnter += (s, e) =>
+            PictureBox pictureAluno = new PictureBox
             {
-                panelAluno.Size = new Size(300, 400);
+                Size = new Size(80, 80),
+                Location = new Point(0, 0), 
+                Image = Image.FromFile("C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PII-VIII-master\\PII-VIII\\PII VIII\\Resources\\aluno.png"),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                BackColor = Color.FromArgb(224, 224, 224)
             };
 
-            panelAluno.MouseLeave += (s, e) =>
+            panelAluno.Controls.Add(pictureAluno);
+            this.Controls.Add(panelAluno);
+
+            bool isExpanded = false;
+
+            pictureAluno.Click += (s, e) =>
             {
-                Point mousePosition = panelAluno.PointToClient(Cursor.Position);
-                if (mousePosition.X < 0 || mousePosition.Y < 0 ||
-                    mousePosition.X > panelAluno.Width || mousePosition.Y > panelAluno.Height)
+                if (!isExpanded)
                 {
-                    panelAluno.Size = new Size(50, 50); 
+                    panelAluno.Size = new Size(300, 400);
+                    panelAluno.AutoScroll = true;
+                    pictureAluno.Visible = false;
                 }
+
+                isExpanded = !isExpanded;
             };
+
+            panelAluno.Click += (s, e) =>
+            {
+                if (isExpanded)
+                {
+                    panelAluno.Size = new Size(80, 80);
+                    panelAluno.AutoScroll = false;
+                    pictureAluno.Visible = true;
+                }
+
+                isExpanded = !isExpanded;
+            };
+
+            // FIM EXPANSÃO E CONTRAÇÃO COM CLIQUE
+
+
+
+
+
+
+
+
+            //INICIO EXPANSÃO DISCIPLINA
             Panel panelDisciplina = new Panel
             {
                 Name = "panelDisciplina",
@@ -75,7 +107,11 @@ namespace PII_VIII
                     panelDisciplina.Size = new Size(50, 50);
                 }
             };
+            //FIM EXPANSÃO E CONTRAÇÃO DISCIPLINA
 
+
+
+            //INICIO EXPANSÃO DESEMPENHO
             Panel panelDesempenho = new Panel
             {
                 Name = "panelDesempenho",
@@ -98,6 +134,7 @@ namespace PII_VIII
                     panelDesempenho.Size = new Size(50, 50);
                 }
             };
+            //FIM EXPANSÃO E CONTRAÇ~~AO DESEMPENHO
 
             this.Controls.Add(panelAluno);
             this.Controls.Add(panelDisciplina);
@@ -492,11 +529,11 @@ namespace PII_VIII
                 try
                 {
                     connection.Open();
-                    CustomMessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
+                   // CustomMessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
                 }
                 catch (Exception ex)
                 {
-                    CustomMessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
+                    //CustomMessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
                     return;
                 }
             }
@@ -551,11 +588,11 @@ namespace PII_VIII
                 try
                 {
                     connection.Open();
-                    CustomMessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
+                  //  CustomMessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
                 }
                 catch (Exception ex)
                 {
-                    CustomMessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
+                   // CustomMessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
                     return;
                 }
             }
@@ -595,11 +632,12 @@ namespace PII_VIII
                 try
                 {
                     connection.Open();
-                    CustomMessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
+                   // CustomMessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
                 }
                 catch (Exception ex)
                 {
-                    CustomMessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
+                   // CustomMessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
+                   // CustomMessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
                     return;
                 }
             }
