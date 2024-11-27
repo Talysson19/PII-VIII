@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Threading.Tasks;
@@ -9,16 +10,9 @@ namespace PII_VIII
     public partial class Relatórios : Form
     {
         private DatabaseService databaseService;
-        private Button Sair;
         private DataGridView dataGridView;
-        private Panel headerPanel;
-        private PictureBox logoPic;
-        private Label toggleLabel;
-        private Panel sideBarPanel;
-
-
-
-        
+        private CheckBox chkAlunos, chkDesempenho, chkDisciplinas, chkEscola, chkProfessores, chkRecursos, chkEnderecoEscola, chkEnderecoAluno;
+        private Button btnProcessar;
 
         public Relatórios()
         {
@@ -26,199 +20,95 @@ namespace PII_VIII
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
             databaseService = new DatabaseService();
-            this.BackColor = System.Drawing.Color.FromArgb(224, 224, 224);
             CustomizeDesign();
-            ApplyHoverEffect();
-
-
-
-            sideBarPanel.BackColor = Color.FromArgb(0, Color.Gray);
-
         }
 
-        private async void Relatórios_Load(object sender, EventArgs e)
+        private void CustomizeDesign()
         {
-            await LoadCombinedDataAsync();
-
-        }
-
-        private async Task LoadCombinedDataAsync()
-        {
-            DataTable schoolsTable = databaseService.GetSchoolsFromSQL();
-            var schoolAddresses = await databaseService.GetSchoolAddressesFromNeo4j();
-
-            DataTable combinedTable = new DataTable();
-            combinedTable.Columns.Add("IDEscola", typeof(int));
-            combinedTable.Columns.Add("Nome da Escola", typeof(string));
-            combinedTable.Columns.Add("IDEndereco da Escola", typeof(int));
-            combinedTable.Columns.Add("Tipo", typeof(string));
-            combinedTable.Columns.Add("NivelEnsino", typeof(string));
-            combinedTable.Columns.Add("Número de Alunos", typeof(int));
-            combinedTable.Columns.Add("Endereço", typeof(string));
-
-            foreach (DataRow row in schoolsTable.Rows)
+            // Adicionar DataGridView
+            dataGridView = new DataGridView
             {
-                int escolaId = Convert.ToInt32(row["IDEscola"]);
-                string nomeEscola = row["Nome"].ToString();
-                int enderecoEscolaId = Convert.ToInt32(row["IDEnderecoEscola"]);
-                string tipo = row["Tipo"].ToString();
-                string nivelEnsino = row["NivelEnsino"].ToString();
-                int studentCount = databaseService.GetStudentCountBySchoolSQL(escolaId);
+                Dock = DockStyle.Bottom,
+                Height = this.ClientSize.Height / 2,
+                BackgroundColor = Color.White,
+                ForeColor = Color.Black,
+                ReadOnly = true,
+                AllowUserToAddRows = false
+            };
+            this.Controls.Add(dataGridView);
 
-                string endereco = schoolAddresses.ContainsKey(enderecoEscolaId)
-                    ? schoolAddresses[enderecoEscolaId]
-                    : "Endereço não disponível";
+            // Adicionar Checkboxes
+            int posY = 20;
+            int posX = 10;
 
-                combinedTable.Rows.Add(escolaId, nomeEscola, enderecoEscolaId, tipo, nivelEnsino, studentCount, endereco);
-            }
+            chkAlunos = CreateCheckBox("chkAlunos", "Alunos", posX, posY);
+            chkDesempenho = CreateCheckBox("chkDesempenho", "Desempenho Acadêmico", posX, posY += 30);
+            chkDisciplinas = CreateCheckBox("chkDisciplinas", "Disciplinas", posX, posY += 30);
+            chkEscola = CreateCheckBox("chkEscola", "Escola", posX, posY += 30);
+            chkProfessores = CreateCheckBox("chkProfessores", "Professores", posX, posY += 30);
+            chkRecursos = CreateCheckBox("chkRecursos", "Recursos Educacionais", posX, posY += 30);
+            chkEnderecoEscola = CreateCheckBox("chkEnderecoEscola", "Endereço Escola (Neo4j)", posX, posY += 30);
+            chkEnderecoAluno = CreateCheckBox("chkEnderecoAluno", "Endereço Aluno (Neo4j)", posX, posY += 30);
+
+            // Adicionar Botão Processar
+            btnProcessar = new Button
+            {
+                Text = "Processar Seleção",
+                Location = new Point(10, posY += 40),
+                Size = new Size(150, 30),
+                BackColor = Color.FromArgb(31, 31, 31),
+                ForeColor = Color.White
+            };
+            btnProcessar.Click += BtnProcessar_Click;
+            this.Controls.Add(btnProcessar);
+        }
+
+        private CheckBox CreateCheckBox(string name, string text, int x, int y)
+        {
+            var checkBox = new CheckBox
+            {
+                Name = name,
+                Text = text,
+                Location = new Point(x, y),
+                ForeColor = Color.Black
+            };
+            this.Controls.Add(checkBox);
+            return checkBox;
+        }
+
+        private async void BtnProcessar_Click(object sender, EventArgs e)
+        {
+            DataTable combinedTable = new DataTable();
+            combinedTable.Columns.Add("Fonte", typeof(string));
+            combinedTable.Columns.Add("Dados", typeof(string));
+
+            if (chkAlunos.Checked)
+                AddTableToCombined(combinedTable, "Alunos", databaseService.GetSchoolsFromSQL());
+            if (chkDesempenho.Checked)
+                AddTableToCombined(combinedTable, "Desempenho Acadêmico", databaseService.GetSchoolsFromSQL()); 
+            if (chkDisciplinas.Checked)
+                AddTableToCombined(combinedTable, "Disciplinas", databaseService.GetSchoolsFromSQL()); 
+
+            if (chkEnderecoEscola.Checked)
+                await AddNeo4jDataToCombined(combinedTable, "Endereço Escola", await databaseService.GetSchoolAddressesFromNeo4j());
 
             dataGridView.DataSource = combinedTable;
         }
 
-
-
-
-        private void CustomizeDesign()
+        private void AddTableToCombined(DataTable combinedTable, string source, DataTable data)
         {
-            Panel headerPanel = new Panel
+            foreach (DataRow row in data.Rows)
             {
-                Dock = DockStyle.Top,
-                Height = 119,
-                BackColor = Color.FromArgb(31, 31, 31)
-            };
-
-            logoPic = new PictureBox
-            {
-                Image = Image.FromFile("images/unifenas1.logo.png"),
-                SizeMode = PictureBoxSizeMode.StretchImage,
-                Size = new Size(280, 80),
-                Location = new System.Drawing.Point(10, 10)
-            };
-            headerPanel.Controls.Add(logoPic);
-
-            Sair = new Button
-            {
-                Text = "Sair",
-                Size = new Size(10, 10),
-                Dock = DockStyle.Right,
-                Width = 100,
-                BackColor = Color.FromArgb(31, 31, 31),
-                ForeColor = Color.White,
-                FlatStyle = FlatStyle.Flat
-            };
-            Sair.FlatAppearance.BorderSize = 0;
-            Sair.Click += new EventHandler(Sair_Click);
-
-
-            Label titleLabel = new Label
-            {
-                Text = "Relatórios de Escolas",
-                ForeColor = Color.White,
-                Font = new Font("Arial", 20, FontStyle.Bold),
-                Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleCenter
-            };
-
-
-
-
-            sideBarPanel = new BufferedPanel
-            {
-                Location = new Point(0, headerPanel.Height),
-                Size = new Size(0, this.ClientSize.Height - headerPanel.Height),
-                BackColor = Color.Gray
-
-            };
-
-
-            this.Resize += (s, e) =>
-            {
-                headerPanel.Width = this.ClientSize.Width;
-                sideBarPanel.Height = this.ClientSize.Height - headerPanel.Height;
-            };
-
-            logoPic = new PictureBox
-            {
-                Image = Image.FromFile("images/unifenas1.logo.png"),
-                SizeMode = PictureBoxSizeMode.StretchImage,
-                Size = new Size(280, 80),
-                Location = new System.Drawing.Point(10, 10)
-            };
-            headerPanel.Controls.Add(logoPic);
-
-            headerPanel.Controls.Add(titleLabel);
-            headerPanel.Controls.Add(Sair);
-            this.Controls.Add(headerPanel);
-            this.Controls.Add(sideBarPanel);
-
-            Panel bodyPanel = new Panel
-            {
-                Dock = DockStyle.Fill,
-                BackColor = Color.FromArgb(31, 31, 31, 12)
-            };
-            this.Controls.Add(bodyPanel);
-
-
-            dataGridView = new DataGridView
-            {
-                Size = new Size(720, 265),
-                Location = new Point(350, 200),
-                BackgroundColor = Color.White,
-                ForeColor = Color.Black,
-                BorderStyle = BorderStyle.None,
-                AllowUserToAddRows = false,
-                AllowUserToDeleteRows = false,
-                ReadOnly = true,
-                AllowUserToResizeRows = false,
-                AllowUserToResizeColumns = false,
-                AlternatingRowsDefaultCellStyle = new DataGridViewCellStyle { BackColor = Color.FromArgb(240, 240, 240) },
-                ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle
-                {
-                    BackColor = Color.FromArgb(31, 31, 31),
-                    ForeColor = Color.White,
-                    Font = new Font("Arial", 12, FontStyle.Bold)
-                },
-                RowHeadersVisible = false,
-                ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-            };
-            dataGridView.CellClick += (s, e) => dataGridView.ClearSelection();
-
-            bodyPanel.Controls.Add(dataGridView);
-        }
-
-        private void Sair_Click(object sender, EventArgs e)
-        {
-            Timer fadeOutTimer = new Timer { Interval = 10 };
-            fadeOutTimer.Tick += (s, ev) =>
-            {
-                if (this.Opacity > 0)
-                {
-                    this.Opacity -= 0.04;
-                }
-                else
-                {
-                    fadeOutTimer.Stop();
-                    this.Close();
-                }
-            };
-            fadeOutTimer.Start();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form1 webP = new Form1();
-            webP.ShowDialog();
-        }
-
-        private void ApplyHoverEffect(params Button[] buttons)
-        {
-            foreach (var btn in buttons)
-            {
-                btn.MouseEnter += (s, e) => btn.BackColor = ControlPaint.Light(btn.BackColor = Color.DarkGray, 0.2f);
-                btn.MouseLeave += (s, e) => btn.BackColor = ControlPaint.Dark(btn.BackColor = Color.DarkGray, 0.2f);
+                combinedTable.Rows.Add(source, string.Join(", ", row.ItemArray));
             }
         }
 
-
+        private async Task AddNeo4jDataToCombined(DataTable combinedTable, string source, Dictionary<int, string> data)
+        {
+            foreach (var item in data)
+            {
+                combinedTable.Rows.Add(source, $"{item.Key}: {item.Value}");
+            }
+        }
     }
 }

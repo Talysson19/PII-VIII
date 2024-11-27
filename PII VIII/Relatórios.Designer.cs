@@ -37,7 +37,6 @@
             this.ClientSize = new System.Drawing.Size(1413, 858);
             this.Name = "Relatórios";
             this.Text = "Relatórios";
-            this.Load += new System.EventHandler(this.Relatórios_Load);
             this.ResumeLayout(false);
 
         }
