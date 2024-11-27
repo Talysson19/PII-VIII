@@ -93,6 +93,16 @@ namespace PII_VIII.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap escola {
+            get {
+                object obj = ResourceManager.GetObject("escola", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap goran_ivos_iOykDIkZLQw_unsplash {
             get {
                 object obj = ResourceManager.GetObject("goran-ivos-iOykDIkZLQw-unsplash", resourceCulture);
@@ -116,6 +126,26 @@ namespace PII_VIII.Properties {
         internal static System.Drawing.Bitmap livro {
             get {
                 object obj = ResourceManager.GetObject("livro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap professor {
+            get {
+                object obj = ResourceManager.GetObject("professor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap recursos {
+            get {
+                object obj = ResourceManager.GetObject("recursos", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

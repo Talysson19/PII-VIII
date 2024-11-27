@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Reflection.Emit;
 using System.Windows.Forms;
+using WinLabel = System.Windows.Forms.Label;
 
 namespace PII_VIII
 {
@@ -91,13 +93,13 @@ namespace PII_VIII
                 BackColor = Color.FromArgb(224, 224, 224),
                 Font = new Font("Franklin Gothic", 20, FontStyle.Bold),
                 TextAlign = ContentAlignment.MiddleCenter,
-                Location = new Point(100, 200),
+                Location = new Point(160, 200),
                 Size = new Size(170, 60)
             };
 
             Panel paneleEscola = new Panel
             {
-                Name = "panelAluno",
+                Name = "paneleEscola",
                 Size = new Size(80, 80),
                 BackColor = Color.Black,
                 Location = new Point(150, 270),
@@ -107,7 +109,7 @@ namespace PII_VIII
             {
                 Size = new Size(80, 80),
                 Location = new Point(0, 0),
-                Image = Image.FromFile("C:\\Users\\ogabr\\OneDrive\\Área de Trabalho\\PII-VIII-master\\PII-VIII-master\\PII VIII\\Resources\\escola.png"),
+                Image = Image.FromFile("C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PII-VIII-master\\PII-VIII\\PII VIII\\Resources\\escola.png"),
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 BackColor = Color.FromArgb(224, 224, 224)
             };
@@ -155,18 +157,18 @@ namespace PII_VIII
             //CRIANDO EXPANSÃO RECURSOS
             System.Windows.Forms.Label lblRe = new System.Windows.Forms.Label
             {
-                Text = "Disciplina",
+                Text = "Recursos",
                 ForeColor = Color.Black,
                 BackColor = Color.FromArgb(224, 224, 224),
                 Font = new Font("Franklin Gothic", 20, FontStyle.Bold),
                 TextAlign = ContentAlignment.MiddleCenter,
-                Location = new Point(510, 200),
-                Size = new Size(170, 60)
+                Location = new Point(555, 200),
+                Size = new Size(250, 60)
             };
 
             Panel panelRecursos = new Panel
             {
-                Name = "panelDisciplina",
+                Name = "panelRecursos",
                 Size = new Size(80, 80),
                 BackColor = Color.Black,
                 Location = new Point(550, 270)
@@ -176,7 +178,7 @@ namespace PII_VIII
             {
                 Size = new Size(80, 80),
                 Location = new Point(0, 0),
-                Image = Image.FromFile("C:\\Users\\ogabr\\OneDrive\\Área de Trabalho\\PII-VIII-master\\PII-VIII-master\\PII VIII\\Resources\\recursos.png"),
+                Image = Image.FromFile("C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PII-VIII-master\\PII-VIII\\PII VIII\\Resources\\recursos.png"),
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 BackColor = Color.FromArgb(224, 224, 224)
             };
@@ -225,17 +227,17 @@ namespace PII_VIII
             //CRIANDO EXPANSÃO PROFESSORES
             System.Windows.Forms.Label lblPr = new System.Windows.Forms.Label
             {
-                Text = "Desempenhos",
+                Text = "Professores",
                 ForeColor = Color.Black,
                 BackColor = Color.FromArgb(224, 224, 224),
                 Font = new Font("Franklin Gothic", 20, FontStyle.Bold),
                 TextAlign = ContentAlignment.MiddleCenter,
-                Location = new Point(900, 200),
-                Size = new Size(190, 60)
+                Location = new Point(950, 200),
+                Size = new Size(270, 60)
             };
             Panel panelProfessor = new Panel
             {
-                Name = "panelDesempenho",
+                Name = "panelProfessor",
                 Size = new Size(80, 80),
                 BackColor = Color.Black,
                 Location = new Point(950, 270)
@@ -245,7 +247,7 @@ namespace PII_VIII
             {
                 Size = new Size(80, 80),
                 Location = new Point(0, 0),
-                Image = Image.FromFile("C:\\Users\\ogabr\\OneDrive\\Área de Trabalho\\PII-VIII-master\\PII-VIII-master\\PII VIII\\Resources\\desempenho1.png"),
+                Image = Image.FromFile("C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PII-VIII-master\\PII-VIII\\PII VIII\\Resources\\professor.png"),
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 BackColor = Color.FromArgb(224, 224, 224)
             };
@@ -283,9 +285,111 @@ namespace PII_VIII
 
             //TERMINO EXPANSÃO PROFESSORES
 
+            this.Controls.Add(paneleEscola);
+            this.Controls.Add(panelRecursos);
+            this.Controls.Add(panelProfessor);
 
+            label1.Location = new Point(10, 10);
+            label1.ForeColor = Color.White;
+            txtNomeEscola.Location = new Point(10, 40);
 
+            label10.Location = new Point(10, 80);
+            label10.ForeColor = Color.White;
+            txtEndEscola.Location = new Point(10, 110);
 
+            label3.Location = new Point(10, 150);
+            label3.ForeColor = Color.White;
+            cmbTipoEscola.Location = new Point(10, 180);
+
+            label4.Location = new Point(10, 220);
+            label4.ForeColor = Color.White;
+            cmbNivelEnsino.Location = new Point(10, 250);
+
+            btnCadastrosEscolas.Location = new Point(10, 320);
+
+            paneleEscola.Controls.Add(label1);
+            paneleEscola.Controls.Add(txtNomeEscola);
+            paneleEscola.Controls.Add(label10);
+            paneleEscola.Controls.Add(label3);
+            paneleEscola.Controls.Add(label4);
+            paneleEscola.Controls.Add(txtEndEscola);
+            paneleEscola.Controls.Add(cmbTipoEscola);
+            paneleEscola.Controls.Add(cmbNivelEnsino);
+            paneleEscola.Controls.Add(btnCadastrosEscolas);
+
+            label7.Location = new Point(10, 10);
+            label7.ForeColor = Color.White;
+            txtTipoRec.Location = new Point(10, 40);
+
+            label2.Location = new Point(10, 80);
+            label2.ForeColor = Color.White;
+            txtIDEscola.Location = new Point(10, 110);
+
+            label6.Location = new Point(10, 150);
+            label6.ForeColor = Color.White;
+            txtQtd.Location = new Point(10, 180);
+
+            label5.Location = new Point(10, 220);
+            label5.ForeColor = Color.White;
+            cmbEstadoRec.Location = new Point(10, 250);
+
+            btnCadastroRec.Location = new Point(10, 320);
+
+            panelRecursos.Controls.Add(label7);
+            panelRecursos.Controls.Add(txtTipoRec);
+            panelRecursos.Controls.Add(label2);
+            panelRecursos.Controls.Add(txtIDEscola);
+            panelRecursos.Controls.Add(label6);
+            panelRecursos.Controls.Add(txtQtd);
+            panelRecursos.Controls.Add(label5);
+            panelRecursos.Controls.Add(cmbEstadoRec);
+            panelRecursos.Controls.Add(btnCadastroRec);
+
+            label12.Location = new Point(10, 10);
+            label12.ForeColor = Color.White;
+            txtNomeProf.Location = new Point(10, 40);
+
+            label8.Location = new Point(10, 80);
+            label8.ForeColor = Color.White;
+            dtpDataNasciProf.Location = new Point(10, 110);
+
+            label11.Location = new Point(10, 150);
+            label11.ForeColor = Color.White;
+            cmbGeneroProf.Location = new Point(10, 180);
+
+            label9.Location = new Point(10, 220);
+            label9.ForeColor = Color.White;
+            txtNivelEducaProf.Location = new Point(10, 250);
+
+            label13.Location = new Point(10, 290);
+            label13.ForeColor = Color.White;
+            txtEspecializaçãoProf.Location = new Point(10, 320);
+
+            label15.Location = new Point(10, 360);
+            label15.ForeColor = Color.White;
+            txtIDEscolaProf.Location = new Point(10, 390);
+
+            label14.Location = new Point(10, 430);
+            label14.ForeColor = Color.White;
+            dtpDataIngressoProf.Location = new Point(10, 460);
+
+            btnCadastroProf.Location = new Point(10, 500);
+
+            panelProfessor.Controls.Add(label12);
+            panelProfessor.Controls.Add(txtNomeProf);
+            panelProfessor.Controls.Add(label8);
+            panelProfessor.Controls.Add(dtpDataNasciProf);
+            panelProfessor.Controls.Add(label11);
+            panelProfessor.Controls.Add(cmbGeneroProf);
+            panelProfessor.Controls.Add(label9);
+            panelProfessor.Controls.Add(txtNivelEducaProf);
+            panelProfessor.Controls.Add(label13);
+            panelProfessor.Controls.Add(txtEspecializaçãoProf);
+            panelProfessor.Controls.Add(label15);
+            panelProfessor.Controls.Add(txtIDEscolaProf);
+            panelProfessor.Controls.Add(label14);
+            panelProfessor.Controls.Add(dtpDataIngressoProf);
+            panelProfessor.Controls.Add(btnCadastroProf);
 
             Panel panelHeader = new Panel
             {
@@ -303,7 +407,7 @@ namespace PII_VIII
             };
             panelHeader.Controls.Add(pictureBox);
 
-            Label lblTitle = new Label
+            System.Windows.Forms.Label lblTitle = new System.Windows.Forms.Label
             {
                 Text = "Cadastro de Escolas e Professores",
                 Font = new Font("Arial", 20, FontStyle.Bold),
@@ -355,7 +459,7 @@ namespace PII_VIII
 
             foreach (Control ctrl in this.Controls)
             {
-                if (ctrl is Label lbl)
+                if (ctrl is System.Windows.Forms.Label lbl)
                 {
                     lbl.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                     lbl.ForeColor = Color.FromArgb(31, 31, 31);
@@ -409,7 +513,7 @@ namespace PII_VIII
             }
             foreach (Control control in this.Controls)
             {
-                if (control is Label label)
+                if (control is System.Windows.Forms.Label label)
                 {
 
                     label.Font = new Font("Segoe UI", 10, FontStyle.Bold);
@@ -429,7 +533,7 @@ namespace PII_VIII
 
         private void btnCadastrosEscolas_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Server=GABRIEL\SQLEXPRESS09;Database=EscolaCC;Integrated Security=True;";
+            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -476,7 +580,7 @@ namespace PII_VIII
 
         private void btnCadastroRec_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Server=GABRIEL\SQLEXPRESS09;Database=EscolaCC;Integrated Security=True;";
+            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -522,7 +626,7 @@ namespace PII_VIII
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Server=GABRIEL\SQLEXPRESS09;Database=EscolaCC;Integrated Security=True;";
+            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

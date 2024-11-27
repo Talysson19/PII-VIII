@@ -53,7 +53,7 @@ namespace PII_VIII
             {
                 Size = new Size(80, 80),
                 Location = new Point(0, 0),
-                Image = Image.FromFile("C:\\Users\\ogabr\\OneDrive\\Área de Trabalho\\PII-VIII-master\\PII-VIII-master\\PII VIII\\Resources\\aluno.png"),
+                Image = Image.FromFile("C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PII-VIII-master\\PII-VIII\\PII VIII\\Resources\\aluno.png"),
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 BackColor = Color.FromArgb(224, 224, 224)
             };
@@ -120,7 +120,7 @@ namespace PII_VIII
             {
                 Size = new Size(80, 80),
                 Location = new Point(0, 0),
-                Image = Image.FromFile("C:\\Users\\ogabr\\OneDrive\\Área de Trabalho\\PII-VIII-master\\PII-VIII-master\\PII VIII\\Resources\\livro.png"),
+                Image = Image.FromFile("C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PII-VIII-master\\PII-VIII\\PII VIII\\Resources\\livro.png"),
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 BackColor = Color.FromArgb(224, 224, 224)
             };
@@ -182,7 +182,7 @@ namespace PII_VIII
             {
                 Size = new Size(80, 80),
                 Location = new Point(0, 0),
-                Image = Image.FromFile("C:\\Users\\ogabr\\OneDrive\\Área de Trabalho\\PII-VIII-master\\PII-VIII-master\\PII VIII\\Resources\\desempenho1.png"),
+                Image = Image.FromFile("C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PII-VIII-master\\PII-VIII\\PII VIII\\Resources\\desempenho1.png"),
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 BackColor = Color.FromArgb(224, 224, 224)
             };
@@ -605,7 +605,7 @@ namespace PII_VIII
 
         private void btnCadastrarEndA_Click_1(object sender, EventArgs e)
         {
-            string connectionString = @"Server=GABRIEL\SQLEXPRESS09;Database=EscolaCC;Integrated Security=True;";
+            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -664,7 +664,7 @@ namespace PII_VIII
 
         private void btnSalvarDisc_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Server=GABRIEL\SQLEXPRESS09;Database=EscolaCC;Integrated Security=True;";
+            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -708,7 +708,7 @@ namespace PII_VIII
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Server=GABRIEL\SQLEXPRESS09;Database=EscolaCC;Integrated Security=True;";
+            string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
