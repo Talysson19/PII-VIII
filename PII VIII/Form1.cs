@@ -39,6 +39,7 @@ namespace PII_VIII
         private float opacity = 1.0f;
 
 
+
         private Panel headerPanel;
         private Label titleLabel;
         private Button relatoriobtn, sobrebtn, contatobtn;
@@ -74,7 +75,7 @@ namespace PII_VIII
             titulos = new Label
             {
                 Text = "Sobre",
-                Font = new Font("Poppins", 30),
+                Font = new Font("MV Boli", 30),
                 BackColor = Color.FromArgb(224, 224, 224),
                 ForeColor = Color.Black,
                 Size = new Size(200, 50),
@@ -84,20 +85,20 @@ namespace PII_VIII
             };
             this.Controls.Add(titulos);
 
-            descricaoProjeto = new Label
-            {
+            //descricaoProjeto = new Label
+            //{
 
-                Text = "A Desigualdade Educacional refere-se às disparidades no acesso e na qualidade da educação que ocorrem entre diferentes grupos de alunos. Essas diferenças são influenciadas por uma variedade de fatores, como o tipo de escola (pública ou privada), a infraestrutura disponível, o número e a qualificação dos professores, além da quantidade e da qualidade dos recursos oferecidos aos alunos.\r\n\r\nOutro aspecto relevante é o apoio familiar e comunitário, que pode variar de acordo com o contexto socioeconômico de cada estudante. Alunos de escolas públicas, especialmente em regiões mais vulneráveis, muitas vezes enfrentam limitações como a falta de material didático, instalações inadequadas e até dificuldade de acesso a atividades extracurriculares. Por outro lado, alunos de escolas particulares, em geral, contam com melhores estruturas, acesso a tecnologias e suporte individualizado.\r\n\r\nEssa desigualdade educacional pode impactar significativamente o desempenho acadêmico e as oportunidades futuras dos alunos, limitando o acesso ao ensino superior e a empregos qualificados. Portanto, enfrentar esse problema é fundamental para promover uma educação mais justa e inclusiva, onde todos os alunos tenham as mesmas condições para desenvolver seu potencial e contribuir para a sociedade.",
-                Font = new Font("Arial", 10),
-                BackColor = Color.FromArgb(224, 224, 224),
-                ForeColor = Color.Black,
-                Size = new Size(950, 300),
-                Location = new System.Drawing.Point(310, 500),
-                AutoSize = false,
-                TextAlign = ContentAlignment.TopLeft
-            };
+            //    Text = "A Desigualdade Educacional refere-se às disparidades no acesso e na qualidade da educação que ocorrem entre diferentes grupos de alunos. Essas diferenças são influenciadas por uma variedade de fatores, como o tipo de escola (pública ou privada), a infraestrutura disponível, o número e a qualificação dos professores, além da quantidade e da qualidade dos recursos oferecidos aos alunos.\r\n\r\nOutro aspecto relevante é o apoio familiar e comunitário, que pode variar de acordo com o contexto socioeconômico de cada estudante. Alunos de escolas públicas, especialmente em regiões mais vulneráveis, muitas vezes enfrentam limitações como a falta de material didático, instalações inadequadas e até dificuldade de acesso a atividades extracurriculares. Por outro lado, alunos de escolas particulares, em geral, contam com melhores estruturas, acesso a tecnologias e suporte individualizado.\r\n\r\nEssa desigualdade educacional pode impactar significativamente o desempenho acadêmico e as oportunidades futuras dos alunos, limitando o acesso ao ensino superior e a empregos qualificados. Portanto, enfrentar esse problema é fundamental para promover uma educação mais justa e inclusiva, onde todos os alunos tenham as mesmas condições para desenvolver seu potencial e contribuir para a sociedade.",
+            //    Font = new Font("Arial", 10),
+            //    BackColor = Color.FromArgb(224, 224, 224),
+            //    ForeColor = Color.Black,
+            //    Size = new Size(950, 300),
+            //    Location = new System.Drawing.Point(310, 500),
+            //    AutoSize = false,
+            //    TextAlign = ContentAlignment.TopLeft
+            //};
 
-            this.Controls.Add(descricaoProjeto);
+            //this.Controls.Add(descricaoProjeto);
 
 
 
@@ -246,6 +247,29 @@ namespace PII_VIII
         //CABEÇALHO DDO PROJETO
         private void CreateHeader()
         {
+            Panel panelBackground = new Panel
+            {
+                Size = new Size(820, 290), 
+                Location = new System.Drawing.Point(350, 500), 
+                BackColor = Color.FromArgb(31, 31, 31),
+                BorderStyle = BorderStyle.None 
+            };
+            this.Controls.Add(panelBackground);
+
+            Label lblTexto = new Label
+            {
+                Text = "A Desigualdade Educacional refere-se às disparidades no acesso e na qualidade da educação que ocorrem entre diferentes grupos de alunos. Essas diferenças são influenciadas por uma variedade de fatores, como o tipo de escola (pública ou privada), a infraestrutura disponível, o número e a qualificação dos professores, além da quantidade e da qualidade dos recursos oferecidos aos alunos.\r\n\r\nOutro aspecto relevante é o apoio familiar e comunitário, que pode variar de acordo com o contexto socioeconômico de cada estudante. Alunos de escolas públicas, especialmente em regiões mais vulneráveis, muitas vezes enfrentam limitações como a falta de material didático, instalações inadequadas e até dificuldade de acesso a atividades extracurriculares. Por outro lado, alunos de escolas particulares, em geral, contam com melhores estruturas, acesso a tecnologias e suporte individualizado.\r\n\r\nEssa desigualdade educacional pode impactar significativamente o desempenho acadêmico e as oportunidades futuras dos alunos, limitando o acesso ao ensino superior e a empregos qualificados. Portanto, enfrentar esse problema é fundamental para promover uma educação mais justa e inclusiva, onde todos os alunos tenham as mesmas condições para desenvolver seu potencial e contribuir para a sociedade.",
+                AutoSize = false,
+                Size = new Size(800, 630), 
+                Location = new System.Drawing.Point(10, 10),
+                Font = new Font("MV Boli", 10),
+                ForeColor = Color.FromArgb(224, 224, 224)
+
+            };
+            panelBackground.Controls.Add(lblTexto);
+
+
+
             Sair = new Button
             {
                 Text = "Sair",
@@ -293,14 +317,11 @@ namespace PII_VIII
             Sair.Click += new EventHandler(Sair_Click);
 
 
-            sobrebtn = CreateHeaderButton("Sobre");
-            sobrebtn.Click += new EventHandler(sobrebtn_click);
 
             contatobtn = CreateHeaderButton("Contato");
             contatobtn.Click += new EventHandler(contatobtn_click);
 
             headerPanel.Controls.Add(relatoriobtn);
-            headerPanel.Controls.Add(sobrebtn);
             headerPanel.Controls.Add(contatobtn);
             headerPanel.Controls.Add(Sair);
             CenterHeaderElements();
@@ -331,11 +352,10 @@ namespace PII_VIII
             int buttonY = 65;
             int spacing = 10;
             int totalButtonWidth = relatoriobtn.Width * 1 + spacing * 0;
-            int startX = (formWidth - totalButtonWidth) / 2 + 100;
+            int startX = (formWidth - totalButtonWidth) / 2 + 180;
 
-            relatoriobtn.Location = new System.Drawing.Point(startX, buttonY);
-            sobrebtn.Location = new System.Drawing.Point(startX + relatoriobtn.Width + spacing, buttonY);
-            contatobtn.Location = new System.Drawing.Point(startX + 2 * (relatoriobtn.Width + spacing), buttonY);
+            relatoriobtn.Location = new System.Drawing.Point(startX, buttonY );
+            contatobtn.Location = new System.Drawing.Point(startX + (relatoriobtn.Width + spacing), buttonY);
         }
 
         private void Form1_Resize(object sender, EventArgs e)

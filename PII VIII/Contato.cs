@@ -69,7 +69,7 @@ namespace PII_VIII
             {
                 Text = "Contatos dos Desenvolvedores",
                 ForeColor = Color.White,
-                Font = new Font("Arial", 24, FontStyle.Bold),
+                Font = new Font("Segoe UI", 24, FontStyle.Bold),
                 AutoSize = true,
                 Location = new Point((headerPanel.Width - -80) / 2, 15), 
                 TextAlign = ContentAlignment.MiddleCenter
@@ -91,7 +91,7 @@ namespace PII_VIII
                 Anchor = AnchorStyles.Bottom | AnchorStyles.Right,
                 BackColor = Color.Black,
                 ForeColor = Color.White,
-                Font = new Font("Arial", 10, FontStyle.Bold),
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
                 FlatStyle = FlatStyle.Flat
             };
             sairbtn.FlatAppearance.BorderSize = 0;
@@ -126,7 +126,7 @@ namespace PII_VIII
                 Location = new Point(20, topPosition),
                 BackColor = Color.White,
                 ForeColor = Color.Black,
-                Font = new Font("Arial", 8, FontStyle.Bold)
+                Font = new Font("Segoe UI", 8, FontStyle.Bold)
             };
 
             int labelWidth = (int)(formWidth * 0.1);
