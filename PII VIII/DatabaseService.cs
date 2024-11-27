@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PII_VIII
 {
@@ -12,63 +14,82 @@ namespace PII_VIII
         private readonly string sqlConnectionString = "Server=DESKTOP-DIFT32I\\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
         private readonly IDriver neo4jDriver = GraphDatabase.Driver("bolt://localhost:7687", AuthTokens.Basic("neo4j", "EscolaCC"));
 
-        public DataTable GetSchoolsFromSQL()
+
+        public DataTable GetAllStudents()
         {
-            DataTable schoolsTable = new DataTable();
+            return ExecuteSQLQuery("SELECT * FROM Alunos");
+        }
+
+        public DataTable GetAllAcademicPerformance()
+        {
+            return ExecuteSQLQuery("SELECT * FROM DesempenhoAcademico");
+        }
+
+        public DataTable GetAllSubjects()
+        {
+            return ExecuteSQLQuery("SELECT * FROM Disciplinas");
+        }
+
+        public DataTable GetAllSchools()
+        {
+            return ExecuteSQLQuery("SELECT * FROM Escola");
+        }
+
+        public DataTable GetAllTeachers()
+        {
+            return ExecuteSQLQuery("SELECT * FROM Professores");
+        }
+        public DataTable GetAllEducationalResources()
+        {
+            return ExecuteSQLQuery("SELECT * FROM RecursosEducacionais");
+        }
+
+        private DataTable ExecuteSQLQuery(string query)
+        {
+            DataTable dataTable = new DataTable();
             using (SqlConnection sqlConnection = new SqlConnection(sqlConnectionString))
             {
-                string query = "SELECT IDEscola, Nome, IDEnderecoEscola, Tipo, NivelEnsino FROM Escola";
                 using (SqlCommand cmd = new SqlCommand(query, sqlConnection))
                 {
                     sqlConnection.Open();
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                    adapter.Fill(schoolsTable);
+                    adapter.Fill(dataTable);
                 }
             }
-            return schoolsTable;
+            return dataTable;
         }
 
-        public int GetStudentCountBySchoolSQL(int escolaId)
+
+
+        public async Task<Dictionary<int, string>> GetAllSchoolAddresses()
         {
-            int studentCount = 0;
-            using (SqlConnection sqlConnection = new SqlConnection(sqlConnectionString))
-            {
-                string query = "SELECT COUNT(*) FROM Alunos WHERE IdEscola = @escolaId";
-                using (SqlCommand cmd = new SqlCommand(query, sqlConnection))
-                {
-                    cmd.Parameters.AddWithValue("@escolaId", escolaId);
-                    sqlConnection.Open();
-                    studentCount = (int)cmd.ExecuteScalar();
-                }
-            }
-            return studentCount;
+            return await ExecuteNeo4jQuery("MATCH (e:enderecoEscola) RETURN e.idescola AS IDEscola, e.nome AS Nome, e.numero AS Numero, e.bairro AS Bairro, e.cidade AS Cidade, e.estado AS Estado, e.cep AS CEP");
+        }
+        public async Task<Dictionary<int, string>> GetAllStudentAddresses()
+        {
+            return await ExecuteNeo4jQuery("MATCH (a:EnderecoAluno) RETURN a.idEnderecoAluno AS EnderecoAluno, a.Rua AS Rua, a.Numero AS Numero, a.Bairro AS Bairro, a.Cidade AS Cidade, a.Estado AS Estado, a.CEP AS CEP");
         }
 
-        public async Task<Dictionary<int, string>> GetSchoolAddressesFromNeo4j()
+        private async Task<Dictionary<int, string>> ExecuteNeo4jQuery(string query)
         {
-            var schoolAddresses = new Dictionary<int, string>();
+            var results = new Dictionary<int, string>();
 
             using (var session = neo4jDriver.AsyncSession())
             {
-                var result = await session.RunAsync("MATCH (p:enderecoEscola) RETURN p.idescola AS IDEscola, p.nome AS Nome, p.numero AS Numero, p.bairro AS Bairro, p.cidade AS Cidade, p.estado AS Estado, p.cep AS CEP");
+                var result = await session.RunAsync(query);
 
                 while (await result.FetchAsync())
                 {
-                    int escolaId = result.Current["IDEscola"].As<int>();
-                    string nome = result.Current["Nome"].As<string>();
-                    string numero = result.Current["Numero"].As<string>();
-                    string bairro = result.Current["Bairro"].As<string>();
-                    string cidade = result.Current["Cidade"].As<string>();
-                    string estado = result.Current["Estado"].As<string>();
-                    string cep = result.Current["CEP"].As<string>();
-
-                    string enderecoCompleto = $"{nome}, {numero}, {bairro}, {cidade} - {estado}, {cep}";
-
-                    schoolAddresses[escolaId] = enderecoCompleto;
+                    string data = string.Join(", ", result.Current.Values.Values);
+                    int id = result.Current.Values.Values.FirstOrDefault().As<int>();
+                    results[id] = data;
                 }
             }
 
-            return schoolAddresses;
+            return results;
         }
+
+
+
     }
 }
