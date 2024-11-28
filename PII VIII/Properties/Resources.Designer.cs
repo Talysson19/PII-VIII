@@ -73,6 +73,16 @@ namespace PII_VIII.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap casa {
+            get {
+                object obj = ResourceManager.GetObject("casa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap desempenho {
             get {
                 object obj = ResourceManager.GetObject("desempenho", resourceCulture);
@@ -86,6 +96,16 @@ namespace PII_VIII.Properties {
         internal static System.Drawing.Bitmap desempenho1 {
             get {
                 object obj = ResourceManager.GetObject("desempenho1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eEscola {
+            get {
+                object obj = ResourceManager.GetObject("eEscola", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

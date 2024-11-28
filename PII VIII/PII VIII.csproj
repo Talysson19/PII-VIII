@@ -188,6 +188,8 @@
     <Content Include="images\unifenas1.logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\casa.png" />
+    <None Include="Resources\eEscola.png" />
     <None Include="Resources\recursos.png" />
     <None Include="Resources\escola.png" />
     <None Include="Resources\professor.png" />

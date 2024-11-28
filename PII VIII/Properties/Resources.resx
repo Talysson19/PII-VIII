@@ -121,6 +121,9 @@
   <data name="unifenas1.logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\unifenas1.logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="escola" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\escola.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="desempenho" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\desempenho.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -142,10 +145,13 @@
   <data name="professor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\professor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="escola" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\escola.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="recursos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\recursos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eEscola" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eEscola.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="casa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\casa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

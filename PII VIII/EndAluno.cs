@@ -1,6 +1,7 @@
 ﻿using Neo4j.Driver;
 using System;
 using System.Drawing;
+using System.Reflection.Emit;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,7 +14,7 @@ namespace PII_VIII
         private readonly Neo4jConnection _connection;
         private Panel headerPanel;
         private PictureBox logoPic;
-        private Label titleLabel;
+        private System.Windows.Forms.Label titleLabel;
         private Panel contentPanel;
 
         public EndAluno()
@@ -26,6 +27,9 @@ namespace PII_VIII
             InicializarConteudo();
             ApplyFadeInTransition();
             ApplyStyles();
+
+            btnSalvarEndAluno.FlatStyle = FlatStyle.Flat;
+            btnSalvarEndAluno.BackColor = Color.White;
 
             txtIDEndAluno.TextAlign = HorizontalAlignment.Center;
             txtRua.TextAlign = HorizontalAlignment.Center;
@@ -87,7 +91,7 @@ namespace PII_VIII
                 MessageBox.Show("Erro ao carregar a imagem da logo: " + ex.Message);
             }
 
-            titleLabel = new Label
+            titleLabel = new System.Windows.Forms.Label
             {
                 Text = "Cadastro Endereço Aluno",
                 ForeColor = Color.White,
@@ -125,8 +129,136 @@ namespace PII_VIII
             fadeOutTimer.Start();
         }
 
+
+
+
+
+
+
+
+
+
+
+
         private void InicializarConteudo()
         {
+
+            //INICIO EXPANSÃO 
+              System.Windows.Forms.Label lblAl = new System.Windows.Forms.Label
+            {
+                Text = "Endereço Aluno",
+                ForeColor = Color.Black,
+                BackColor = Color.FromArgb(224, 224, 224),
+                Font = new Font("Segoe UI", 20, FontStyle.Bold),
+                TextAlign = ContentAlignment.MiddleCenter,
+                Location = new System.Drawing.Point(535, 220),
+                Size = new Size(170, 60)
+            };
+
+            Panel panelAluno = new Panel
+            {
+                Name = "panelAluno",
+                Size = new Size(80, 80),
+                BackColor = Color.FromArgb(60, 60, 60 ),
+                Location = new System.Drawing.Point(550, 270),
+            };
+
+            PictureBox pictureAluno = new PictureBox
+            {
+                Size = new Size(80, 80),
+                Location = new System.Drawing.Point(0, 0),
+                Image = Image.FromFile("C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PII-VIII-master\\PII-VIII\\PII VIII\\Resources\\eEscola.png"),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                BackColor = Color.FromArgb(211, 211, 211)
+            };
+
+            panelAluno.Controls.Add(pictureAluno);
+            this.Controls.Add(panelAluno);
+            this.Controls.Add(lblAl);
+            bool isAlunoExpanded = false;
+
+            pictureAluno.Click += (s, e) =>
+            {
+                if (!isAlunoExpanded)
+                {
+                    panelAluno.Size = new Size(300, 400);
+                    panelAluno.AutoScroll = true;
+                    pictureAluno.Visible = false;
+                }
+
+                isAlunoExpanded = !isAlunoExpanded;
+            };
+
+            panelAluno.Click += (s, e) =>
+            {
+                if (isAlunoExpanded)
+                {
+                    panelAluno.Size = new Size(80, 80);
+                    panelAluno.AutoScroll = false;
+                    pictureAluno.Visible = true;
+                }
+
+                isAlunoExpanded = !isAlunoExpanded;
+            };
+
+
+            label7.Location = new System.Drawing.Point(10, 10);
+            label7.ForeColor = Color.White;
+            txtIDEndAluno.Location = new System.Drawing.Point(10, 40);
+
+            label1.Location = new System.Drawing.Point(10, 80);
+            label1.ForeColor = Color.White;
+            txtRua.Location = new System.Drawing.Point(10, 110);
+
+            label2.Location = new System.Drawing.Point(10, 150);
+            label2.ForeColor = Color.White;
+            txtNum.Location = new System.Drawing.Point(10, 180);
+
+            label3.Location = new System.Drawing.Point(10, 220);
+            label3.ForeColor = Color.White;
+            txtCep.Location = new System.Drawing.Point(10, 250);
+
+            label4.Location = new System.Drawing.Point(10, 290);
+            label4.ForeColor = Color.White;
+            txtBairro.Location = new System.Drawing.Point(10, 320);
+
+            label5.Location = new System.Drawing.Point(10, 360);
+            label5.ForeColor = Color.White;
+            txtCidade.Location = new System.Drawing.Point(10, 390);
+
+            label6.Location = new System.Drawing.Point(10, 430);
+            label6.ForeColor = Color.White;
+            txtEstado.Location = new System.Drawing.Point(10, 460);
+
+            btnSalvarEndAluno.Location = new System.Drawing.Point(10, 500);
+
+            panelAluno.Controls.Add(label7);
+            panelAluno.Controls.Add(txtIDEndAluno);
+            panelAluno.Controls.Add(label1);
+            panelAluno.Controls.Add(txtRua);
+            panelAluno.Controls.Add(label3);
+            panelAluno.Controls.Add(label2);
+            panelAluno.Controls.Add(txtNum);
+            panelAluno.Controls.Add(label3);
+            panelAluno.Controls.Add(txtCep);
+            panelAluno.Controls.Add(label4);
+            panelAluno.Controls.Add(txtBairro);
+            panelAluno.Controls.Add(label5);
+            panelAluno.Controls.Add(txtCidade);
+            panelAluno.Controls.Add(label6);
+            panelAluno.Controls.Add(txtEstado);
+            panelAluno.Controls.Add(btnSalvarEndAluno);
+            //TERMINO EXPANSÃO
+
+
+
+
+
+
+
+
+
+
 
             sairbtn = new Button
             {
@@ -142,6 +274,9 @@ namespace PII_VIII
             sairbtn.FlatAppearance.BorderSize = 0;
             sairbtn.Click += (sender, e) => VoltarParaForm1();
             this.Controls.Add(sairbtn);
+
+
+            btnSalvarEndAluno.FlatStyle = FlatStyle.Flat;
 
             button1 = new Button
             {
@@ -203,7 +338,7 @@ namespace PII_VIII
 
             foreach (Control ctrl in this.Controls)
             {
-                if (ctrl is Label lbl)
+                if (ctrl is System.Windows.Forms.Label lbl)
                 {
                     lbl.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                     lbl.ForeColor = Color.FromArgb(60, 60, 60);
@@ -243,6 +378,7 @@ namespace PII_VIII
                     button.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                     button.FlatAppearance.BorderSize = 1;
                     button.FlatAppearance.BorderColor = Color.White;
+                    button.FlatStyle = FlatStyle.Flat;
                 }
             }
 
@@ -271,7 +407,7 @@ namespace PII_VIII
 
             foreach (Control control in this.Controls)
             {
-                if (control is Label label)
+                if (control is System.Windows.Forms.Label label)
                 {
                     label.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                     label.ForeColor = Color.FromArgb(60, 60, 60);
@@ -357,6 +493,8 @@ namespace PII_VIII
             string bairro = txtBairro.Text.Trim();
             string cidade = txtCidade.Text.Trim();
             string estado = txtEstado.Text.Trim();
+
+            btnSalvarEndAluno.FlatStyle = FlatStyle.Flat;
 
             if (!int.TryParse(txtIDEndAluno.Text, out int idEndAluno))
             {
