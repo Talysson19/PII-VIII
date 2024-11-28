@@ -13,7 +13,7 @@ namespace PII_VIII
 {
     public partial class Form1 : Form
     {
-        
+
 
 
         private string connectionString =
@@ -50,7 +50,7 @@ namespace PII_VIII
             this.Load += new EventHandler(Form1_Load);
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
-            ApplyHoverEffect(button8,button7);
+            ApplyHoverEffect(button8, button7);
             SetupImageSwitcher();
             CreateHeader();
         }
@@ -70,7 +70,7 @@ namespace PII_VIII
                 else timer.Stop();
             };
             timer.Start();
-           
+
 
             titulos = new Label
             {
@@ -249,10 +249,10 @@ namespace PII_VIII
         {
             Panel panelBackground = new Panel
             {
-                Size = new Size(820, 290), 
-                Location = new System.Drawing.Point(350, 500), 
+                Size = new Size(820, 290),
+                Location = new System.Drawing.Point(350, 500),
                 BackColor = Color.FromArgb(31, 31, 31),
-                BorderStyle = BorderStyle.None 
+                BorderStyle = BorderStyle.None
             };
             this.Controls.Add(panelBackground);
 
@@ -260,7 +260,7 @@ namespace PII_VIII
             {
                 Text = "A Desigualdade Educacional refere-se às disparidades no acesso e na qualidade da educação que ocorrem entre diferentes grupos de alunos. Essas diferenças são influenciadas por uma variedade de fatores, como o tipo de escola (pública ou privada), a infraestrutura disponível, o número e a qualificação dos professores, além da quantidade e da qualidade dos recursos oferecidos aos alunos.\r\n\r\nOutro aspecto relevante é o apoio familiar e comunitário, que pode variar de acordo com o contexto socioeconômico de cada estudante. Alunos de escolas públicas, especialmente em regiões mais vulneráveis, muitas vezes enfrentam limitações como a falta de material didático, instalações inadequadas e até dificuldade de acesso a atividades extracurriculares. Por outro lado, alunos de escolas particulares, em geral, contam com melhores estruturas, acesso a tecnologias e suporte individualizado.\r\n\r\nEssa desigualdade educacional pode impactar significativamente o desempenho acadêmico e as oportunidades futuras dos alunos, limitando o acesso ao ensino superior e a empregos qualificados. Portanto, enfrentar esse problema é fundamental para promover uma educação mais justa e inclusiva, onde todos os alunos tenham as mesmas condições para desenvolver seu potencial e contribuir para a sociedade.",
                 AutoSize = false,
-                Size = new Size(800, 630), 
+                Size = new Size(800, 630),
                 Location = new System.Drawing.Point(10, 10),
                 Font = new Font("MV Boli", 10),
                 ForeColor = Color.FromArgb(224, 224, 224)
@@ -354,7 +354,7 @@ namespace PII_VIII
             int totalButtonWidth = relatoriobtn.Width * 1 + spacing * 0;
             int startX = (formWidth - totalButtonWidth) / 2 + 180;
 
-            relatoriobtn.Location = new System.Drawing.Point(startX, buttonY );
+            relatoriobtn.Location = new System.Drawing.Point(startX, buttonY);
             contatobtn.Location = new System.Drawing.Point(startX + (relatoriobtn.Width + spacing), buttonY);
         }
 
@@ -365,12 +365,12 @@ namespace PII_VIII
 
         private void Sair_Click(object sender, EventArgs e)
         {
-            Application.Exit(); 
+            Application.Exit();
         }
 
         private async void contatobtn_click(object sender, EventArgs e)
         {
-             Contato contatoa = new Contato();
+            Contato contatoa = new Contato();
             await MostrarComTransicaoAsync(contatoa);
         }
 
@@ -448,7 +448,7 @@ namespace PII_VIII
         {
 
         }
-       
+
 
         private async void relatorio_click(object sender, EventArgs e)
         {
@@ -486,12 +486,24 @@ namespace PII_VIII
             EndAluno endA = new EndAluno();
             endA.ShowDialog();
         }
+        private void button7_Click_2(object sender, EventArgs e)
+        {
+
+            EndAluno endA = new EndAluno();
+            endA.ShowDialog();
+        }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            CadastroEscolaRec cadA = new CadastroEscolaRec();
-            cadA.ShowDialog();
+            CadastroEscolaRec esc = new CadastroEscolaRec();
+            esc.ShowDialog();
         }
+
+        private void sidebarPanel_Paint(object sender, PaintEventArgs e)
+        {
+            this.sidebarPanel.BackColor = Color.FromArgb(31, 31, 31, 12);
+        }
+
 
         private void button7_Click(object sender, EventArgs e)
         {

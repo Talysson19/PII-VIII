@@ -37,14 +37,16 @@
             // sidebarPanel
             // 
             this.sidebarPanel.AutoScrollMargin = new System.Drawing.Size(200, 0);
+            this.sidebarPanel.BackColor = System.Drawing.Color.White;
             this.sidebarPanel.Controls.Add(this.button8);
             this.sidebarPanel.Controls.Add(this.button7);
             this.sidebarPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.sidebarPanel.ForeColor = System.Drawing.Color.Black;
             this.sidebarPanel.Location = new System.Drawing.Point(0, 0);
             this.sidebarPanel.Name = "sidebarPanel";
-            this.sidebarPanel.Size = new System.Drawing.Size(365, 925);
+            this.sidebarPanel.Size = new System.Drawing.Size(360, 925);
             this.sidebarPanel.TabIndex = 3;
-            this.sidebarPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.sidebarPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebarPanel_Paint);
             // 
             // button8
             // 
@@ -70,13 +72,14 @@
             this.button7.TabIndex = 10;
             this.button7.Text = "Cadastro Alunos";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click_1);
+            this.button7.Click += new System.EventHandler(this.button7_Click_2);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScrollMargin = new System.Drawing.Size(200, 0);
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1537, 925);
             this.Controls.Add(this.sidebarPanel);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));

@@ -77,6 +77,7 @@ namespace PII_VIII
 
 
 
+
             this.Resize += (s, e) =>
             {
                 headerPanel.Width = this.ClientSize.Width;
@@ -102,6 +103,7 @@ namespace PII_VIII
                 BackColor = Color.FromArgb(31, 31, 31, 12)
             };
             this.Controls.Add(bodyPanel);
+
 
 
             dataGridView = new DataGridView

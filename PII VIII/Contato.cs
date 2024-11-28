@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 namespace PII_VIII
 {
@@ -15,15 +16,15 @@ namespace PII_VIII
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
-            InicializarCabecalho(); 
+            InicializarCabecalho();
             InicializarBotaoSair();
-            InicializarFormulario(); 
+            InicializarFormulario();
         }
 
         private void InicializarFormulario()
         {
             this.Text = "Contatos dos Desenvolvedores";
-            this.BackColor = Color.FromArgb(240, 240, 240);
+            this.BackColor = Color.FromArgb(31, 31, 31);
 
             List<Desenvolvedor> desenvolvedores = new List<Desenvolvedor>
             {
@@ -50,7 +51,7 @@ namespace PII_VIII
         private void InicializarCabecalho()
         {
             headerPanel = new Panel
-            {   
+            {
                 Size = new Size(this.ClientSize.Width, 120),
                 BackColor = Color.FromArgb(31, 31, 31),
                 Dock = DockStyle.Top
@@ -69,13 +70,13 @@ namespace PII_VIII
             {
                 Text = "Contatos dos Desenvolvedores",
                 ForeColor = Color.White,
-                Font = new Font("Segoe UI", 24, FontStyle.Bold),
+                Font = new Font("Arial", 24, FontStyle.Bold),
                 AutoSize = true,
-                Location = new Point((headerPanel.Width - -80) / 2, 15), 
+                Location = new Point((headerPanel.Width - -80) / 2, 15),
                 TextAlign = ContentAlignment.MiddleCenter
             };
 
-          
+
 
             headerPanel.Controls.Add(titulo);
             this.Controls.Add(headerPanel);
@@ -85,13 +86,13 @@ namespace PII_VIII
         {
             sairbtn = new Button
             {
-                Text = "Voltar",
+                Text = "Sair",
                 Size = new Size(100, 40),
                 Location = new Point(this.ClientSize.Width - 120, this.ClientSize.Height - 60),
                 Anchor = AnchorStyles.Bottom | AnchorStyles.Right,
                 BackColor = Color.Black,
                 ForeColor = Color.White,
-                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                Font = new Font("Arial", 10, FontStyle.Bold),
                 FlatStyle = FlatStyle.Flat
             };
             sairbtn.FlatAppearance.BorderSize = 0;
@@ -101,20 +102,9 @@ namespace PII_VIII
 
         private void VoltarParaForm1()
         {
-            Timer fadeOutTimer = new Timer { Interval = 10 };
-            fadeOutTimer.Tick += (s, ev) =>
-            {
-                if (this.Opacity > 0)
-                {
-                    this.Opacity -= 0.04;
-                }
-                else
-                {
-                    fadeOutTimer.Stop();
-                    this.Close();
-                }
-            };
-            fadeOutTimer.Start();
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Close();
         }
 
         private GroupBox CriarGroupBoxParaDesenvolvedor(Desenvolvedor dev, int topPosition, int formWidth, int groupBoxHeight)
@@ -126,7 +116,7 @@ namespace PII_VIII
                 Location = new Point(20, topPosition),
                 BackColor = Color.White,
                 ForeColor = Color.Black,
-                Font = new Font("Segoe UI", 8, FontStyle.Bold)
+                Font = new Font("Arial", 8, FontStyle.Bold)
             };
 
             int labelWidth = (int)(formWidth * 0.1);
@@ -165,7 +155,7 @@ namespace PII_VIII
 
         private void EstilizarBotao(Button botao)
         {
-            botao.BackColor = Color.FromArgb(31, 31, 31);
+            botao.BackColor = Color.Black;
             botao.ForeColor = Color.White;
             botao.FlatStyle = FlatStyle.Flat;
             botao.FlatAppearance.BorderSize = 0;
@@ -175,7 +165,12 @@ namespace PII_VIII
         private void CopiarParaAreaDeTransferencia(string texto)
         {
             Clipboard.SetText(texto);
-           // MessageBox.Show("E-mail copiado para a área de transferência!", "Copiado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // MessageBox.Show("E-mail copiado para a área de transferência!", "Copiado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void Contato_Load(object sender, EventArgs e)
+        {
+            BackColor = Color.White;
         }
     }
 

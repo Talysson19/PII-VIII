@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(1126, 746);
             this.Name = "Contato";
             this.Text = "Contato";
+            this.Load += new System.EventHandler(this.Contato_Load);
             this.ResumeLayout(false);
 
         }
