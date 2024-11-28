@@ -30,9 +30,9 @@ namespace PII_VIII
                 Size = new Size(100, 40),
                 Location = new Point(this.ClientSize.Width - 250, this.ClientSize.Height - 60),
                 Anchor = AnchorStyles.Bottom | AnchorStyles.Right,
-                BackColor = Color.Black,
+                BackColor = Color.FromArgb(60, 60, 60),
                 ForeColor = Color.White,
-                Font = new Font("Arial", 9, FontStyle.Bold),
+                Font = new Font("Segoe UI", 9, FontStyle.Bold),
                 FlatStyle = FlatStyle.Flat
             };
 
@@ -54,9 +54,9 @@ namespace PII_VIII
                 Size = new Size(100, 40),
                 Location = new Point(this.ClientSize.Width - 120, this.ClientSize.Height - 60),
                 Anchor = AnchorStyles.Bottom | AnchorStyles.Right,
-                BackColor = Color.Black,
+                BackColor = Color.FromArgb(60, 60, 60),
                 ForeColor = Color.White,
-                Font = new Font("Arial", 10, FontStyle.Bold),
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
                 FlatStyle = FlatStyle.Flat
             };
             sairbtn.FlatAppearance.BorderSize = 0;
@@ -85,13 +85,14 @@ namespace PII_VIII
         private void AddHeader()
         {
 
+
             //CRIANDO EXPANSÃO ESCOLA
             System.Windows.Forms.Label lblEs = new System.Windows.Forms.Label
             {
                 Text = "Escolas",
                 ForeColor = Color.Black,
                 BackColor = Color.FromArgb(224, 224, 224),
-                Font = new Font("Franklin Gothic", 20, FontStyle.Bold),
+                Font = new Font("Segoe UI", 20, FontStyle.Bold),
                 TextAlign = ContentAlignment.MiddleCenter,
                 Location = new Point(160, 200),
                 Size = new Size(170, 60)
@@ -101,7 +102,7 @@ namespace PII_VIII
             {
                 Name = "paneleEscola",
                 Size = new Size(80, 80),
-                BackColor = Color.Black,
+                BackColor = Color.FromArgb(60, 60, 60),
                 Location = new Point(150, 270),
             };
 
@@ -160,7 +161,7 @@ namespace PII_VIII
                 Text = "Recursos",
                 ForeColor = Color.Black,
                 BackColor = Color.FromArgb(224, 224, 224),
-                Font = new Font("Franklin Gothic", 20, FontStyle.Bold),
+                Font = new Font("Segoe UI", 20, FontStyle.Bold),
                 TextAlign = ContentAlignment.MiddleCenter,
                 Location = new Point(555, 200),
                 Size = new Size(250, 60)
@@ -170,7 +171,7 @@ namespace PII_VIII
             {
                 Name = "panelRecursos",
                 Size = new Size(80, 80),
-                BackColor = Color.Black,
+                BackColor = Color.FromArgb(60, 60, 60),
                 Location = new Point(550, 270)
             };
 
@@ -228,9 +229,9 @@ namespace PII_VIII
             System.Windows.Forms.Label lblPr = new System.Windows.Forms.Label
             {
                 Text = "Professores",
-                ForeColor = Color.Black,
+                ForeColor = Color.FromArgb(60, 60, 60),
                 BackColor = Color.FromArgb(224, 224, 224),
-                Font = new Font("Franklin Gothic", 20, FontStyle.Bold),
+                Font = new Font("Segoe UI", 20, FontStyle.Bold),
                 TextAlign = ContentAlignment.MiddleCenter,
                 Location = new Point(950, 200),
                 Size = new Size(270, 60)
@@ -239,7 +240,7 @@ namespace PII_VIII
             {
                 Name = "panelProfessor",
                 Size = new Size(80, 80),
-                BackColor = Color.Black,
+                BackColor = Color.FromArgb(60, 60, 60),
                 Location = new Point(950, 270)
             };
 
@@ -394,7 +395,7 @@ namespace PII_VIII
             Panel panelHeader = new Panel
             {
                 Dock = DockStyle.Top,
-                BackColor = Color.FromArgb(31, 31, 31),
+                BackColor = Color.FromArgb(60, 60, 60),
                 Height = 120
             };
 
@@ -410,7 +411,7 @@ namespace PII_VIII
             System.Windows.Forms.Label lblTitle = new System.Windows.Forms.Label
             {
                 Text = "Cadastro de Escolas e Professores",
-                Font = new Font("Arial", 20, FontStyle.Bold),
+                Font = new Font("Segoe UI", 20, FontStyle.Bold),
                 ForeColor = Color.White,
                 AutoSize = true
             };
@@ -455,6 +456,15 @@ namespace PII_VIII
 
         private void ApplyStyles()
         {
+            btnCadastroProf.FlatStyle = FlatStyle.Flat;
+            btnCadastroRec.FlatStyle = FlatStyle.Flat;
+            btnCadastrosEscolas.FlatStyle = FlatStyle.Flat;
+
+            btnCadastroProf.BackColor = Color.White;
+            btnCadastroRec.BackColor = Color.White;
+            btnCadastrosEscolas.BackColor = Color.White;
+
+
             this.BackColor = Color.FromArgb(245, 245, 245);
 
             foreach (Control ctrl in this.Controls)
@@ -462,7 +472,7 @@ namespace PII_VIII
                 if (ctrl is System.Windows.Forms.Label lbl)
                 {
                     lbl.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-                    lbl.ForeColor = Color.FromArgb(31, 31, 31);
+                    lbl.ForeColor = Color.FromArgb(60, 60, 60);
                 }
             }
 
@@ -474,7 +484,7 @@ namespace PII_VIII
                     cmbBox.BackColor = Color.White;
                     cmbBox.FlatStyle = FlatStyle.Flat;
                     cmbBox.Font = new Font("Segoe UI", 10, FontStyle.Regular);
-                    cmbBox.ForeColor = Color.Black;
+                    cmbBox.ForeColor = Color.FromArgb(60, 60, 60);
                 }
             }
 
@@ -485,7 +495,7 @@ namespace PII_VIII
                     txtBox.BorderStyle = BorderStyle.FixedSingle;
                     txtBox.BackColor = Color.FromArgb(245, 245, 245);
                     txtBox.Font = new Font("Segoe UI", 10, FontStyle.Regular);
-                    txtBox.ForeColor = Color.Black;
+                    txtBox.ForeColor = Color.FromArgb(60, 60, 60);
                 }
             }
 
@@ -495,11 +505,12 @@ namespace PII_VIII
                 if (control is Button button)
                 {
                     button.FlatStyle = FlatStyle.Flat;
-                    button.BackColor = Color.Black;
+                    button.BackColor = Color.FromArgb(60, 60, 60);
                     button.ForeColor = Color.White;
-                    button.Font = new Font("Arial", 10, FontStyle.Bold);
+                    button.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                     button.FlatAppearance.BorderSize = 1;
                     button.FlatAppearance.BorderColor = Color.White;
+                    button.FlatStyle = FlatStyle.Flat;
                 }
             }
 
@@ -507,7 +518,7 @@ namespace PII_VIII
             {
                 if (control is TextBox textBox)
                 {
-                    textBox.Font = new Font("Arial", 10);
+                    textBox.Font = new Font("Segoe UI", 10);
                     textBox.BackColor = Color.WhiteSmoke;
                 }
             }
@@ -517,7 +528,7 @@ namespace PII_VIII
                 {
 
                     label.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-                    label.ForeColor = Color.FromArgb(31, 31, 31);
+                    label.ForeColor = Color.FromArgb(60, 60, 60);
                     label.BackColor = Color.Transparent;
                     label.TextAlign = ContentAlignment.MiddleLeft;
 
@@ -535,16 +546,18 @@ namespace PII_VIII
         {
             string connectionString = @"Server=DESKTOP-DIFT32I\SQLEXPRESS;Database=EscolaCC;Integrated Security=True;";
 
+           
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
                     connection.Open();
-                    MessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
+                    CustomMessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
+                    CustomMessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
                     return;
                 }
             }
@@ -569,11 +582,11 @@ namespace PII_VIII
                 {
                     connection.Open();
                     int rowsAffected = command.ExecuteNonQuery();
-                    MessageBox.Show(rowsAffected > 0 ? "Escola cadastrada com sucesso!" : "Erro ao cadastrar escola.");
+                    CustomMessageBox.Show(rowsAffected > 0 ? "Escola cadastrada com sucesso!" : "Erro ao cadastrar escola.");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao inserir dados: " + ex.Message);
+                    CustomMessageBox.Show("Erro ao inserir dados: " + ex.Message);
                 }
             }
         }
@@ -587,11 +600,11 @@ namespace PII_VIII
                 try
                 {
                     connection.Open();
-                    MessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o recurso.");
+                    CustomMessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o recurso.");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
+                    CustomMessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
                     return;
                 }
             }
@@ -616,11 +629,11 @@ namespace PII_VIII
                 {
                     connection.Open();
                     int rowsAffected = command.ExecuteNonQuery();
-                    MessageBox.Show(rowsAffected > 0 ? "Recurso cadastrado com sucesso!" : "Erro ao cadastrar recurso.");
+                    CustomMessageBox.Show(rowsAffected > 0 ? "Recurso cadastrado com sucesso!" : "Erro ao cadastrar recurso.");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao inserir dados: " + ex.Message);
+                    CustomMessageBox.Show("Erro ao inserir dados: " + ex.Message);
                 }
             }
         }
@@ -633,11 +646,11 @@ namespace PII_VIII
                 try
                 {
                     connection.Open();
-                    MessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
+                    CustomMessageBox.Show("Conexão com o SQL Server bem-sucedida! Pronto para cadastrar o aluno.");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
+                    CustomMessageBox.Show("Erro ao conectar com o SQL Server: " + ex.Message);
                     return;
                 }
             }
@@ -671,11 +684,11 @@ namespace PII_VIII
                 {
                     connection.Open();
                     int rowsAffected = command.ExecuteNonQuery();
-                    MessageBox.Show(rowsAffected > 0 ? "Professor cadastrado com sucesso!" : "Erro ao cadastrar aluno.");
+                    CustomMessageBox.Show(rowsAffected > 0 ? "Professor cadastrado com sucesso!" : "Erro ao cadastrar aluno.");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao inserir dados: " + ex.Message);
+                    CustomMessageBox.Show("Erro ao inserir dados: " + ex.Message);
                 }
             }
         }

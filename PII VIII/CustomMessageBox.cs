@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PII_VIII
@@ -17,7 +11,7 @@ namespace PII_VIII
             InitializeComponent();
 
             this.Text = title;
-            this.BackColor = Color.Black;
+            this.BackColor = Color.FromArgb(60, 60, 60);
             this.FormBorderStyle = FormBorderStyle.None;
             this.Size = new Size(400, 200);
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -39,7 +33,7 @@ namespace PII_VIII
                 Text = "OK",
                 Font = new Font("Segoe UI", 10, FontStyle.Bold),
                 BackColor = Color.White,
-                ForeColor = Color.Black,
+                ForeColor = Color.FromArgb(60, 60, 60),
                 FlatStyle = FlatStyle.Flat,
                 Size = new Size(100, 40),
                 Anchor = AnchorStyles.Bottom,
@@ -47,7 +41,7 @@ namespace PII_VIII
             };
 
             btnOk.FlatAppearance.BorderSize = 0;
-            btnOk.FlatAppearance.MouseOverBackColor = Color.Gray;
+            btnOk.FlatAppearance.MouseOverBackColor = Color.FromArgb(60, 60, 60);
             btnOk.Click += (sender, e) => this.Close();
 
             this.Controls.Add(btnOk);
@@ -61,5 +55,4 @@ namespace PII_VIII
             }
         }
     }
-
 }

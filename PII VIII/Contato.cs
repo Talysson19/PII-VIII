@@ -24,7 +24,7 @@ namespace PII_VIII
         private void InicializarFormulario()
         {
             this.Text = "Contatos dos Desenvolvedores";
-            this.BackColor = Color.FromArgb(31, 31, 31);
+            this.BackColor = Color.FromArgb(60, 60, 60);
 
             List<Desenvolvedor> desenvolvedores = new List<Desenvolvedor>
             {
@@ -53,7 +53,7 @@ namespace PII_VIII
             headerPanel = new Panel
             {
                 Size = new Size(this.ClientSize.Width, 120),
-                BackColor = Color.FromArgb(31, 31, 31),
+                BackColor = Color.FromArgb(60, 60, 60),
                 Dock = DockStyle.Top
             };
 
@@ -90,9 +90,9 @@ namespace PII_VIII
                 Size = new Size(100, 40),
                 Location = new Point(this.ClientSize.Width - 120, this.ClientSize.Height - 60),
                 Anchor = AnchorStyles.Bottom | AnchorStyles.Right,
-                BackColor = Color.Black,
+                BackColor = Color.FromArgb(60, 60, 60),
                 ForeColor = Color.White,
-                Font = new Font("Arial", 10, FontStyle.Bold),
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
                 FlatStyle = FlatStyle.Flat
             };
             sairbtn.FlatAppearance.BorderSize = 0;
@@ -116,7 +116,7 @@ namespace PII_VIII
                 Location = new Point(20, topPosition),
                 BackColor = Color.White,
                 ForeColor = Color.Black,
-                Font = new Font("Arial", 8, FontStyle.Bold)
+                Font = new Font("Segoe UI", 8, FontStyle.Bold)
             };
 
             int labelWidth = (int)(formWidth * 0.1);
@@ -155,11 +155,11 @@ namespace PII_VIII
 
         private void EstilizarBotao(Button botao)
         {
-            botao.BackColor = Color.Black;
+            botao.BackColor = Color.FromArgb(60, 60, 60);
             botao.ForeColor = Color.White;
             botao.FlatStyle = FlatStyle.Flat;
             botao.FlatAppearance.BorderSize = 0;
-            botao.Font = new Font("Arial", 8, FontStyle.Bold);
+            botao.Font = new Font("Segoe UI", 8, FontStyle.Bold);
         }
 
         private void CopiarParaAreaDeTransferencia(string texto)

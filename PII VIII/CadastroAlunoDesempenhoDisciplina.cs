@@ -35,7 +35,7 @@ namespace PII_VIII
                 Text = "Alunos",
                 ForeColor = Color.Black,
                 BackColor = Color.FromArgb(224, 224, 224),
-                Font = new Font("Franklin Gothic", 20, FontStyle.Bold),
+                Font = new Font("Segoe UI", 20, FontStyle.Bold),
                 TextAlign = ContentAlignment.MiddleCenter,
                 Location = new Point(100, 200),
                 Size = new Size(170, 60)
@@ -45,7 +45,7 @@ namespace PII_VIII
             {
                 Name = "panelAluno",
                 Size = new Size(80, 80),
-                BackColor = Color.Black,
+                BackColor = Color.FromArgb(60, 60, 60 ),
                 Location = new Point(150, 270),
             };
 
@@ -102,7 +102,7 @@ namespace PII_VIII
                 Text = "Disciplina",
                 ForeColor = Color.Black,
                 BackColor = Color.FromArgb(224, 224, 224),
-                Font = new Font("Franklin Gothic", 20, FontStyle.Bold),
+                Font = new Font("Segoe UI", 20, FontStyle.Bold),
                 TextAlign = ContentAlignment.MiddleCenter,
                 Location = new Point(510, 200),
                 Size = new Size(170, 60)
@@ -163,9 +163,9 @@ namespace PII_VIII
             System.Windows.Forms.Label lblDs = new System.Windows.Forms.Label
             {
                 Text = "Desempenhos",
-                ForeColor = Color.Black,
+                ForeColor = Color.FromArgb(60, 60, 60),
                 BackColor = Color.FromArgb(224, 224, 224),
-                Font = new Font("Franklin Gothic", 20, FontStyle.Bold),
+                Font = new Font("Segoe UI", 20, FontStyle.Bold),
                 TextAlign = ContentAlignment.MiddleCenter,
                 Location = new Point(900, 200),
                 Size = new Size(190, 60)
@@ -174,7 +174,7 @@ namespace PII_VIII
             {
                 Name = "panelDesempenho",
                 Size = new Size(80, 80),
-                BackColor = Color.Black,
+                BackColor = Color.FromArgb(60, 60, 60),
                 Location = new Point(950, 270)
             };
 
@@ -326,7 +326,7 @@ namespace PII_VIII
             Panel panelHeader = new Panel
             {
                 Dock = DockStyle.Top,
-                BackColor = Color.FromArgb(31, 31, 31),
+                BackColor = Color.FromArgb(60, 60, 60),
                 Height = 120
             };
 
@@ -342,7 +342,7 @@ namespace PII_VIII
             System.Windows.Forms.Label lblTitle = new System.Windows.Forms.Label
             {
                 Text = "Cadastro de Aluno e Desempenho",
-                Font = new Font("Arial", 20, FontStyle.Bold),
+                Font = new Font("Segoe UI", 20, FontStyle.Bold),
                 ForeColor = Color.White,
                 AutoSize = true
             };
@@ -414,12 +414,12 @@ namespace PII_VIII
             sairbtn = new Button
             {
                 Text = "Endereço Aluno",
-                Size = new Size(100, 40),
+                Size = new Size(100, 50),
                 Location = new Point(this.ClientSize.Width - 120, this.ClientSize.Height - 60),
                 Anchor = AnchorStyles.Bottom | AnchorStyles.Right,
-                BackColor = Color.Black,
+                BackColor = Color.FromArgb(60, 60, 60),
                 ForeColor = Color.White,
-                Font = new Font("Arial", 10, FontStyle.Bold),
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
                 FlatStyle = FlatStyle.Flat
             };
             sairbtn.FlatAppearance.BorderSize = 0;
@@ -472,7 +472,7 @@ namespace PII_VIII
                 if (ctrl is System.Windows.Forms.Label lbl)
                 {
                     lbl.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-                    lbl.ForeColor = Color.FromArgb(31, 31, 31);
+                    lbl.ForeColor = Color.FromArgb(60, 60, 60);
                 }
             }
 
@@ -483,7 +483,7 @@ namespace PII_VIII
                     cmbBox.BackColor = Color.White;
                     cmbBox.FlatStyle = FlatStyle.Flat;
                     cmbBox.Font = new Font("Segoe UI", 10, FontStyle.Regular);
-                    cmbBox.ForeColor = Color.Black;
+                    cmbBox.ForeColor = Color.FromArgb(60, 60, 60);
                 }
             }
 
@@ -494,7 +494,7 @@ namespace PII_VIII
                     txtBox.BorderStyle = BorderStyle.FixedSingle;
                     txtBox.BackColor = Color.FromArgb(245, 245, 245);
                     txtBox.Font = new Font("Segoe UI", 10, FontStyle.Regular);
-                    txtBox.ForeColor = Color.Black;
+                    txtBox.ForeColor = Color.FromArgb(60, 60, 60);
                 }
             }
 
@@ -505,8 +505,8 @@ namespace PII_VIII
                 {
                     button.FlatStyle = FlatStyle.Flat;
                     button.BackColor = Color.White;
-                    button.ForeColor = Color.Black;
-                    button.Font = new Font("Arial", 10, FontStyle.Bold);
+                    button.ForeColor = Color.FromArgb(60, 60, 60);
+                    button.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                     button.FlatAppearance.BorderSize = 1;
                     button.FlatAppearance.BorderColor = Color.White;
                 }
@@ -516,7 +516,7 @@ namespace PII_VIII
             {
                 if (control is TextBox textBox)
                 {
-                    textBox.Font = new Font("Arial", 10);
+                    textBox.Font = new Font("Segoe UI", 10);
                     textBox.BackColor = Color.WhiteSmoke;
                 }
             }
@@ -525,7 +525,7 @@ namespace PII_VIII
                 if (control is System.Windows.Forms.Label label)
                 {
                     label.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-                    label.ForeColor = Color.FromArgb(31, 31, 31);
+                    label.ForeColor = Color.FromArgb(60, 60, 60);
                     label.BackColor = Color.Transparent;
                     label.TextAlign = ContentAlignment.MiddleLeft;
                 }

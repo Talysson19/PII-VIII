@@ -75,7 +75,7 @@ namespace PII_VIII
             titulos = new Label
             {
                 Text = "Sobre",
-                Font = new Font("MV Boli", 30),
+                Font = new Font("𝑺𝒆𝒓𝒊𝒇 𝑩𝒐𝒍𝒅 𝑰𝒕𝒂𝒍𝒊𝒄", 30),
                 BackColor = Color.FromArgb(224, 224, 224),
                 ForeColor = Color.Black,
                 Size = new Size(200, 50),
@@ -251,7 +251,7 @@ namespace PII_VIII
             {
                 Size = new Size(820, 290),
                 Location = new System.Drawing.Point(350, 500),
-                BackColor = Color.FromArgb(31, 31, 31),
+                BackColor = Color.FromArgb(60, 60, 60),
                 BorderStyle = BorderStyle.None
             };
             this.Controls.Add(panelBackground);
@@ -262,7 +262,7 @@ namespace PII_VIII
                 AutoSize = false,
                 Size = new Size(800, 630),
                 Location = new System.Drawing.Point(10, 10),
-                Font = new Font("MV Boli", 10),
+                Font = new Font("𝑺𝒆𝒓𝒊𝒇 𝑩𝒐𝒍𝒅 𝑰𝒕𝒂𝒍𝒊𝒄", 10),
                 ForeColor = Color.FromArgb(224, 224, 224)
 
             };
@@ -276,7 +276,7 @@ namespace PII_VIII
                 Size = new Size(10, 10),
                 Dock = DockStyle.Right,
                 Width = 100,
-                BackColor = Color.FromArgb(31, 31, 31),
+                BackColor = Color.FromArgb(60, 60, 60),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat
             };
@@ -287,7 +287,7 @@ namespace PII_VIII
             {
                 Dock = DockStyle.Top,
                 Height = 118,
-                BackColor = Color.FromArgb(31, 31, 31)
+                BackColor = Color.FromArgb(60, 60, 60)
             };
             this.Controls.Add(headerPanel);
 
@@ -305,7 +305,7 @@ namespace PII_VIII
             titleLabel = new Label
             {
                 Text = "Gestão Escolar",
-                Font = new Font("Arial", 24, FontStyle.Bold),
+                Font = new Font("Segoe UI", 24, FontStyle.Bold),
                 ForeColor = Color.White,
                 AutoSize = true
             };
@@ -332,9 +332,9 @@ namespace PII_VIII
             return new Button
             {
                 Text = text,
-                Font = new Font("Arial", 10, FontStyle.Bold),
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
                 Size = new Size(135, 45),
-                BackColor = Color.White,
+                BackColor = Color.FromArgb(207, 207, 207),
                 ForeColor = Color.Black,
                 FlatStyle = FlatStyle.Flat,
                 FlatAppearance = { BorderSize = 0 }

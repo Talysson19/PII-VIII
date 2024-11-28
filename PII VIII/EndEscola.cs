@@ -77,7 +77,7 @@ namespace PII_VIII
             headerPanel = new Panel
             {
                 Size = new Size(this.ClientSize.Width, 120),
-                BackColor = Color.FromArgb(31, 31, 31),
+                BackColor = Color.FromArgb(60, 60, 60),
                 Dock = DockStyle.Top
             };
 
@@ -101,7 +101,7 @@ namespace PII_VIII
             {
                 Text = "Cadastro Endereço Escola",
                 ForeColor = Color.White,
-                Font = new Font("Arial", 20, FontStyle.Bold),
+                Font = new Font("Segoe UI", 20, FontStyle.Bold),
                 AutoSize = true
             };
             headerPanel.Controls.Add(titleLabel);
@@ -135,7 +135,7 @@ namespace PII_VIII
                 Anchor = AnchorStyles.Bottom | AnchorStyles.Right,
                 BackColor = Color.Black,
                 ForeColor = Color.White,
-                Font = new Font("Arial", 10, FontStyle.Bold),
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
                 FlatStyle = FlatStyle.Flat
             };
             sairbtn.FlatAppearance.BorderSize = 0;
@@ -222,9 +222,9 @@ namespace PII_VIII
                 if (control is Button button)
                 {
                     button.FlatStyle = FlatStyle.Flat;
-                    button.BackColor = Color.Black;
+                    button.BackColor = Color.FromArgb(60, 60, 60);
                     button.ForeColor = Color.White;
-                    button.Font = new Font("Arial", 10, FontStyle.Bold);
+                    button.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                     button.FlatAppearance.BorderSize = 1;
                     button.FlatAppearance.BorderColor = Color.White;
                 }
@@ -234,7 +234,7 @@ namespace PII_VIII
             {
                 if (control is TextBox textBox)
                 {
-                    textBox.Font = new Font("Arial", 10);
+                    textBox.Font = new Font("Segoe UI", 10);
                     textBox.BackColor = Color.WhiteSmoke;
                 }
             }
@@ -244,7 +244,7 @@ namespace PII_VIII
             {
                 if (control is TextBox textBox)
                 {
-                    textBox.Font = new Font("Arial", 10);
+                    textBox.Font = new Font("Segoe UI", 10);
                     textBox.BackColor = Color.WhiteSmoke;
                     textBox.BorderStyle = BorderStyle.FixedSingle;
                     textBox.Margin = new Padding(10);
@@ -255,7 +255,7 @@ namespace PII_VIII
             {
                 if (control is ComboBox comboBox)
                 {
-                    comboBox.Font = new Font("Arial", 10);
+                    comboBox.Font = new Font("Segoe UI", 10);
                     comboBox.BackColor = Color.WhiteSmoke;
                     comboBox.Padding = new Padding(10);
                     comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -267,7 +267,7 @@ namespace PII_VIII
                 if (control is Label label)
                 {
                     label.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-                    label.ForeColor = Color.FromArgb(31, 31, 31);
+                    label.ForeColor = Color.FromArgb(60, 60, 60);
                     label.BackColor = Color.Transparent;
                     label.TextAlign = ContentAlignment.MiddleLeft;
                 }

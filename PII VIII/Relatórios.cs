@@ -27,8 +27,10 @@ namespace PII_VIII
             this.FormBorderStyle = FormBorderStyle.None;
             databaseService = new DatabaseService();
             Customize();
-            ApplyHoverEffect();
+            ApplyHoverEffect(btnProcessar);
             CustomizeDesign();
+
+            this.BackColor = Color.White;
         }
 
         private void CustomizeDesign()
@@ -37,7 +39,7 @@ namespace PII_VIII
             {
                 Dock = DockStyle.Top,
                 Height = 119,
-                BackColor = Color.FromArgb(31, 31, 31)
+                BackColor = Color.FromArgb(60, 60, 60)
             };
 
             logoPic = new PictureBox
@@ -55,7 +57,7 @@ namespace PII_VIII
                 Size = new Size(10, 10),
                 Dock = DockStyle.Right,
                 Width = 100,
-                BackColor = Color.FromArgb(31, 31, 31),
+                BackColor = Color.FromArgb(60, 60, 60),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat
             };
@@ -67,7 +69,7 @@ namespace PII_VIII
             {
                 Text = "Relatórios de Escolas",
                 ForeColor = Color.White,
-                Font = new Font("Arial", 20, FontStyle.Bold),
+                Font = new Font("Segoe UI", 20, FontStyle.Bold),
                 Dock = DockStyle.Fill,
                 TextAlign = ContentAlignment.MiddleCenter
             };
@@ -99,8 +101,8 @@ namespace PII_VIII
 
             Panel bodyPanel = new Panel
             {
-                Dock = DockStyle.Fill,
-                BackColor = Color.FromArgb(31, 31, 31, 12)
+                Size = new Size(2000, 2000),
+                BackColor = Color.White
             };
             this.Controls.Add(bodyPanel);
 
@@ -110,7 +112,7 @@ namespace PII_VIII
             {
                 Size = new Size(350, 265),
                 Location = new Point(450, 200),
-                BackgroundColor = Color.White,
+                BackgroundColor = Color.FromArgb(60, 60, 60),
                 ForeColor = Color.Black,
                 BorderStyle = BorderStyle.None,
                 AllowUserToAddRows = false,
@@ -121,9 +123,9 @@ namespace PII_VIII
                 AlternatingRowsDefaultCellStyle = new DataGridViewCellStyle { BackColor = Color.White },
                 ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle
                 {
-                    BackColor = Color.FromArgb(200, 200, 200),
-                    ForeColor = Color.White,
-                    Font = new Font("Arial", 12, FontStyle.Bold)
+                    BackColor = Color.FromArgb(60, 60, 60),
+                    ForeColor = Color.Black,
+                    Font = new Font("Segoe UI", 12, FontStyle.Bold)
                 },
                 RowHeadersVisible = false,
                 ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing,
@@ -185,7 +187,8 @@ namespace PII_VIII
                 Location = new Point(10, posY += 40),
                 Size = new Size(150, 30),
                 BackColor = Color.FromArgb(31, 31, 31),
-                ForeColor = Color.White
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat
             };
             btnProcessar.Click += BtnProcessar_Click;
             this.Controls.Add(btnProcessar);
@@ -199,8 +202,8 @@ namespace PII_VIII
                 Text = text,
                 Location = new Point(x, y),
                 ForeColor = Color.Black,
-                BackColor = Color.FromArgb(200, 200, 200),
-                Font = new Font("Arial", 10),
+                BackColor = Color.White,
+                Font = new Font("Segoe UI", 10),
                 AutoSize = true
             };
 
@@ -255,5 +258,7 @@ namespace PII_VIII
                 combinedTable.Rows.Add(source, $"{item.Key}: {item.Value}");
             }
         }
+
+       
     }
 }
