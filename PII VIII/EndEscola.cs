@@ -1,6 +1,7 @@
 ﻿using Neo4j.Driver;
 using System;
 using System.Drawing;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 
 namespace PII_VIII
@@ -11,7 +12,7 @@ namespace PII_VIII
         private readonly Neo4jConnection _connection;
         private Panel headerPanel;
         private PictureBox logoPic;
-        private Label titleLabel;
+        private System.Windows.Forms.Label titleLabel;
         private Panel contentPanel;
 
         public EndEscola()
@@ -24,7 +25,6 @@ namespace PII_VIII
             ApplyFadeInTransition();
             InicializarCabecalho();
             InicializarConteudo();
-            ApplyStyles();
 
 
             AddPlaceholderEvents(txtNomeEndE, "Digite o nome da escola...");
@@ -97,7 +97,7 @@ namespace PII_VIII
                 MessageBox.Show("Erro ao carregar a imagem da logo: " + ex.Message);
             }
 
-            titleLabel = new Label
+            titleLabel = new System.Windows.Forms.Label
             {
                 Text = "Cadastro Endereço Escola",
                 ForeColor = Color.White,
@@ -127,13 +127,122 @@ namespace PII_VIII
 
         private void InicializarConteudo()
         {
+            //INICIO EXPANSÃO
+            System.Windows.Forms.Label lblEs = new System.Windows.Forms.Label
+            {
+                Text = "Endereço Escola",
+                ForeColor = Color.Black,
+                BackColor = Color.FromArgb(211, 211, 211),
+                Font = new Font("Segoe UI", 13, FontStyle.Bold),
+                TextAlign = ContentAlignment.MiddleCenter,
+                Location = new System.Drawing.Point(505, 220),
+                Size = new Size(170, 60)
+            };
+
+            Panel panelEsc = new Panel
+            {
+                Name = "panelAluno",
+                Size = new Size(90, 90),
+                BackColor = Color.FromArgb(60, 60, 60),
+                Location = new System.Drawing.Point(550, 270),
+            };
+
+            PictureBox pictureEsc = new PictureBox
+            {
+                Size = new Size(90, 90),
+                Location = new System.Drawing.Point(0, 0),
+                Image = Image.FromFile("C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PII-VIII-master\\PII-VIII\\PII VIII\\Resources\\eEscola.png"),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                BackColor = Color.FromArgb(211, 211, 211)
+            };
+
+            panelEsc.Controls.Add(pictureEsc);
+            this.Controls.Add(panelEsc);
+            this.Controls.Add(lblEs);
+            bool isAlunoExpanded = false;
+
+            pictureEsc.Click += (s, e) =>
+            {
+                if (!isAlunoExpanded)
+                {
+                    panelEsc.Size = new Size(300, 400);
+                    panelEsc.AutoScroll = true;
+                    pictureEsc.Visible = false;
+                }
+
+                isAlunoExpanded = !isAlunoExpanded;
+            };
+
+            panelEsc.Click += (s, e) =>
+            {
+                if (isAlunoExpanded)
+                {
+                    panelEsc.Size = new Size(80, 80);
+                    panelEsc.AutoScroll = false;
+                    pictureEsc.Visible = true;
+                }
+
+                isAlunoExpanded = !isAlunoExpanded;
+            };
+            label1.Location = new System.Drawing.Point(10, 10);
+            label1.ForeColor = Color.White;
+            txtNomeEndE.Location = new System.Drawing.Point(10, 40);
+
+            label2.Location = new System.Drawing.Point(10, 80);
+            label2.ForeColor = Color.White;
+            txtNumEndE.Location = new System.Drawing.Point(10, 110);
+
+            label3.Location = new System.Drawing.Point(10, 150);
+            label3.ForeColor = Color.White;
+            txtCEPEndE.Location = new System.Drawing.Point(10, 180);
+
+            label4.Location = new System.Drawing.Point(10, 220);
+            label4.ForeColor = Color.White;
+            txtBairroEndE.Location = new System.Drawing.Point(10, 250);
+
+            label5.Location = new System.Drawing.Point(10, 290);
+            label5.ForeColor = Color.White;
+            txtCidadeEndE.Location = new System.Drawing.Point(10, 320);
+
+            label6.Location = new System.Drawing.Point(10, 360);
+            label6.ForeColor = Color.White;
+            txtEstadoEndE.Location = new System.Drawing.Point(10, 390);
+
+            label7.Location = new System.Drawing.Point(10, 430);
+            label7.ForeColor = Color.White;
+            txtEndEID.Location = new System.Drawing.Point(10, 460);
+
+            btnSalvarEndE.Location = new System.Drawing.Point(10, 500);
+            btnSalvarEndE.FlatStyle = FlatStyle.Flat;
+            btnSalvarEndE.BackColor = Color.White;
+            
+            panelEsc.Controls.Add(label1);
+            panelEsc.Controls.Add(txtNomeEndE);
+            panelEsc.Controls.Add(label2);
+            panelEsc.Controls.Add(txtNumEndE);
+            panelEsc.Controls.Add(label3);
+            panelEsc.Controls.Add(txtCEPEndE);
+            panelEsc.Controls.Add(label4);
+            panelEsc.Controls.Add(txtBairroEndE);
+            panelEsc.Controls.Add(label5);
+            panelEsc.Controls.Add(txtCidadeEndE);
+            panelEsc.Controls.Add(label6);
+            panelEsc.Controls.Add(txtEstadoEndE);
+            panelEsc.Controls.Add(label7);
+            panelEsc.Controls.Add(label6);
+            panelEsc.Controls.Add(txtEndEID);
+            panelEsc.Controls.Add(btnSalvarEndE);
+            //TERMINO EXPANSÃO
+
+            ApplyStyles(panelEsc);
+
             sairbtn = new Button
             {
                 Text = "Voltar",
                 Size = new Size(100, 40),
                 Location = new System.Drawing.Point(this.ClientSize.Width - 120, this.ClientSize.Height - 60),
                 Anchor = AnchorStyles.Bottom | AnchorStyles.Right,
-                BackColor = Color.Black,
+                BackColor = Color.FromArgb(60, 60, 60),
                 ForeColor = Color.White,
                 Font = new Font("Segoe UI", 10, FontStyle.Bold),
                 FlatStyle = FlatStyle.Flat
@@ -179,97 +288,46 @@ namespace PII_VIII
             contentPanel.Controls.Add(buttonLayout);
             this.Controls.Add(contentPanel);
         }
-        
 
-        private void ApplyStyles()
+
+        private void ApplyStyles(Control parent)
         {
-            this.BackColor = Color.FromArgb(211, 211, 211);
-
-            foreach (Control ctrl in this.Controls)
+            foreach (Control ctrl in parent.Controls)
             {
-                if (ctrl is Label lbl)
+                if (ctrl is System.Windows.Forms.Label lbl)
                 {
                     lbl.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-                    lbl.ForeColor = Color.FromArgb(31, 31, 31);
+                    lbl.ForeColor = Color.White;
                 }
-            }
-
-
-            foreach (Control ctrl in this.Controls)
-            {
-                if (ctrl is ComboBox cmbBox)
+                else if (ctrl is ComboBox cmbBox)
                 {
                     cmbBox.BackColor = Color.White;
                     cmbBox.FlatStyle = FlatStyle.Flat;
                     cmbBox.Font = new Font("Segoe UI", 10, FontStyle.Regular);
-                    cmbBox.ForeColor = Color.Black;
+                    cmbBox.ForeColor = Color.FromArgb(60, 60, 60);
                 }
-            }
-
-            foreach (Control ctrl in this.Controls)
-            {
-                if (ctrl is TextBox txtBox)
+                else if (ctrl is TextBox txtBox)
                 {
                     txtBox.BorderStyle = BorderStyle.FixedSingle;
                     txtBox.BackColor = Color.FromArgb(245, 245, 245);
                     txtBox.Font = new Font("Segoe UI", 10, FontStyle.Regular);
-                    txtBox.ForeColor = Color.Black;
+                    txtBox.ForeColor = Color.FromArgb(60, 60, 60);
                 }
-            }
-
-            foreach (Control control in this.Controls)
-            {
-                if (control is Button button)
+                else if (ctrl is Button button)
                 {
+
                     button.FlatStyle = FlatStyle.Flat;
-                    button.BackColor = Color.FromArgb(60, 60, 60);
-                    button.ForeColor = Color.White;
+                    button.BackColor = Color.White;
+                    button.ForeColor = Color.FromArgb(60, 60, 60);
                     button.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                     button.FlatAppearance.BorderSize = 1;
                     button.FlatAppearance.BorderColor = Color.White;
                 }
-            }
 
-            foreach (Control control in this.Controls)
-            {
-                if (control is TextBox textBox)
+
+                if (ctrl.HasChildren)
                 {
-                    textBox.Font = new Font("Segoe UI", 10);
-                    textBox.BackColor = Color.WhiteSmoke;
-                }
-            }
-
-
-            foreach (Control control in this.Controls)
-            {
-                if (control is TextBox textBox)
-                {
-                    textBox.Font = new Font("Segoe UI", 10);
-                    textBox.BackColor = Color.WhiteSmoke;
-                    textBox.BorderStyle = BorderStyle.FixedSingle;
-                    textBox.Margin = new Padding(10);
-                }
-            }
-
-            foreach (Control control in this.Controls)
-            {
-                if (control is ComboBox comboBox)
-                {
-                    comboBox.Font = new Font("Segoe UI", 10);
-                    comboBox.BackColor = Color.WhiteSmoke;
-                    comboBox.Padding = new Padding(10);
-                    comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-                }
-            }
-
-            foreach (Control control in this.Controls)
-            {
-                if (control is Label label)
-                {
-                    label.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-                    label.ForeColor = Color.FromArgb(60, 60, 60);
-                    label.BackColor = Color.Transparent;
-                    label.TextAlign = ContentAlignment.MiddleLeft;
+                    ApplyStyles(ctrl);
                 }
             }
         }
@@ -277,7 +335,7 @@ namespace PII_VIII
         private void AddPlaceholderEvents(TextBox textBox, string placeholder)
         {
             textBox.Text = placeholder;
-            textBox.ForeColor = Color.Gray;
+            textBox.ForeColor = Color.FromArgb(60, 60, 60);
 
             textBox.Enter += (s, e) =>
             {
@@ -293,7 +351,7 @@ namespace PII_VIII
                 if (string.IsNullOrWhiteSpace(textBox.Text))
                 {
                     textBox.Text = placeholder;
-                    textBox.ForeColor = Color.Gray;
+                    textBox.ForeColor = Color.FromArgb(60, 60, 60);
                 }
             };
         }
@@ -328,7 +386,7 @@ namespace PII_VIII
                     await tx.RunAsync(query, parameters);
                 });
 
-                MessageBox.Show("Dados salvos com sucesso!");
+                CustomMessageBox.Show("Dados salvos com sucesso!");
             }
             catch (Exception ex)
             {

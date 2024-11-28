@@ -26,7 +26,8 @@ namespace PII_VIII
             InicializarCabecalho();
             InicializarConteudo();
             ApplyFadeInTransition();
-            ApplyStyles();
+
+
 
             btnSalvarEndAluno.FlatStyle = FlatStyle.Flat;
             btnSalvarEndAluno.BackColor = Color.White;
@@ -46,6 +47,7 @@ namespace PII_VIII
         {
             CadastroAlunoDesempenhoDisciplina cada = new CadastroAlunoDesempenhoDisciplina();
             cada.ShowDialog();
+
         }
 
         private void ApplyFadeInTransition()
@@ -133,7 +135,54 @@ namespace PII_VIII
 
 
 
+        private void EndEscola_Load(object sender, EventArgs e)
+        {
+            this.BackColor = Color.FromArgb(211, 211, 211);
+            
+        }
 
+
+        private void ApplyStyles(Control parent)
+        {
+            foreach (Control ctrl in parent.Controls)
+            {
+                if (ctrl is System.Windows.Forms.Label lbl)
+                {
+                    lbl.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                    lbl.ForeColor = Color.White;
+                }
+                else if (ctrl is ComboBox cmbBox)
+                {
+                    cmbBox.BackColor = Color.White;
+                    cmbBox.FlatStyle = FlatStyle.Flat;
+                    cmbBox.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+                    cmbBox.ForeColor = Color.FromArgb(60, 60, 60);
+                }
+                else if (ctrl is TextBox txtBox)
+                {
+                    txtBox.BorderStyle = BorderStyle.FixedSingle;
+                    txtBox.BackColor = Color.FromArgb(245, 245, 245);
+                    txtBox.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+                    txtBox.ForeColor = Color.FromArgb(60, 60, 60);
+                }
+                else if (ctrl is Button button)
+                {
+
+                    button.FlatStyle = FlatStyle.Flat;
+                    button.BackColor = Color.White;
+                    button.ForeColor = Color.FromArgb(60, 60, 60);
+                    button.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                    button.FlatAppearance.BorderSize = 1;
+                    button.FlatAppearance.BorderColor = Color.White;
+                }
+
+
+                if (ctrl.HasChildren)
+                {
+                    ApplyStyles(ctrl);
+                }
+            }
+        }
 
 
 
@@ -143,15 +192,16 @@ namespace PII_VIII
         private void InicializarConteudo()
         {
 
+
             //INICIO EXPANSÃO 
-              System.Windows.Forms.Label lblAl = new System.Windows.Forms.Label
+            System.Windows.Forms.Label lblAl = new System.Windows.Forms.Label
             {
                 Text = "Endereço Aluno",
                 ForeColor = Color.Black,
-                BackColor = Color.FromArgb(224, 224, 224),
-                Font = new Font("Segoe UI", 20, FontStyle.Bold),
+                BackColor = Color.FromArgb(211, 211, 211),
+                Font = new Font("Segoe UI", 13, FontStyle.Bold),
                 TextAlign = ContentAlignment.MiddleCenter,
-                Location = new System.Drawing.Point(535, 220),
+                Location = new System.Drawing.Point(505, 220),
                 Size = new Size(170, 60)
             };
 
@@ -167,7 +217,7 @@ namespace PII_VIII
             {
                 Size = new Size(80, 80),
                 Location = new System.Drawing.Point(0, 0),
-                Image = Image.FromFile("C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PII-VIII-master\\PII-VIII\\PII VIII\\Resources\\eEscola.png"),
+                Image = Image.FromFile("C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\Documentos\\Área de Trabalho\\PII-VIII-master\\PII-VIII\\PII VIII\\Resources\\casa.png"),
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 BackColor = Color.FromArgb(211, 211, 211)
             };
@@ -257,7 +307,7 @@ namespace PII_VIII
 
 
 
-
+            ApplyStyles(panelAluno);
 
 
             sairbtn = new Button
@@ -332,96 +382,8 @@ namespace PII_VIII
             this.Controls.Add(contentPanel);
         }
 
-        private void ApplyStyles()
-        {
-            this.BackColor = Color.FromArgb(211, 211, 211);
+       
 
-            foreach (Control ctrl in this.Controls)
-            {
-                if (ctrl is System.Windows.Forms.Label lbl)
-                {
-                    lbl.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-                    lbl.ForeColor = Color.FromArgb(60, 60, 60);
-                }
-            }
-
-
-            foreach (Control ctrl in this.Controls)
-            {
-                if (ctrl is ComboBox cmbBox)
-                {
-                    cmbBox.BackColor = Color.White;
-                    cmbBox.FlatStyle = FlatStyle.Flat;
-                    cmbBox.Font = new Font("Segoe UI", 10, FontStyle.Regular);
-                    cmbBox.ForeColor = Color.FromArgb(60, 60, 60);
-                }
-            }
-
-            foreach (Control ctrl in this.Controls)
-            {
-                if (ctrl is TextBox txtBox)
-                {
-                    txtBox.BorderStyle = BorderStyle.FixedSingle;
-                    txtBox.BackColor = Color.FromArgb(245, 245, 245);
-                    txtBox.Font = new Font("Segoe UI", 10, FontStyle.Regular);
-                    txtBox.ForeColor = Color.FromArgb(60, 60, 60);
-                }
-            }
-
-            foreach (Control control in this.Controls)
-            {
-                if (control is Button button)
-                {
-                    button.FlatStyle = FlatStyle.Flat;
-                    button.BackColor = Color.FromArgb(60, 60, 60);
-                    button.ForeColor = Color.White;
-                    button.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-                    button.FlatAppearance.BorderSize = 1;
-                    button.FlatAppearance.BorderColor = Color.White;
-                    button.FlatStyle = FlatStyle.Flat;
-                }
-            }
-
-
-            foreach (Control control in this.Controls)
-            {
-                if (control is TextBox textBox)
-                {
-                    textBox.Font = new Font("Segoe UI", 10);
-                    textBox.BackColor = Color.WhiteSmoke;
-                    textBox.BorderStyle = BorderStyle.FixedSingle;
-                    textBox.Margin = new Padding(10);
-                }
-            }
-
-            foreach (Control control in this.Controls)
-            {
-                if (control is ComboBox comboBox)
-                {
-                    comboBox.Font = new Font("Segoe UI", 10);
-                    comboBox.BackColor = Color.WhiteSmoke;
-                    comboBox.Padding = new Padding(10);
-                    comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-                }
-            }
-
-            foreach (Control control in this.Controls)
-            {
-                if (control is System.Windows.Forms.Label label)
-                {
-                    label.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-                    label.ForeColor = Color.FromArgb(60, 60, 60);
-                    label.BackColor = Color.Transparent;
-                    label.TextAlign = ContentAlignment.MiddleLeft;
-                }
-            }
-        }
-
-
-        private void EndEscola_Load(object sender, EventArgs e)
-        {
-            this.BackColor = Color.FromArgb(211, 211, 211);
-        }
 
 
         private void button1_Click(object sender, EventArgs e)

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.txtEndEID = new System.Windows.Forms.TextBox();
-            this.IDAluno = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnSalvarEndE = new System.Windows.Forms.Button();
             this.txtEstadoEndE = new System.Windows.Forms.TextBox();
             this.txtCidadeEndE = new System.Windows.Forms.TextBox();
@@ -53,14 +53,14 @@
             this.txtEndEID.Size = new System.Drawing.Size(167, 26);
             this.txtEndEID.TabIndex = 29;
             // 
-            // IDAluno
+            // label7
             // 
-            this.IDAluno.AutoSize = true;
-            this.IDAluno.Location = new System.Drawing.Point(125, 712);
-            this.IDAluno.Name = "IDAluno";
-            this.IDAluno.Size = new System.Drawing.Size(74, 20);
-            this.IDAluno.TabIndex = 28;
-            this.IDAluno.Text = "IDEscola";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(125, 712);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 20);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "IDEscola";
             // 
             // btnSalvarEndE
             // 
@@ -163,7 +163,7 @@
             this.txtNomeEndE.Location = new System.Drawing.Point(297, 350);
             this.txtNomeEndE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNomeEndE.Name = "txtNomeEndE";
-            this.txtNomeEndE.Size = new System.Drawing.Size(454, 26);
+            this.txtNomeEndE.Size = new System.Drawing.Size(279, 26);
             this.txtNomeEndE.TabIndex = 16;
             // 
             // label1
@@ -181,7 +181,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1397, 787);
             this.Controls.Add(this.txtEndEID);
-            this.Controls.Add(this.IDAluno);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnSalvarEndE);
             this.Controls.Add(this.txtEstadoEndE);
             this.Controls.Add(this.txtCidadeEndE);
@@ -206,7 +206,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtEndEID;
-        private System.Windows.Forms.Label IDAluno;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnSalvarEndE;
         private System.Windows.Forms.TextBox txtEstadoEndE;
         private System.Windows.Forms.TextBox txtCidadeEndE;

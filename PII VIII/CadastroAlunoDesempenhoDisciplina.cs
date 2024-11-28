@@ -112,7 +112,7 @@ namespace PII_VIII
             {
                 Name = "panelDisciplina",
                 Size = new Size(80, 80),
-                BackColor = Color.Black,
+                BackColor = Color.FromArgb(60,60,60),
                 Location = new Point(550, 270)
             };
 
